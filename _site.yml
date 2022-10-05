@@ -5,5 +5,5 @@ navbar:
     - text: "Home"
       href: index.html
     - text: "Collaborate"
-      href: collaborate.html
+      href: colaboracion.html
 output_dir: "."
