@@ -5,8 +5,8 @@ navbar:
     - text: "Home"
       icon: "fas fa-home"
       href: index.html
-    - text: "Collaborate"
-      href: colaboracion.html
+    - text: "Lecturas"
+      href: lecturas.html
       icon: "fas fa-face"
       menu:
       - text: "sub-seccion"
