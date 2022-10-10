@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Datos</title>
+
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="docs/css/swcarpentry-lesson.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R Training</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fas fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fas fa-graduation-cap"></span>
+     
+    Lecturas
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Programación en R</li>
+    <li>
+      <a href="rstudio1.html">1. Introducción a la ciencia de datos y R</a>
+    </li>
+    <li>
+      <a href="datos.html">2. Datos</a>
+    </li>
+    <li>
+      <a href="condicionales.html">3. Programación</a>
+    </li>
+    <li>
+      <a href="graficos.html">4. Gráficos</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/AngeloCris/training">
+    <span class="fab fa-github"></span>
+     
+    Repo
+  </a>
+</li>
+<li>
+  <a href="bibliografia.html">
+    <span class="fas fa-search"></span>
+     
+    Bibliografia
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+<div id="objetivo" class="section level2 unnumbered objectives">
+<h2 class="unnumbered objectives">Objetivo</h2>
+<ul>
+<li><p>Reconocer los tipos de variables disponibles en R</p></li>
+<li><p>Construir series de datos con distintos procedimientos</p></li>
+<li><p>Realizar operaciones básicas en R (vectores, matrices,
+dataframes)</p></li>
+</ul>
+</div>
+<div id="tipos-de-datos" class="section level2">
+<h2>Tipos de datos</h2>
+<p>Los datos son registros, observaciones o mediciones de cosas
+(personas, animales, localidad, clima) que ocurren en el tiempo y el
+espacio. Estos pueden ser cuantitativos o cualitativos. En R los datos
+pueden ser de diferentes tipos. Cada tipo tiene características
+particulares que los distinguen de los demás. Entre otras cosas algunas
+operaciones sólo pueden realizarse con tipos de datos específicos.</p>
+<p>R tiene cinco clases básicas de variables:</p>
+<ul>
+<li><p>Entero, representan números enteros. Pueden ser usados en
+operaciones matemáticas.</p></li>
+<li><p>Numérico, son datos numéricos, es decir, pueden representar
+valores enteros o fracción. Son también llamados <code>double</code> o
+<code>float</code>.</p></li>
+<li><p>Cadena de texto, es un tipo de dato representado como texto, es
+decir, secuencias de caracteres. Se reconoce fácilmente debido a que se
+encuentran entre comillas <code>" "</code></p></li>
+<li><p>Factor, es un dato al que se le asigna una etiqueta (presenta
+niveles. Por ejemplo: los números 1 y 2 pueden representar a etiquetas
+<strong>femenino</strong> y <strong>masculino</strong>
+respectivamente.</p></li>
+<li><p>Lógico, son datos que contienen unicamente dos valores posibles:
+verdadero(<code>TRUE</code>) o falso (<code>FALSE</code>). Representan
+una condición.</p></li>
+<li><p>Valores perdidos y vacíos, representa la ausencia de
+datos.</p></li>
+</ul>
+<pre class="r"><code>tibble::tibble(
+  Tipo = c(&quot;Entero&quot;,
+           &quot;Numérico&quot;,
+           &quot;Cadena de texto&quot;, 
+           &quot;Factor&quot;,
+           &quot;Lógico&quot;,
+           &quot;Persido&quot;, 
+           &quot;Vacío&quot;),
+  Ejemplo = c(&quot;1&quot;, &quot;2.4&quot;, &quot;\&quot;a\&quot;&quot;, &quot;2&quot;, &quot;TRUE&quot;, &quot;NA&quot;, &quot;NULL&quot;),
+  `Nombre en inglés` = c(&quot;integer&quot;, &quot;numeric&quot;,&quot;character&quot;,
+                         &quot;factor&quot;, &quot;logical&quot;, &quot;NA&quot;, &quot;null&quot;)) %&gt;% 
+  kbl(booktabs = T) %&gt;% 
+  kable_styling(bootstrap_options = &quot;striped&quot;,
+                full_width = F,
+                position = &quot;center&quot;)</code></pre>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Tipo
+</th>
+<th style="text-align:left;">
+Ejemplo
+</th>
+<th style="text-align:left;">
+Nombre en inglés
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Entero
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+integer
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Numérico
+</td>
+<td style="text-align:left;">
+2.4
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cadena de texto
+</td>
+<td style="text-align:left;">
+“a”
+</td>
+<td style="text-align:left;">
+character
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Factor
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+factor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lógico
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+logical
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Persido
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Vacío
+</td>
+<td style="text-align:left;">
+NULL
+</td>
+<td style="text-align:left;">
+null
+</td>
+</tr>
+</tbody>
+</table>
+<p>Se puede verificar el tipo de un dato con la función
+<code>class()</code>. Esto es de utilidad para asegurar las operaciones
+que deseamos realizar se puedan llevar a cabo con éxito. La función
+<code>class()</code> recibe como argumento un dato o vector y devuelve
+el nombre del tipo al que pertenece.</p>
+<pre class="r"><code>class(&quot;A&quot;)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>El objeto básico de R es el vector:</p>
+<ul>
+<li>Un vector es un “contenedor” que puede almacenar 1 o más datos, pero
+de una misma clase.</li>
+</ul>
+<pre class="r"><code>vector(mode = &quot;character&quot;, length = 9)</code></pre>
+<pre><code>## [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
+<pre class="r"><code>vector(mode = &quot;numeric&quot;, length = 9)</code></pre>
+<pre><code>## [1] 0 0 0 0 0 0 0 0 0</code></pre>
+<p>Ejemplos:</p>
+<pre class="r"><code># Usando función seq  (vector del tipo numérico)
+miVector_1 &lt;- seq(from = 1, to = 10, by = 1)
+
+# Usando la función c() concatenar (vector del tipo numérico)
+miVector_2 &lt;- c(1, 2, 3, 4, 5)
+
+# Usando el objeto letter (vector del tipo caracter)
+miVector_3 &lt;- c(letters)
+
+# Usando la función rep
+miVector_4 &lt;- rep(x = 13, times = 4)</code></pre>
+<p>En R existen diferentes funciones. Éstas han sido diseñadas para
+realizar una tarea específica. Se identifican por tener un nombre
+particular seguido por unos paréntesis <code>()</code>. Dentro de los
+paréntesis uno puede agregar diferentes argumentos que permitirán
+controlar los ajustes de la función. Ejemplo:</p>
+<pre class="r"><code># Crear una secuencia numérica del 1 al 10 cada 2 unidades
+seq(from = 1, to = 10, by = 2)</code></pre>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
+<pre class="r"><code># Redondear un número
+round(x = 2.458793, digits = 2)</code></pre>
+<pre><code>## [1] 2.46</code></pre>
+<pre class="r"><code># Sumar los primeros 5 números
+sum(c(1:5))</code></pre>
+<pre><code>## [1] 15</code></pre>
+<pre class="r"><code># Obtener la raíz cuadrada 
+sqrt(16)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code># Obtener asistencia o ayuda
+# help(sum)</code></pre>
+<p>Por otro lado, con frecuencia, se deseará seleccionar algunos
+elementos de un vector. Este proceso se denominará indexación, para tal
+fin se debe emplear los corchetes (<code>[]</code>)</p>
+<pre class="r"><code># Seleccionar el 5to elemento del vector &quot;miVector_1&quot;
+miVector_1[5]</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code># Seleccionar el 3er elemento del vector &quot;miVector_3&quot;
+miVector_3[3]</code></pre>
+<pre><code>## [1] &quot;c&quot;</code></pre>
+<pre class="r"><code># Seleccionar el 2do y 5to elemento del vector &quot;miVector_3&quot;
+miVector_3[c(2,5)]</code></pre>
+<pre><code>## [1] &quot;b&quot; &quot;e&quot;</code></pre>
+</div>
+<div id="estructura-de-datos" class="section level2">
+<h2>Estructura de datos</h2>
+<p>Son objetos que contienen datos. Cuando utilizamos R, estamos
+manipulando estas estructuras.</p>
+<p>Una estructura de datos puede tener diferentes características que
+las distinguen una de otra como por ejemplo el <strong>número de
+dimensiones</strong>, o si son datos <strong>homogéneos</strong> o
+<strong>heterogéneos</strong>.</p>
+<pre class="r"><code>knitr::include_graphics(&quot;figures/estructuraDatos.PNG&quot;)</code></pre>
+<div class="figure">
+<img src="figures/estructuraDatos.PNG" alt="" />
+<p class="caption">Principales estructuras de control en R</p>
+</div>
+<div id="vector" class="section level3">
+<h3>Vector</h3>
+<p>Es la estructura más simple en R. Un vector es una colección de uno o
+más datos del mismo tipo. Dos propiedades importantes son:</p>
+<ul>
+<li><p><strong>Tipo</strong>, un vector tiene el mismo tipo de dato
+(númerico, lógico, caracter)</p></li>
+<li><p><strong>Largo</strong>, es el número de elementos que contiene un
+vector. El largo es la única <strong>dimensión</strong> que tiene esta
+estructura de datos.</p></li>
+</ul>
+<p>Para crear un vector existen diferentes funciones, una de ellas es
+<code>c()</code></p>
+<pre class="r"><code># Vector numérico
+c(1,4,5,6,7)</code></pre>
+<pre><code>## [1] 1 4 5 6 7</code></pre>
+<pre class="r"><code># Vector de cadena de texto
+c(&quot;reloj&quot;,&quot;mesa&quot;,&quot;cadena&quot;)</code></pre>
+<pre><code>## [1] &quot;reloj&quot;  &quot;mesa&quot;   &quot;cadena&quot;</code></pre>
+<pre class="r"><code># Vector lógico
+c(TRUE, TRUE, FALSE, TRUE, FALSE)</code></pre>
+<pre><code>## [1]  TRUE  TRUE FALSE  TRUE FALSE</code></pre>
+<p>Podemos crear vectores que son combinaciones de vectores</p>
+<pre class="r"><code>miVector_1 &lt;- c(3,6,8)
+miVector_2 &lt;- c(2,9,3)
+
+miVector_3 &lt;- c(miVector_1, miVector_2)</code></pre>
+<p>Si intentamos combinar datos de diferentes tipos en un mismo vector,
+R realizará coerción automáticamente, por ejemplo:</p>
+<pre class="r"><code>miVector_4 &lt;- c(5,7,9)
+class(miVector_4)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Si intentamos agregar un dato del tipo caracter, el vector
+automáticamente se transformará en uno del tipo caracter.</p>
+<pre class="r"><code>miVector_5 &lt;- c(miVector_4,&quot;a&quot;)
+class(miVector_5)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div id="vectorización-de-operaciones" class="section level4">
+<h4>Vectorización de operaciones</h4>
+<p>Las operaciones aritméticas y relacionales pueden vectorizarse. Si
+aplicamos a un vector, la operación se realizará para cada uno de los
+elementos que contiene el vector.</p>
+<pre class="r"><code># Vector numérico
+miVector_4</code></pre>
+<pre><code>## [1] 5 7 9</code></pre>
+<pre class="r"><code># Operaciones aritméticas
+miVector_4 + 2</code></pre>
+<pre><code>## [1]  7  9 11</code></pre>
+<pre class="r"><code>miVector_4 * 2</code></pre>
+<pre><code>## [1] 10 14 18</code></pre>
+<pre class="r"><code>miVector_4 %% 2</code></pre>
+<pre><code>## [1] 1 1 1</code></pre>
+<pre class="r"><code>miVector_4 &gt; 7</code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE</code></pre>
+<pre class="r"><code>miVector_4 &lt; 2</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE</code></pre>
+<pre class="r"><code>miVector_4 == 7</code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE</code></pre>
+<p>Esta manera de operar es muy eficiente, especialmente cuando se
+trabaja con una gran cantidad de datos. Aunque este mismo proceso de
+vectorización puede funcionar en otras estructura de datos.</p>
+</div>
+</div>
+<div id="matrices" class="section level3">
+<h3>Matrices</h3>
+<p>Las matrices pueden ser descritas como vectores multidimensionales.
+Al igual que un vector únicamente pueden contener <strong>datos de un
+sólo tipo</strong> pero además de largo, tienen más
+<strong>dimensiones</strong> (largo y alto). Es una estructura de datos
+de uso común en R en la que nos enfocaremos en esta sección.</p>
+<div id="creación-de-matrices" class="section level4">
+<h4>Creación de matrices</h4>
+<p>Las matrices se pueden crear con la función <code>matrix()</code>.
+Esta función acepta dos argumentos: <code>nrow</code> y
+<code>ncol</code> las cuales especifican el número de filas y columnas,
+respectivamente.</p>
+<pre class="r"><code># Vector numérico
+1:6</code></pre>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<pre class="r"><code># Matriz sin especificar el N° de filas o columnas
+matrix(1:6)</code></pre>
+<pre><code>##      [,1]
+## [1,]    1
+## [2,]    2
+## [3,]    3
+## [4,]    4
+## [5,]    5
+## [6,]    6</code></pre>
+<pre class="r"><code># Matriz con 4 filas y 4 columnas
+matrix(1:18, nrow = 3, ncol = 6)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    4    7   10   13   16
+## [2,]    2    5    8   11   14   17
+## [3,]    3    6    9   12   15   18</code></pre>
+<p>Los datos se acomodaran en el orden de arriba - abajo y de izquierda
+a derecha. Es importante mencionar que si el número de elementos es
+mayor a las celdas de la matriz, se acomodarán todos los datos posibles
+y los demás serán omitidos.</p>
+<pre class="r"><code># El vector contiene 12 elementos pero la matriz solo 9 celdas
+matrix(1:12, nrow = 3, ncol = 3)</code></pre>
+<pre><code>## Warning in matrix(1:12, nrow = 3, ncol = 3): data length differs from size of
+## matrix: [12 != 3 x 3]</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<p>Si por el contrario, el número de celdas es mayor al número de
+elementos, estos se <strong>reciclaran</strong> sin antes advertirnos.
+Luego R empezará a usar los elementos a partir del primero de ellos.</p>
+<pre class="r"><code>matrix(1:18, nrow = 6, ncol = 4)</code></pre>
+<pre><code>## Warning in matrix(1:18, nrow = 6, ncol = 4): la longitud de los datos [18] no es
+## un submúltiplo o múltiplo del número de columnas [4] en la matriz</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    7   13    1
+## [2,]    2    8   14    2
+## [3,]    3    9   15    3
+## [4,]    4   10   16    4
+## [5,]    5   11   17    5
+## [6,]    6   12   18    6</code></pre>
+<p>Otra forma de crear matrices es uniendo vectores con las
+funciones:</p>
+<ul>
+<li><p><code>cbind()</code> para unir vectores, usando cada uno como
+columna</p></li>
+<li><p><code>rbind()</code> para unir vectores, usando cada uno como un
+renglón.</p></li>
+</ul>
+<pre class="r"><code># Usamos los vectores antes creados
+# miVector_1
+# miVector_2
+# miVector_4
+
+miMatriz_1 &lt;- rbind(miVector_1, miVector_2)
+
+# Resultado
+miMatriz_1</code></pre>
+<pre><code>##            [,1] [,2] [,3]
+## miVector_1    3    6    8
+## miVector_2    2    9    3</code></pre>
+<pre class="r"><code>miMatriz_2 &lt;- rbind(miVector_1,
+                    miVector_2,
+                    miVector_4)
+# Resultado
+miMatriz_2</code></pre>
+<pre><code>##            [,1] [,2] [,3]
+## miVector_1    3    6    8
+## miVector_2    2    9    3
+## miVector_4    5    7    9</code></pre>
+<p>Si utilizamos <code>cbind()</code> cada vector será una columna</p>
+<pre class="r"><code>miMatriz_3 &lt;- cbind(miVector_1, 
+                    miVector_2,
+                    miVector_4)</code></pre>
+<p>De la misma manera como con la función <code>matrix()</code>, los
+elementos serán reciclados para formar una estructura rectangular y se
+nos muestra un mensaje de advertencia</p>
+<pre class="r"><code># Elementos de diferentes largos
+miMatriz_4 &lt;- cbind(miVector_1, miVector_2, miVector_3)
+
+# Resultado
+miMatriz_4</code></pre>
+<pre><code>##      miVector_1 miVector_2 miVector_3
+## [1,]          3          2          3
+## [2,]          6          9          6
+## [3,]          8          3          8
+## [4,]          3          2          2
+## [5,]          6          9          9
+## [6,]          8          3          3</code></pre>
+<p>Por último, las matrices pueden contener valores <em>NA</em> para
+representar valores perdidos, por ejemplo:</p>
+<pre class="r"><code>vector_1 &lt;- c(2, 5, NA)
+vector_2 &lt;- c(NA, 98, 43)
+miMatriz_5 &lt;- rbind(vector_1, vector_2)</code></pre>
+</div>
+<div id="propiedades-de-las-matrices" class="section level4">
+<h4>Propiedades de las matrices</h4>
+<p>Al igual que los vectores, sólo pueden contener un tipo de dato. Sin
+embargo, a diferencia del primero, las matrices pueden tener más de una
+dimensión. Podemos obtener las dimensiones de una matriz con la función
+<code>dim()</code></p>
+<pre class="r"><code>miMatriz_1</code></pre>
+<pre><code>##            [,1] [,2] [,3]
+## miVector_1    3    6    8
+## miVector_2    2    9    3</code></pre>
+<pre class="r"><code>dim(miMatriz_1)</code></pre>
+<pre><code>## [1] 2 3</code></pre>
+<p>Las operaciones aritméticas también son vectorizadas cuando se aplica
+a una matriz. La operación es aplicada a cada uno de los elementos.</p>
+<pre class="r"><code>miMatriz_2</code></pre>
+<pre><code>##            [,1] [,2] [,3]
+## miVector_1    3    6    8
+## miVector_2    2    9    3
+## miVector_4    5    7    9</code></pre>
+<pre class="r"><code># suma
+miMatriz_2 + 1</code></pre>
+<pre><code>##            [,1] [,2] [,3]
+## miVector_1    4    7    9
+## miVector_2    3   10    4
+## miVector_4    6    8   10</code></pre>
+<pre class="r"><code># multiplicación
+miMatriz_2 * 2</code></pre>
+<pre><code>##            [,1] [,2] [,3]
+## miVector_1    6   12   16
+## miVector_2    4   18    6
+## miVector_4   10   14   18</code></pre>
+<pre class="r"><code># potencia
+miMatriz_2 ^ 2</code></pre>
+<pre><code>##            [,1] [,2] [,3]
+## miVector_1    9   36   64
+## miVector_2    4   81    9
+## miVector_4   25   49   81</code></pre>
+<p>Si intentamos realizar una operación aritmética a una matriz que
+presenta valores perdidos (NA), las operaciones sólo serán realizadas
+para aquellos elementos válidos, devolviendo NA cuando corresponda.</p>
+<pre class="r"><code># Matriz con NA
+miMatriz_5</code></pre>
+<pre><code>##          [,1] [,2] [,3]
+## vector_1    2    5   NA
+## vector_2   NA   98   43</code></pre>
+<pre class="r"><code>miMatriz_5 / 2</code></pre>
+<pre><code>##          [,1] [,2] [,3]
+## vector_1    1  2.5   NA
+## vector_2   NA 49.0 21.5</code></pre>
+<p><strong>Multiplicación de matrices</strong>. Un multiplicación de
+matrices ocurrirá siempre y cuando el número de columnas de la primera
+matriz es igual al número de filas de la segunda matriz. En R, el
+operador aritmético para realizar esta operación es <code>%*%</code>. Si
+empleamos solo el operador <code>*</code> la multiplicación se realizará
+por elemento.</p>
+<pre class="r"><code># Multiplicación matricial
+miMatriz_1 %*% miMatriz_2</code></pre>
+<pre><code>##            [,1] [,2] [,3]
+## miVector_1   61  128  114
+## miVector_2   39  114   70</code></pre>
+<pre class="r"><code># Multiplicación por elemento
+miMatriz_1 * miMatriz_5</code></pre>
+<pre><code>##            [,1] [,2] [,3]
+## miVector_1    6   30   NA
+## miVector_2   NA  882  129</code></pre>
+</div>
+</div>
+<div id="dataframes" class="section level3">
+<h3>Dataframes</h3>
+<p>Son estructuras de datos de dos dimensiones que pueden almacenar
+datos de diferentes tipos, por tanto son heterogéneas. <strong>Es la más
+usada para realizar análisis de datos</strong>.</p>
+<pre class="r"><code>knitr::include_graphics(&quot;figures/estructuraDataframe.PNG&quot;)</code></pre>
+<p><img src="figures/estructuraDataframe.PNG" /><!-- --></p>
+<p>Para crear un estructura de datos del tipo dataframe empleamos la
+función <code>data.frame()</code>. Recordemos que <strong>un dataframe
+esta compuesto por vectores</strong>.</p>
+<pre class="r"><code>mi_df &lt;- 
+  data.frame(nombre = c(&quot;Alberto&quot;, &quot;Maria&quot;, &quot;Javier&quot;),
+           edad = c(19, 21, 20),
+           talla = c(170, 165, 162))</code></pre>
+<p>Podemos usar la función <code>dim()</code> para determinar las
+dimensiones del dataframe.</p>
+<pre class="r"><code>dim(mi_df)</code></pre>
+<pre><code>## [1] 3 3</code></pre>
+<p>El largo de un data frame es igual al número de columnas</p>
+<pre class="r"><code>length(mi_df)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>La función <code>names()</code> nos permite ver los nombres de las
+variables (columnas).</p>
+<pre class="r"><code>names(mi_df)</code></pre>
+<pre><code>## [1] &quot;nombre&quot; &quot;edad&quot;   &quot;talla&quot;</code></pre>
+<div id="importar-un-dataframe" class="section level4">
+<h4>Importar un dataframe</h4>
+<p>Por otro lado, podemos importar un data frame en un formato distinto
+a R como por ejemplo en formato <em>.xlsx</em>, <em>.csv</em>,
+<em>.txt</em> entre otros. Para importar un dataframe en formato
+<em>csv</em> o <em>txt</em> se puede emplear la función
+<code>read.csv()</code> o <code>read.table()</code>,
+respectivamente.</p>
+</div>
+<div id="importante" class="section level4 unnumbered keypoints">
+<h4 class="unnumbered keypoints">Importante</h4>
+<p>Siempre se debe direccionar antes la ruta de trabajo mediante la
+función <code>setwd()</code> o crear un proyecto en R dentro del cual
+contenga todas los archivos de trabajo.</p>
+<pre class="r"><code>crabs &lt;- read.csv(&quot;datos/dataSem_4_2021.txt&quot;)</code></pre>
+</div>
+<div id="propiedades-de-un-data-frame" class="section level4">
+<h4>Propiedades de un data frame</h4>
+<p>Al igual que una matriz, si aplicamos una operación aritmética a un
+dataframe, esta se vectorizará.</p>
+<pre class="r"><code>head(crabs)</code></pre>
+<pre><code>##   Year   Island Month Sex     CL
+## 1 2013 Sector_1    11   F 123.64
+## 2 2013 Sector_1    11   F 118.47
+## 3 2013 Sector_1    11   F 115.53
+## 4 2013 Sector_1    11   F 113.98
+## 5 2013 Sector_1    11   F 108.75
+## 6 2013 Sector_1    11   F 106.12</code></pre>
+<pre class="r"><code>head(crabs$CL / 10)</code></pre>
+<pre><code>## [1] 12.364 11.847 11.553 11.398 10.875 10.612</code></pre>
+<p>Algunas funciones que pueden resultar útiles para explorar
+rápidamente la estructura de nuestros datos son: <code>summary()</code>,
+<code>head()</code>, <code>tail()</code>, <code>str()</code>.</p>
+<pre class="r"><code># Resumen estadístico de los datos
+summary(mtcars)
+
+# Primeras filas de mtcars
+head(mtcars)
+
+# últimas filas de mtcars
+tail(mtcars)
+
+# Estructura (tipo de dato) de mtcars
+str(mtcars)</code></pre>
+</div>
+<div id="manipulación-de-datos" class="section level4">
+<h4>Manipulación de datos</h4>
+<p>Para iniciar esta sección es importante recordar los diferentes tipos
+de operadores que se utilizó en las clases anteriores. Estas fueron:</p>
+<ul>
+<li>Operadores aritméticos</li>
+</ul>
+<p><img src="figures/operadorAritmetico.PNG" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Operadores relacionales</li>
+</ul>
+<p><img src="figures/operadorRelacional.PNG" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Operadores lógicos</li>
+</ul>
+<p><img src="figures/operadorLogico.PNG" style="display: block; margin: auto;" /></p>
+<p>Con los operadores en mente, procederemos a manipular la base de
+datos <code>crabs</code> que importamos anteriormente.</p>
+<pre class="r"><code>head(crabs)</code></pre>
+<pre><code>##   Year   Island Month Sex     CL
+## 1 2013 Sector_1    11   F 123.64
+## 2 2013 Sector_1    11   F 118.47
+## 3 2013 Sector_1    11   F 115.53
+## 4 2013 Sector_1    11   F 113.98
+## 5 2013 Sector_1    11   F 108.75
+## 6 2013 Sector_1    11   F 106.12</code></pre>
+<div id="selección-de-datos" class="section level5">
+<h5>Selección de datos</h5>
+<pre class="r"><code># Seleccionar datos
+# Primer argumento son las filas
+# El segundo, las columnas (si no se coloca un número)
+# por defecto R seleccionará todas las columnas
+crabs[3,]
+crabs[1:5,]
+crabs[c(2,4),]
+crabs[,-1]
+# Otras formas de selección
+crabs$Year
+crabs[,c(&quot;Year&quot;, &quot;Island&quot;)]</code></pre>
+</div>
+<div id="filtrar-datos" class="section level5">
+<h5>Filtrar datos</h5>
+<pre class="r"><code># Filtrar datos
+# Se filtran los valores de cangrejos cuya
+# longitud de cefalotorax es mayor a 100
+crabs[crabs$CL &gt; 100,]
+
+# Se filtran los valores de cangrejos cuya
+# longitud de cefalotorax se encuentre entre
+# 100 y 110
+crabs[crabs$CL &gt;= 100 &amp; crabs$CL &lt;= 110,]
+crabs[crabs$Sex == &quot;F&quot; &amp; crabs$Month &gt; 10,]
+
+# Se filtran solo los cangrejos de sexo hembras (&quot;H&quot;)
+# y/o ovígeras (&quot;O&quot;).
+crabs[!crabs$Sex == &quot;M&quot;,]</code></pre>
+</div>
+<div id="ordenar-datos" class="section level5">
+<h5>Ordenar datos</h5>
+<pre class="r"><code># Ordena el dataframe en función al sexo
+crabs[order(crabs$Sex),]
+# Ordena el dataframe en función al sexo y mes
+crabs[order(crabs$Sex, crabs$Month),]</code></pre>
+</div>
+<div id="función-apply" class="section level5">
+<h5>Función apply</h5>
+<p>Operación útil para hacer operaciones por fila o columna de una
+matriz.</p>
+<pre class="r"><code>x &lt;- matrix(rep(1:6, each = 5), nrow = 5, ncol = 6)
+
+# Adjunta el vector resultado en una nueva columna
+x.1 &lt;- cbind(x, apply(x, 1, sum))
+
+# Adjunta el vector resultado en una nueva fila
+x.2 &lt;- rbind(x, apply(x, 2, sum))</code></pre>
+</div>
+<div id="valores-na" class="section level5">
+<h5>Valores NA</h5>
+<pre class="r"><code># Valores NA
+table(is.na(crabs))
+# Cuales son los NA
+which(is.na(crabs))
+crabs[which(is.na(crabs)),]
+# Eliminar NA
+crabs &lt;- na.omit(crabs)</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5,h6",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
