@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -34,8 +34,6 @@
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -48,23 +46,123 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
   }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
 </script>
 
 
 
 
-
-
-<link rel="stylesheet" href="docs/css/swcarpentry-lesson.css" type="text/css" />
+<link rel="stylesheet" href="docs/css/style_site.css" type="text/css" />
 
 
 
@@ -333,7 +431,7 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="01_index.html">
     <span class="fas fa-home"></span>
      
     Home
@@ -350,39 +448,24 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Programación en R</li>
     <li>
-      <a href="rstudio1.html">1. Introducción a la ciencia de datos y R</a>
-    </li>
-    <li>
-      <a href="datos.html">2. Datos</a>
-    </li>
-    <li>
-      <a href="condicionales.html">3. Programación</a>
-    </li>
-    <li>
-      <a href="graficos.html">4. Gráficos</a>
+      <a href="03_rstudio.html">1. Introducción a R</a>
     </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/AngeloCris/training">
-    <span class="fab fa-github"></span>
-     
-    Repo
-  </a>
-</li>
-<li>
-  <a href="bibliografia.html">
-    <span class="fas fa-search"></span>
-     
-    Bibliografia
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
+<body>
+    <p style="height: 200px;">
+        <img src="tnc_logo-removebg-preview.png" alt="Right Logo"
+          title="Right Logo" style="height: 150px;  margin-top: 10px; float: right; margin-right: 0.5%;">
+    </p>
+</body>
+
 
 <div id="header">
 
@@ -409,57 +492,36 @@ Repository</a>. Emplearemos el conjunto de datos denominado “Bank
 Marketing Data Set” que contiene información de personas contactadas en
 una campaña de marketing directo puesta en marcha por un banco de
 Portugal.</p>
-<pre class="r"><code>#Importamos lo datos
-# download.file(
-#   url = &quot;https://raw.githubusercontent.com/jboscomendoza/r-principiantes-bookdown/master/datos/bank.csv&quot;, 
-#   destfile = &quot;bank.csv&quot;
-#   )</code></pre>
-<pre class="r"><code>readLines(&quot;datos/bank.csv&quot;, n = 4)
-banco &lt;- read.csv(&quot;datos/bank.csv&quot;, sep = &quot;;&quot;)</code></pre>
-<pre class="r"><code>head(banco)</code></pre>
-<pre><code>##   age         job marital education
-## 1  30  unemployed married   primary
-## 2  33    services married secondary
-## 3  35  management  single  tertiary
-## 4  30  management married  tertiary
-## 5  59 blue-collar married secondary
-## 6  35  management  single  tertiary
-##   default balance housing loan
-## 1      no    1787      no   no
-## 2      no    4789     yes  yes
-## 3      no    1350     yes   no
-## 4      no    1476     yes  yes
-## 5      no       0     yes   no
-## 6      no     747      no   no
-##    contact day month duration
-## 1 cellular  19   oct       79
-## 2 cellular  11   may      220
-## 3 cellular  16   apr      185
-## 4  unknown   3   jun      199
-## 5  unknown   5   may      226
-## 6 cellular  23   feb      141
-##   campaign pdays previous poutcome
-## 1        1    -1        0  unknown
-## 2        1   339        4  failure
-## 3        1   330        1  failure
-## 4        4    -1        0  unknown
-## 5        1    -1        0  unknown
-## 6        2   176        3  failure
-##    y
-## 1 no
-## 2 no
-## 3 no
-## 4 no
-## 5 no
-## 6 no</code></pre>
-<pre class="r"><code># #Cómo conocemos las dimensiones del dataframe?
-# dim(banco)
-# 
-# #Determinamos la clase de cada variable
-# lapply(banco, class)
-# 
-# #Resumen de nuestra base de datos
-# summary(banco)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Importamos lo datos</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># download.file(</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   url = &quot;https://raw.githubusercontent.com/jboscomendoza/r-principiantes-bookdown/master/datos/bank.csv&quot;, </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   destfile = &quot;bank.csv&quot;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   )</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">readLines</span>(<span class="st">&quot;datos/bank.csv&quot;</span>, <span class="at">n =</span> <span class="dv">4</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>banco <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;datos/bank.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(banco)</span></code></pre></div>
+<pre><code>##   age         job marital education default balance housing loan  contact day
+## 1  30  unemployed married   primary      no    1787      no   no cellular  19
+## 2  33    services married secondary      no    4789     yes  yes cellular  11
+## 3  35  management  single  tertiary      no    1350     yes   no cellular  16
+## 4  30  management married  tertiary      no    1476     yes  yes  unknown   3
+## 5  59 blue-collar married secondary      no       0     yes   no  unknown   5
+## 6  35  management  single  tertiary      no     747      no   no cellular  23
+##   month duration campaign pdays previous poutcome  y
+## 1   oct       79        1    -1        0  unknown no
+## 2   may      220        1   339        4  failure no
+## 3   apr      185        1   330        1  failure no
+## 4   jun      199        4    -1        0  unknown no
+## 5   may      226        1    -1        0  unknown no
+## 6   feb      141        2   176        3  failure no</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #Cómo conocemos las dimensiones del dataframe?</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dim(banco)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># #Determinamos la clase de cada variable</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lapply(banco, class)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># #Resumen de nuestra base de datos</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(banco)</span></span></code></pre></div>
 <div id="función-plot" class="section level1">
 <h1>FUNCIÓN PLOT</h1>
 <p>La función <code>plot()</code> es usada de manera general para crear
@@ -494,18 +556,18 @@ elementos a uno preexistente.</p>
 barras. Un histograma se crea con la función <code>hist()</code>, donde
 el primer argumento debe ser un vector numérico.</p>
 <p>Un ejemplo con la base de datos anteriormente usada:</p>
-<pre class="r"><code># histograma
-hist((x = banco$age))</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histograma</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>((<span class="at">x =</span> banco<span class="sc">$</span>age))</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<pre class="r"><code># modificar algunos parámetros
-hist(x = banco$age, 
-     # titulo
-     main = &quot;Histograma de edad&quot;,
-     # ejes
-     xlab = &quot;Edad&quot;, 
-     ylab = &quot;Frecuencia&quot;,
-     # color
-     col = &quot;purple&quot;)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># modificar algunos parámetros</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> banco<span class="sc">$</span>age, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="co"># titulo</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histograma de edad&quot;</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>     <span class="co"># ejes</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Edad&quot;</span>, </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Frecuencia&quot;</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>     <span class="co"># color</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;purple&quot;</span>)</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-6-2.png" width="672" />
 Se pude obtener una gran variedad de colores en R, pueden ver una lista
 de los colores disponibles en R en el siguiente enlace: <a
@@ -518,54 +580,54 @@ class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a></p>
 continuas usando puntos. En R para generar un diagrama de dispersión se
 usa la función <code>plot()</code> con sus respectivos argumentos
 <code>x</code> e <code>y</code>.</p>
-<pre class="r"><code>plot(x = banco$age, y = banco$balance, type = &quot;p&quot;)</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> banco<span class="sc">$</span>age, <span class="at">y =</span> banco<span class="sc">$</span>balance, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>)</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Tenemos valores extremos que no permiten visualizar correctamente la
 mayor cantidad de nuestros datos. Entonces, para fines de tener una
 gráfica más informativa, vamos a cambiar todos los valores mayores a
 15000.</p>
 <p>estos valores para tener una mejor visualización.</p>
-<pre class="r"><code>banco$balance &lt;- ifelse(banco$balance &gt; 15000, 15000, banco$balance)
-plot(x = banco$age, 
-     y = banco$balance, 
-     type = &quot;p&quot;,
-     pch = &quot;+&quot;)</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>banco<span class="sc">$</span>balance <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(banco<span class="sc">$</span>balance <span class="sc">&gt;</span> <span class="dv">15000</span>, <span class="dv">15000</span>, banco<span class="sc">$</span>balance)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> banco<span class="sc">$</span>age, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> banco<span class="sc">$</span>balance, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;p&quot;</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="st">&quot;+&quot;</span>)</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<pre class="r"><code>plot(x = banco$age, y = banco$balance, col = as.factor(banco$loan))</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> banco<span class="sc">$</span>age, <span class="at">y =</span> banco<span class="sc">$</span>balance, <span class="at">col =</span> <span class="fu">as.factor</span>(banco<span class="sc">$</span>loan))</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Sabemos que los niveles de loan son “no” y “yes”, además que los
 colores han sido rojo y negro pero sería de utilidad para el lector
 agregar una leyenda que explique explícitamente los colores.</p>
-<pre class="r"><code>plot(x = banco$age,
-     y = banco$balance,
-     col = as.factor(banco$loan))
-
-legend(
-  # Posición leyenda
-  x = &quot;topleft&quot;, 
-  # Categoría de la variable
-  legend = c(&quot;No&quot;, &quot;Yes&quot;),
-  # Relleno de cada variable categórica
-  fill = c(&quot;Black&quot;, &quot;Red&quot;),
-  # titulo
-  title = &quot;Loan&quot;)</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> banco<span class="sc">$</span>age,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> banco<span class="sc">$</span>balance,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">as.factor</span>(banco<span class="sc">$</span>loan))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Posición leyenda</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>, </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Categoría de la variable</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Relleno de cada variable categórica</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;Black&quot;</span>, <span class="st">&quot;Red&quot;</span>),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># titulo</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Loan&quot;</span>)</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Usando la base de datos Iris</p>
-<pre class="r"><code>plot(x = iris$Petal.Length, 
-     y = iris$Petal.Width,
-     col = as.factor(iris$Species),
-     main = &quot;Iris - Pétalo&quot;,
-     xlab = &quot;Largo&quot;,
-     ylab = &quot;Ancho&quot;)
-
-legend(x = &quot;topleft&quot;,
-       legend = c(&quot;Setosa&quot;, 
-                  &quot;Versicolor&quot;, 
-                  &quot;Virginica&quot;),
-       fill = c(&quot;black&quot;,
-                &quot;red&quot;,
-                &quot;green&quot;),
-       title = &quot;Especie&quot;)</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">as.factor</span>(iris<span class="sc">$</span>Species),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Iris - Pétalo&quot;</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Largo&quot;</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Ancho&quot;</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Setosa&quot;</span>, </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Versicolor&quot;</span>, </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Virginica&quot;</span>),</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;green&quot;</span>),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Especie&quot;</span>)</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 <div id="diagrama-de-cajas" class="section level2">
@@ -576,136 +638,136 @@ sobre su dispersión, ubicación y simetría.</p>
 <p>Para crear un boxplot usamos la función <code>plot()</code> teniendo
 en cuenta que el argumento <code>x</code> debe ser un factor, y como
 argumento <code>y</code>, un vector numérico.</p>
-<pre class="r"><code>plot(x = as.factor(banco$education),
-     y = banco$age)</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(banco<span class="sc">$</span>education),</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> banco<span class="sc">$</span>age)</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<pre class="r"><code>plot(x = as.factor(banco$education),
-     y = banco$age,
-     main = &quot;Edad por nivel educativo&quot;,
-     xlab = &quot;Nivel educativo&quot;, 
-     ylab = &quot;Edad&quot;,
-     col = c(&quot;orange3&quot;,
-             &quot;yellow3&quot;,
-             &quot;green3&quot;,
-             &quot;grey&quot;))</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(banco<span class="sc">$</span>education),</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> banco<span class="sc">$</span>age,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Edad por nivel educativo&quot;</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Nivel educativo&quot;</span>, </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Edad&quot;</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;orange3&quot;</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;yellow3&quot;</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;green3&quot;</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;grey&quot;</span>))</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>También se puede generar el mismo gráfico con una función específica
 de R denominada <code>boxplot()</code></p>
-<pre class="r"><code>boxplot(formula = age ~ education, data =  banco)</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">formula =</span> age <span class="sc">~</span> education, <span class="at">data =</span>  banco)</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <div id="graficos-líneas" class="section level2">
 <h2>Graficos líneas</h2>
-<pre class="r"><code>x  &lt;- c( 1:50 )
-y0 &lt;- rnorm( 50, mean = 5)
-y1 &lt;- rnorm( 50, mean = 0 )
-y2 &lt;- rnorm( 50, mean = -5 )
-head(data.frame(x,y0,y1,y2))</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x  <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span> )</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>y0 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>( <span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">5</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>( <span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">0</span> )</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>( <span class="dv">50</span>, <span class="at">mean =</span> <span class="sc">-</span><span class="dv">5</span> )</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">data.frame</span>(x,y0,y1,y2))</span></code></pre></div>
 <pre><code>##   x       y0         y1        y2
-## 1 1 7.283303 -0.5344946 -5.217384
-## 2 2 6.558602  0.3206522 -5.562216
-## 3 3 5.996005 -2.7004890 -6.471452
-## 4 4 4.963346  0.4474810 -5.984750
-## 5 5 6.947467  1.2750412 -2.991340
-## 6 6 5.513328 -0.5509632 -6.132959</code></pre>
-<pre class="r"><code>plot(c(-1,50),
-     c(-8,9),
-     type = &quot;n&quot;,
-     xlab = &quot;Tiempos&quot;,
-     ylab = &quot;Efectos&quot;,
-     main = &quot;Líneas Temporales&quot;)
-
-lines(x, 
-      y0, 
-      # grosor de línea
-      lwd = 0.7,
-      # tipo de linea
-      lty = 1, 
-      # color
-      col = &quot;blue&quot;)
-lines(x, y1, lwd = 1.5, lty = 2, col = &quot;darkorange1&quot;)
-lines(x, y2, type = &quot;b&quot;, lwd = 1.3, lty = 3, col = &quot;green4&quot;)</code></pre>
+## 1 1 4.279493 -0.1413515 -3.664917
+## 2 2 7.675561 -1.0659673 -5.848430
+## 3 3 6.380275 -0.8549899 -5.244784
+## 4 4 5.225327 -0.4828377 -4.053699
+## 5 5 4.857514  0.1887889 -2.175349
+## 6 6 4.544607 -0.5031974 -6.460160</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">50</span>),</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">c</span>(<span class="sc">-</span><span class="dv">8</span>,<span class="dv">9</span>),</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Tiempos&quot;</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Efectos&quot;</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Líneas Temporales&quot;</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>      y0, </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>      <span class="co"># grosor de línea</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="fl">0.7</span>,</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>      <span class="co"># tipo de linea</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">lty =</span> <span class="dv">1</span>, </span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>      <span class="co"># color</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y1, <span class="at">lwd =</span> <span class="fl">1.5</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;darkorange1&quot;</span>)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y2, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">lwd =</span> <span class="fl">1.3</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">&quot;green4&quot;</span>)</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<pre class="r"><code># help(points)</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># help(points)</span></span></code></pre></div>
 </div>
 <div id="graficos-multipanel" class="section level2">
 <h2>Graficos multipanel</h2>
-<pre class="r"><code>par(mfrow = c(2,3))
-
-# 1er grafico: Histograma
-hist(x = banco$age, 
-     # titulo
-     main = &quot;Histograma de edad&quot;,
-     # ejes
-     xlab = &quot;Edad&quot;, 
-     ylab = &quot;Frecuencia&quot;,
-     # color
-     col = &quot;purple&quot;)
-
-# 2do grafico: Dispersión
-plot(x = banco$age,
-     y = banco$balance,
-     col = as.factor(banco$loan))
-
-legend(
-  # Posición leyenda
-  x = &quot;topleft&quot;, 
-  # Categoría de la variable
-  legend = c(&quot;No&quot;, &quot;Yes&quot;),
-  # Relleno de cada variable categórica
-  fill = c(&quot;Black&quot;, &quot;Red&quot;),
-  # titulo
-  title = &quot;Loan&quot;)
-
-# 3er gráfico: Data Iris
-plot(x = iris$Petal.Length, 
-     y = iris$Petal.Width,
-     col = as.factor(iris$Species),
-     main = &quot;Iris - Pétalo&quot;,
-     xlab = &quot;Largo&quot;,
-     ylab = &quot;Ancho&quot;)
-
-legend(x = &quot;topleft&quot;,
-       legend = c(&quot;Setosa&quot;, 
-                  &quot;Versicolor&quot;, 
-                  &quot;Virginica&quot;),
-       fill = c(&quot;black&quot;,
-                &quot;red&quot;,
-                &quot;green&quot;),
-       title = &quot;Especie&quot;)
-
-# 4to gráfico: Diagrama de caja usando la función plot()
-plot(x = as.factor(banco$education),
-     y = banco$age,
-     main = &quot;Edad por nivel educativo&quot;,
-     xlab = &quot;Nivel educativo&quot;, 
-     ylab = &quot;Edad&quot;,
-     col = c(&quot;orange3&quot;,
-             &quot;yellow3&quot;,
-             &quot;green3&quot;,
-             &quot;grey&quot;))
-
-# 5to gráfico: Diagrama de caja usando la fucnión boxplot()
-boxplot(formula = age ~ education, data =  banco)
-
-# 6to gráfico: Serie de datos
-plot(c(-1,50),
-     c(-8,9),
-     type = &quot;n&quot;,
-     xlab = &quot;Tiempos&quot;,
-     ylab = &quot;Efectos&quot;,
-     main = &quot;Líneas Temporales&quot;)
-
-lines(x, 
-      y0, 
-      # grosor de línea
-      lwd = 0.7,
-      # tipo de linea
-      lty = 1, 
-      # color
-      col = &quot;blue&quot;)
-lines(x, y1, lwd = 1.5, lty = 2, col = &quot;darkorange1&quot;)
-lines(x, y2, type = &quot;b&quot;, lwd = 1.3, lty = 3, col = &quot;green4&quot;)</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1er grafico: Histograma</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> banco<span class="sc">$</span>age, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>     <span class="co"># titulo</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histograma de edad&quot;</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>     <span class="co"># ejes</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Edad&quot;</span>, </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Frecuencia&quot;</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>     <span class="co"># color</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;purple&quot;</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2do grafico: Dispersión</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> banco<span class="sc">$</span>age,</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> banco<span class="sc">$</span>balance,</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">as.factor</span>(banco<span class="sc">$</span>loan))</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Posición leyenda</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>, </span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Categoría de la variable</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Relleno de cada variable categórica</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;Black&quot;</span>, <span class="st">&quot;Red&quot;</span>),</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># titulo</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Loan&quot;</span>)</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 3er gráfico: Data Iris</span></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, </span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width,</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">as.factor</span>(iris<span class="sc">$</span>Species),</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Iris - Pétalo&quot;</span>,</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Largo&quot;</span>,</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Ancho&quot;</span>)</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>,</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Setosa&quot;</span>, </span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Versicolor&quot;</span>, </span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Virginica&quot;</span>),</span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>,</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;green&quot;</span>),</span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Especie&quot;</span>)</span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 4to gráfico: Diagrama de caja usando la función plot()</span></span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(banco<span class="sc">$</span>education),</span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> banco<span class="sc">$</span>age,</span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Edad por nivel educativo&quot;</span>,</span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Nivel educativo&quot;</span>, </span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Edad&quot;</span>,</span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;orange3&quot;</span>,</span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;yellow3&quot;</span>,</span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;green3&quot;</span>,</span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;grey&quot;</span>))</span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a><span class="co"># 5to gráfico: Diagrama de caja usando la fucnión boxplot()</span></span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">formula =</span> age <span class="sc">~</span> education, <span class="at">data =</span>  banco)</span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a><span class="co"># 6to gráfico: Serie de datos</span></span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">50</span>),</span>
+<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a>     <span class="fu">c</span>(<span class="sc">-</span><span class="dv">8</span>,<span class="dv">9</span>),</span>
+<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Tiempos&quot;</span>,</span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Efectos&quot;</span>,</span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Líneas Temporales&quot;</span>)</span>
+<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, </span>
+<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a>      y0, </span>
+<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a>      <span class="co"># grosor de línea</span></span>
+<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="fl">0.7</span>,</span>
+<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a>      <span class="co"># tipo de linea</span></span>
+<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a>      <span class="at">lty =</span> <span class="dv">1</span>, </span>
+<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a>      <span class="co"># color</span></span>
+<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y1, <span class="at">lwd =</span> <span class="fl">1.5</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;darkorange1&quot;</span>)</span>
+<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y2, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">lwd =</span> <span class="fl">1.3</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">&quot;green4&quot;</span>)</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
 <div id="exportar-gráficos" class="section level2">
@@ -727,106 +789,106 @@ funciones:</p>
 </ul>
 <p><strong>Estas funciones se llaman antes de crear el gráfico.</strong>
 Veamos un ejemplo:</p>
-<pre class="r"><code># png(filename = &quot;graphics_files/loan_age&quot;)
-plot(x = banco$age,
-     y = banco$duration,
-     col = as.factor(banco$loan),
-     main = &quot;Edad y Duración&quot;,
-     xlab = &quot;Edad&quot;,
-     ylab = &quot;Duración&quot;)
-legend(x = &quot;topleft&quot;,
-       legend = c(&quot;No&quot;, &quot;Yes&quot;),
-       fill = c(&quot;Black&quot;, &quot;Red&quot;),
-       title = &quot;Loan&quot;)</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># png(filename = &quot;graphics_files/loan_age&quot;)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> banco<span class="sc">$</span>age,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> banco<span class="sc">$</span>duration,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">as.factor</span>(banco<span class="sc">$</span>loan),</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Edad y Duración&quot;</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Edad&quot;</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Duración&quot;</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;Black&quot;</span>, <span class="st">&quot;Red&quot;</span>),</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Loan&quot;</span>)</span></code></pre></div>
 <p><img src="graficos_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<pre class="r"><code>dev.off()</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <pre><code>## null device 
 ##           1</code></pre>
-<pre class="r"><code># file.show(&quot;graphics_files/loan_age&quot;)</code></pre>
-<pre class="r"><code># png(filename = &quot;graphics_files/graficosTodos&quot;)
-
-par(mfrow = c(2,3))
-
-# 1er grafico: Histograma
-hist(x = banco$age, 
-     # titulo
-     main = &quot;Histograma de edad&quot;,
-     # ejes
-     xlab = &quot;Edad&quot;, 
-     ylab = &quot;Frecuencia&quot;,
-     # color
-     col = &quot;purple&quot;)
-
-# 2do grafico: Dispersión
-# plot(x = banco$age,
-#      y = banco$balance,
-#      col = as.factor(banco$loan))
-
-legend(
-  # Posición leyenda
-  x = &quot;topleft&quot;, 
-  # Categoría de la variable
-  legend = c(&quot;No&quot;, &quot;Yes&quot;),
-  # Relleno de cada variable categórica
-  fill = c(&quot;Black&quot;, &quot;Red&quot;),
-  # titulo
-  title = &quot;Loan&quot;)
-
-# 3er gráfico: Data Iris
-plot(x = iris$Petal.Length, 
-     y = iris$Petal.Width,
-     col = as.factor(iris$Species),
-     main = &quot;Iris - Pétalo&quot;,
-     xlab = &quot;Largo&quot;,
-     ylab = &quot;Ancho&quot;)
-
-legend(x = &quot;topleft&quot;,
-       legend = c(&quot;Setosa&quot;, 
-                  &quot;Versicolor&quot;, 
-                  &quot;Virginica&quot;),
-       fill = c(&quot;black&quot;,
-                &quot;red&quot;,
-                &quot;green&quot;),
-       title = &quot;Especie&quot;)
-
-# 4to gráfico: Diagrama de caja usando la función plot()
-plot(x = as.factor(banco$education),
-     y = banco$age,
-     main = &quot;Edad por nivel educativo&quot;,
-     xlab = &quot;Nivel educativo&quot;, 
-     ylab = &quot;Edad&quot;,
-     col = c(&quot;orange3&quot;,
-             &quot;yellow3&quot;,
-             &quot;green3&quot;,
-             &quot;grey&quot;))
-
-# 5to gráfico: Diagrama de caja usando la fucnión boxplot()
-boxplot(formula = age ~ education, data =  banco)
-
-# 6to gráfico: Serie de datos
-plot(c(-1,50),
-     c(-8,9),
-     type = &quot;n&quot;,
-     xlab = &quot;Tiempos&quot;,
-     ylab = &quot;Efectos&quot;,
-     main = &quot;Líneas Temporales&quot;)
-
-lines(x, 
-      y0, 
-      # grosor de línea
-      lwd = 0.7,
-      # tipo de linea
-      lty = 1, 
-      # color
-      col = &quot;blue&quot;)
-lines(x, y1, lwd = 1.5, lty = 2, col = &quot;darkorange1&quot;)
-lines(x, y2, type = &quot;b&quot;, lwd = 1.3, lty = 3, col = &quot;green4&quot;)
-
-dev.off()</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># file.show(&quot;graphics_files/loan_age&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># png(filename = &quot;graphics_files/graficosTodos&quot;)</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1er grafico: Histograma</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> banco<span class="sc">$</span>age, </span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>     <span class="co"># titulo</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histograma de edad&quot;</span>,</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>     <span class="co"># ejes</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Edad&quot;</span>, </span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Frecuencia&quot;</span>,</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>     <span class="co"># color</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;purple&quot;</span>)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2do grafico: Dispersión</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(x = banco$age,</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="co">#      y = banco$balance,</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="co">#      col = as.factor(banco$loan))</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Posición leyenda</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>, </span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Categoría de la variable</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Relleno de cada variable categórica</span></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;Black&quot;</span>, <span class="st">&quot;Red&quot;</span>),</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># titulo</span></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Loan&quot;</span>)</span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 3er gráfico: Data Iris</span></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, </span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width,</span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">as.factor</span>(iris<span class="sc">$</span>Species),</span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Iris - Pétalo&quot;</span>,</span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Largo&quot;</span>,</span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Ancho&quot;</span>)</span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>,</span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Setosa&quot;</span>, </span>
+<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Versicolor&quot;</span>, </span>
+<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Virginica&quot;</span>),</span>
+<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>,</span>
+<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;green&quot;</span>),</span>
+<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Especie&quot;</span>)</span>
+<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 4to gráfico: Diagrama de caja usando la función plot()</span></span>
+<span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(banco<span class="sc">$</span>education),</span>
+<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> banco<span class="sc">$</span>age,</span>
+<span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Edad por nivel educativo&quot;</span>,</span>
+<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Nivel educativo&quot;</span>, </span>
+<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Edad&quot;</span>,</span>
+<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;orange3&quot;</span>,</span>
+<span id="cb25-54"><a href="#cb25-54" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;yellow3&quot;</span>,</span>
+<span id="cb25-55"><a href="#cb25-55" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;green3&quot;</span>,</span>
+<span id="cb25-56"><a href="#cb25-56" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;grey&quot;</span>))</span>
+<span id="cb25-57"><a href="#cb25-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-58"><a href="#cb25-58" aria-hidden="true" tabindex="-1"></a><span class="co"># 5to gráfico: Diagrama de caja usando la fucnión boxplot()</span></span>
+<span id="cb25-59"><a href="#cb25-59" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="at">formula =</span> age <span class="sc">~</span> education, <span class="at">data =</span>  banco)</span>
+<span id="cb25-60"><a href="#cb25-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a><span class="co"># 6to gráfico: Serie de datos</span></span>
+<span id="cb25-62"><a href="#cb25-62" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">50</span>),</span>
+<span id="cb25-63"><a href="#cb25-63" aria-hidden="true" tabindex="-1"></a>     <span class="fu">c</span>(<span class="sc">-</span><span class="dv">8</span>,<span class="dv">9</span>),</span>
+<span id="cb25-64"><a href="#cb25-64" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb25-65"><a href="#cb25-65" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Tiempos&quot;</span>,</span>
+<span id="cb25-66"><a href="#cb25-66" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Efectos&quot;</span>,</span>
+<span id="cb25-67"><a href="#cb25-67" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Líneas Temporales&quot;</span>)</span>
+<span id="cb25-68"><a href="#cb25-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-69"><a href="#cb25-69" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, </span>
+<span id="cb25-70"><a href="#cb25-70" aria-hidden="true" tabindex="-1"></a>      y0, </span>
+<span id="cb25-71"><a href="#cb25-71" aria-hidden="true" tabindex="-1"></a>      <span class="co"># grosor de línea</span></span>
+<span id="cb25-72"><a href="#cb25-72" aria-hidden="true" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="fl">0.7</span>,</span>
+<span id="cb25-73"><a href="#cb25-73" aria-hidden="true" tabindex="-1"></a>      <span class="co"># tipo de linea</span></span>
+<span id="cb25-74"><a href="#cb25-74" aria-hidden="true" tabindex="-1"></a>      <span class="at">lty =</span> <span class="dv">1</span>, </span>
+<span id="cb25-75"><a href="#cb25-75" aria-hidden="true" tabindex="-1"></a>      <span class="co"># color</span></span>
+<span id="cb25-76"><a href="#cb25-76" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb25-77"><a href="#cb25-77" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y1, <span class="at">lwd =</span> <span class="fl">1.5</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;darkorange1&quot;</span>)</span>
+<span id="cb25-78"><a href="#cb25-78" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y2, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">lwd =</span> <span class="fl">1.3</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">&quot;green4&quot;</span>)</span>
+<span id="cb25-79"><a href="#cb25-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-80"><a href="#cb25-80" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <pre><code>## null device 
 ##           1</code></pre>
-<pre class="r"><code># file.show(&quot;graphics_files/graficosTodos&quot;)</code></pre>
-<pre class="r"><code>knitr::knit_exit()</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># file.show(&quot;graphics_files/graficosTodos&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">knit_exit</span>()</span></code></pre></div>
 </div>
 </div>
 

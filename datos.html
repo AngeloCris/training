@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -34,8 +34,6 @@
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
@@ -50,23 +48,123 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
   }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
 </script>
 
 
 
 
-
-
-<link rel="stylesheet" href="docs/css/swcarpentry-lesson.css" type="text/css" />
+<link rel="stylesheet" href="docs/css/style_site.css" type="text/css" />
 
 
 
@@ -335,7 +433,7 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="01_index.html">
     <span class="fas fa-home"></span>
      
     Home
@@ -352,39 +450,24 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Programación en R</li>
     <li>
-      <a href="rstudio1.html">1. Introducción a la ciencia de datos y R</a>
-    </li>
-    <li>
-      <a href="datos.html">2. Datos</a>
-    </li>
-    <li>
-      <a href="condicionales.html">3. Programación</a>
-    </li>
-    <li>
-      <a href="graficos.html">4. Gráficos</a>
+      <a href="03_rstudio.html">1. Introducción a R</a>
     </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/AngeloCris/training">
-    <span class="fab fa-github"></span>
-     
-    Repo
-  </a>
-</li>
-<li>
-  <a href="bibliografia.html">
-    <span class="fas fa-search"></span>
-     
-    Bibliografia
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
+<body>
+    <p style="height: 200px;">
+        <img src="tnc_logo-removebg-preview.png" alt="Right Logo"
+          title="Right Logo" style="height: 150px;  margin-top: 10px; float: right; margin-right: 0.5%;">
+    </p>
+</body>
+
 
 <div id="header">
 
@@ -439,21 +522,21 @@ una condición.</p></li>
 <li><p>Valores perdidos y vacíos, representa la ausencia de
 datos.</p></li>
 </ul>
-<pre class="r"><code>tibble::tibble(
-  Tipo = c(&quot;Entero&quot;,
-           &quot;Numérico&quot;,
-           &quot;Cadena de texto&quot;, 
-           &quot;Factor&quot;,
-           &quot;Lógico&quot;,
-           &quot;Persido&quot;, 
-           &quot;Vacío&quot;),
-  Ejemplo = c(&quot;1&quot;, &quot;2.4&quot;, &quot;\&quot;a\&quot;&quot;, &quot;2&quot;, &quot;TRUE&quot;, &quot;NA&quot;, &quot;NULL&quot;),
-  `Nombre en inglés` = c(&quot;integer&quot;, &quot;numeric&quot;,&quot;character&quot;,
-                         &quot;factor&quot;, &quot;logical&quot;, &quot;NA&quot;, &quot;null&quot;)) %&gt;% 
-  kbl(booktabs = T) %&gt;% 
-  kable_styling(bootstrap_options = &quot;striped&quot;,
-                full_width = F,
-                position = &quot;center&quot;)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tipo =</span> <span class="fu">c</span>(<span class="st">&quot;Entero&quot;</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Numérico&quot;</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Cadena de texto&quot;</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Factor&quot;</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Lógico&quot;</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Persido&quot;</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Vacío&quot;</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ejemplo =</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2.4&quot;</span>, <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">a</span><span class="sc">\&quot;</span><span class="st">&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;NULL&quot;</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Nombre en inglés</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;integer&quot;</span>, <span class="st">&quot;numeric&quot;</span>,<span class="st">&quot;character&quot;</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;factor&quot;</span>, <span class="st">&quot;logical&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;null&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> F,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="st">&quot;center&quot;</span>)</span></code></pre></div>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -553,59 +636,59 @@ null
 que deseamos realizar se puedan llevar a cabo con éxito. La función
 <code>class()</code> recibe como argumento un dato o vector y devuelve
 el nombre del tipo al que pertenece.</p>
-<pre class="r"><code>class(&quot;A&quot;)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">&quot;A&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>El objeto básico de R es el vector:</p>
 <ul>
 <li>Un vector es un “contenedor” que puede almacenar 1 o más datos, pero
 de una misma clase.</li>
 </ul>
-<pre class="r"><code>vector(mode = &quot;character&quot;, length = 9)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">&quot;character&quot;</span>, <span class="at">length =</span> <span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
-<pre class="r"><code>vector(mode = &quot;numeric&quot;, length = 9)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">&quot;numeric&quot;</span>, <span class="at">length =</span> <span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## [1] 0 0 0 0 0 0 0 0 0</code></pre>
 <p>Ejemplos:</p>
-<pre class="r"><code># Usando función seq  (vector del tipo numérico)
-miVector_1 &lt;- seq(from = 1, to = 10, by = 1)
-
-# Usando la función c() concatenar (vector del tipo numérico)
-miVector_2 &lt;- c(1, 2, 3, 4, 5)
-
-# Usando el objeto letter (vector del tipo caracter)
-miVector_3 &lt;- c(letters)
-
-# Usando la función rep
-miVector_4 &lt;- rep(x = 13, times = 4)</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando función seq  (vector del tipo numérico)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>miVector_1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando la función c() concatenar (vector del tipo numérico)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>miVector_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando el objeto letter (vector del tipo caracter)</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>miVector_3 <span class="ot">&lt;-</span> <span class="fu">c</span>(letters)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando la función rep</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>miVector_4 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="at">x =</span> <span class="dv">13</span>, <span class="at">times =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p>En R existen diferentes funciones. Éstas han sido diseñadas para
 realizar una tarea específica. Se identifican por tener un nombre
 particular seguido por unos paréntesis <code>()</code>. Dentro de los
 paréntesis uno puede agregar diferentes argumentos que permitirán
 controlar los ajustes de la función. Ejemplo:</p>
-<pre class="r"><code># Crear una secuencia numérica del 1 al 10 cada 2 unidades
-seq(from = 1, to = 10, by = 2)</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una secuencia numérica del 1 al 10 cada 2 unidades</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 1 3 5 7 9</code></pre>
-<pre class="r"><code># Redondear un número
-round(x = 2.458793, digits = 2)</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Redondear un número</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> <span class="fl">2.458793</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 2.46</code></pre>
-<pre class="r"><code># Sumar los primeros 5 números
-sum(c(1:5))</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sumar los primeros 5 números</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>))</span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
-<pre class="r"><code># Obtener la raíz cuadrada 
-sqrt(16)</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener la raíz cuadrada </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">16</span>)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<pre class="r"><code># Obtener asistencia o ayuda
-# help(sum)</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener asistencia o ayuda</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># help(sum)</span></span></code></pre></div>
 <p>Por otro lado, con frecuencia, se deseará seleccionar algunos
 elementos de un vector. Este proceso se denominará indexación, para tal
 fin se debe emplear los corchetes (<code>[]</code>)</p>
-<pre class="r"><code># Seleccionar el 5to elemento del vector &quot;miVector_1&quot;
-miVector_1[5]</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar el 5to elemento del vector &quot;miVector_1&quot;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>miVector_1[<span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<pre class="r"><code># Seleccionar el 3er elemento del vector &quot;miVector_3&quot;
-miVector_3[3]</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar el 3er elemento del vector &quot;miVector_3&quot;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>miVector_3[<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;c&quot;</code></pre>
-<pre class="r"><code># Seleccionar el 2do y 5to elemento del vector &quot;miVector_3&quot;
-miVector_3[c(2,5)]</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar el 2do y 5to elemento del vector &quot;miVector_3&quot;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>miVector_3[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)]</span></code></pre></div>
 <pre><code>## [1] &quot;b&quot; &quot;e&quot;</code></pre>
 </div>
 <div id="estructura-de-datos" class="section level2">
@@ -616,7 +699,7 @@ manipulando estas estructuras.</p>
 las distinguen una de otra como por ejemplo el <strong>número de
 dimensiones</strong>, o si son datos <strong>homogéneos</strong> o
 <strong>heterogéneos</strong>.</p>
-<pre class="r"><code>knitr::include_graphics(&quot;figures/estructuraDatos.PNG&quot;)</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;figures/estructuraDatos.PNG&quot;</span>)</span></code></pre></div>
 <div class="figure">
 <img src="figures/estructuraDatos.PNG" alt="" />
 <p class="caption">Principales estructuras de control en R</p>
@@ -634,50 +717,50 @@ estructura de datos.</p></li>
 </ul>
 <p>Para crear un vector existen diferentes funciones, una de ellas es
 <code>c()</code></p>
-<pre class="r"><code># Vector numérico
-c(1,4,5,6,7)</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector numérico</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)</span></code></pre></div>
 <pre><code>## [1] 1 4 5 6 7</code></pre>
-<pre class="r"><code># Vector de cadena de texto
-c(&quot;reloj&quot;,&quot;mesa&quot;,&quot;cadena&quot;)</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector de cadena de texto</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;reloj&quot;</span>,<span class="st">&quot;mesa&quot;</span>,<span class="st">&quot;cadena&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;reloj&quot;  &quot;mesa&quot;   &quot;cadena&quot;</code></pre>
-<pre class="r"><code># Vector lógico
-c(TRUE, TRUE, FALSE, TRUE, FALSE)</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector lógico</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE  TRUE FALSE</code></pre>
 <p>Podemos crear vectores que son combinaciones de vectores</p>
-<pre class="r"><code>miVector_1 &lt;- c(3,6,8)
-miVector_2 &lt;- c(2,9,3)
-
-miVector_3 &lt;- c(miVector_1, miVector_2)</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>miVector_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>miVector_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">9</span>,<span class="dv">3</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>miVector_3 <span class="ot">&lt;-</span> <span class="fu">c</span>(miVector_1, miVector_2)</span></code></pre></div>
 <p>Si intentamos combinar datos de diferentes tipos en un mismo vector,
 R realizará coerción automáticamente, por ejemplo:</p>
-<pre class="r"><code>miVector_4 &lt;- c(5,7,9)
-class(miVector_4)</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>miVector_4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(miVector_4)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p>Si intentamos agregar un dato del tipo caracter, el vector
 automáticamente se transformará en uno del tipo caracter.</p>
-<pre class="r"><code>miVector_5 &lt;- c(miVector_4,&quot;a&quot;)
-class(miVector_5)</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>miVector_5 <span class="ot">&lt;-</span> <span class="fu">c</span>(miVector_4,<span class="st">&quot;a&quot;</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(miVector_5)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <div id="vectorización-de-operaciones" class="section level4">
 <h4>Vectorización de operaciones</h4>
 <p>Las operaciones aritméticas y relacionales pueden vectorizarse. Si
 aplicamos a un vector, la operación se realizará para cada uno de los
 elementos que contiene el vector.</p>
-<pre class="r"><code># Vector numérico
-miVector_4</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector numérico</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>miVector_4</span></code></pre></div>
 <pre><code>## [1] 5 7 9</code></pre>
-<pre class="r"><code># Operaciones aritméticas
-miVector_4 + 2</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Operaciones aritméticas</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>miVector_4 <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1]  7  9 11</code></pre>
-<pre class="r"><code>miVector_4 * 2</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>miVector_4 <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 10 14 18</code></pre>
-<pre class="r"><code>miVector_4 %% 2</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>miVector_4 <span class="sc">%%</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 1 1 1</code></pre>
-<pre class="r"><code>miVector_4 &gt; 7</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>miVector_4 <span class="sc">&gt;</span> <span class="dv">7</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE  TRUE</code></pre>
-<pre class="r"><code>miVector_4 &lt; 2</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>miVector_4 <span class="sc">&lt;</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE</code></pre>
-<pre class="r"><code>miVector_4 == 7</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>miVector_4 <span class="sc">==</span> <span class="dv">7</span></span></code></pre></div>
 <pre><code>## [1] FALSE  TRUE FALSE</code></pre>
 <p>Esta manera de operar es muy eficiente, especialmente cuando se
 trabaja con una gran cantidad de datos. Aunque este mismo proceso de
@@ -697,11 +780,11 @@ de uso común en R en la que nos enfocaremos en esta sección.</p>
 Esta función acepta dos argumentos: <code>nrow</code> y
 <code>ncol</code> las cuales especifican el número de filas y columnas,
 respectivamente.</p>
-<pre class="r"><code># Vector numérico
-1:6</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector numérico</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5 6</code></pre>
-<pre class="r"><code># Matriz sin especificar el N° de filas o columnas
-matrix(1:6)</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz sin especificar el N° de filas o columnas</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>##      [,1]
 ## [1,]    1
 ## [2,]    2
@@ -709,8 +792,8 @@ matrix(1:6)</code></pre>
 ## [4,]    4
 ## [5,]    5
 ## [6,]    6</code></pre>
-<pre class="r"><code># Matriz con 4 filas y 4 columnas
-matrix(1:18, nrow = 3, ncol = 6)</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz con 4 filas y 4 columnas</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">6</span>)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
 ## [1,]    1    4    7   10   13   16
 ## [2,]    2    5    8   11   14   17
@@ -719,11 +802,10 @@ matrix(1:18, nrow = 3, ncol = 6)</code></pre>
 a derecha. Es importante mencionar que si el número de elementos es
 mayor a las celdas de la matriz, se acomodarán todos los datos posibles
 y los demás serán omitidos.</p>
-<pre class="r"><code># El vector contiene 12 elementos pero la matriz solo 9 celdas
-matrix(1:12, nrow = 3, ncol = 3)</code></pre>
-<pre><code>## Warning in matrix(1:12, nrow = 3,
-## ncol = 3): data length differs from
-## size of matrix: [12 != 3 x 3]</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El vector contiene 12 elementos pero la matriz solo 9 celdas</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## Warning in matrix(1:12, nrow = 3, ncol = 3): data length differs from size of
+## matrix: [12 != 3 x 3]</code></pre>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
@@ -731,11 +813,9 @@ matrix(1:12, nrow = 3, ncol = 3)</code></pre>
 <p>Si por el contrario, el número de celdas es mayor al número de
 elementos, estos se <strong>reciclaran</strong> sin antes advertirnos.
 Luego R empezará a usar los elementos a partir del primero de ellos.</p>
-<pre class="r"><code>matrix(1:18, nrow = 6, ncol = 4)</code></pre>
-<pre><code>## Warning in matrix(1:18, nrow = 6,
-## ncol = 4): data length [18] is not
-## a sub-multiple or multiple of the
-## number of columns [4]</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## Warning in matrix(1:18, nrow = 6, ncol = 4): data length [18] is not a sub-
+## multiple or multiple of the number of columns [4]</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    7   13    1
 ## [2,]    2    8   14    2
@@ -751,58 +831,51 @@ columna</p></li>
 <li><p><code>rbind()</code> para unir vectores, usando cada uno como un
 renglón.</p></li>
 </ul>
-<pre class="r"><code># Usamos los vectores antes creados
-# miVector_1
-# miVector_2
-# miVector_4
-
-miMatriz_1 &lt;- rbind(miVector_1, miVector_2)
-
-# Resultado
-miMatriz_1</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos los vectores antes creados</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="co"># miVector_1</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="co"># miVector_2</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="co"># miVector_4</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>miMatriz_1 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(miVector_1, miVector_2)</span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultado</span></span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>miMatriz_1</span></code></pre></div>
 <pre><code>##            [,1] [,2] [,3]
 ## miVector_1    3    6    8
 ## miVector_2    2    9    3</code></pre>
-<pre class="r"><code>miMatriz_2 &lt;- rbind(miVector_1,
-                    miVector_2,
-                    miVector_4)
-# Resultado
-miMatriz_2</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>miMatriz_2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(miVector_1,</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>                    miVector_2,</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>                    miVector_4)</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultado</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>miMatriz_2</span></code></pre></div>
 <pre><code>##            [,1] [,2] [,3]
 ## miVector_1    3    6    8
 ## miVector_2    2    9    3
 ## miVector_4    5    7    9</code></pre>
 <p>Si utilizamos <code>cbind()</code> cada vector será una columna</p>
-<pre class="r"><code>miMatriz_3 &lt;- cbind(miVector_1, 
-                    miVector_2,
-                    miVector_4)</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>miMatriz_3 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(miVector_1, </span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>                    miVector_2,</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>                    miVector_4)</span></code></pre></div>
 <p>De la misma manera como con la función <code>matrix()</code>, los
 elementos serán reciclados para formar una estructura rectangular y se
 nos muestra un mensaje de advertencia</p>
-<pre class="r"><code># Elementos de diferentes largos
-miMatriz_4 &lt;- cbind(miVector_1, miVector_2, miVector_3)
-
-# Resultado
-miMatriz_4</code></pre>
-<pre><code>##      miVector_1 miVector_2
-## [1,]          3          2
-## [2,]          6          9
-## [3,]          8          3
-## [4,]          3          2
-## [5,]          6          9
-## [6,]          8          3
-##      miVector_3
-## [1,]          3
-## [2,]          6
-## [3,]          8
-## [4,]          2
-## [5,]          9
-## [6,]          3</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elementos de diferentes largos</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>miMatriz_4 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(miVector_1, miVector_2, miVector_3)</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultado</span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>miMatriz_4</span></code></pre></div>
+<pre><code>##      miVector_1 miVector_2 miVector_3
+## [1,]          3          2          3
+## [2,]          6          9          6
+## [3,]          8          3          8
+## [4,]          3          2          2
+## [5,]          6          9          9
+## [6,]          8          3          3</code></pre>
 <p>Por último, las matrices pueden contener valores <em>NA</em> para
 representar valores perdidos, por ejemplo:</p>
-<pre class="r"><code>vector_1 &lt;- c(2, 5, NA)
-vector_2 &lt;- c(NA, 98, 43)
-miMatriz_5 &lt;- rbind(vector_1, vector_2)</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>vector_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="cn">NA</span>)</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>vector_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">98</span>, <span class="dv">43</span>)</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>miMatriz_5 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(vector_1, vector_2)</span></code></pre></div>
 </div>
 <div id="propiedades-de-las-matrices" class="section level4">
 <h4>Propiedades de las matrices</h4>
@@ -810,33 +883,33 @@ miMatriz_5 &lt;- rbind(vector_1, vector_2)</code></pre>
 embargo, a diferencia del primero, las matrices pueden tener más de una
 dimensión. Podemos obtener las dimensiones de una matriz con la función
 <code>dim()</code></p>
-<pre class="r"><code>miMatriz_1</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>miMatriz_1</span></code></pre></div>
 <pre><code>##            [,1] [,2] [,3]
 ## miVector_1    3    6    8
 ## miVector_2    2    9    3</code></pre>
-<pre class="r"><code>dim(miMatriz_1)</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(miMatriz_1)</span></code></pre></div>
 <pre><code>## [1] 2 3</code></pre>
 <p>Las operaciones aritméticas también son vectorizadas cuando se aplica
 a una matriz. La operación es aplicada a cada uno de los elementos.</p>
-<pre class="r"><code>miMatriz_2</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>miMatriz_2</span></code></pre></div>
 <pre><code>##            [,1] [,2] [,3]
 ## miVector_1    3    6    8
 ## miVector_2    2    9    3
 ## miVector_4    5    7    9</code></pre>
-<pre class="r"><code># suma
-miMatriz_2 + 1</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># suma</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>miMatriz_2 <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>##            [,1] [,2] [,3]
 ## miVector_1    4    7    9
 ## miVector_2    3   10    4
 ## miVector_4    6    8   10</code></pre>
-<pre class="r"><code># multiplicación
-miMatriz_2 * 2</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># multiplicación</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>miMatriz_2 <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>##            [,1] [,2] [,3]
 ## miVector_1    6   12   16
 ## miVector_2    4   18    6
 ## miVector_4   10   14   18</code></pre>
-<pre class="r"><code># potencia
-miMatriz_2 ^ 2</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># potencia</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>miMatriz_2 <span class="sc">^</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>##            [,1] [,2] [,3]
 ## miVector_1    9   36   64
 ## miVector_2    4   81    9
@@ -844,12 +917,12 @@ miMatriz_2 ^ 2</code></pre>
 <p>Si intentamos realizar una operación aritmética a una matriz que
 presenta valores perdidos (NA), las operaciones sólo serán realizadas
 para aquellos elementos válidos, devolviendo NA cuando corresponda.</p>
-<pre class="r"><code># Matriz con NA
-miMatriz_5</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz con NA</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>miMatriz_5</span></code></pre></div>
 <pre><code>##          [,1] [,2] [,3]
 ## vector_1    2    5   NA
 ## vector_2   NA   98   43</code></pre>
-<pre class="r"><code>miMatriz_5 / 2</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>miMatriz_5 <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>##          [,1] [,2] [,3]
 ## vector_1    1  2.5   NA
 ## vector_2   NA 49.0 21.5</code></pre>
@@ -859,13 +932,13 @@ matriz es igual al número de filas de la segunda matriz. En R, el
 operador aritmético para realizar esta operación es <code>%*%</code>. Si
 empleamos solo el operador <code>*</code> la multiplicación se realizará
 por elemento.</p>
-<pre class="r"><code># Multiplicación matricial
-miMatriz_1 %*% miMatriz_2</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplicación matricial</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>miMatriz_1 <span class="sc">%*%</span> miMatriz_2</span></code></pre></div>
 <pre><code>##            [,1] [,2] [,3]
 ## miVector_1   61  128  114
 ## miVector_2   39  114   70</code></pre>
-<pre class="r"><code># Multiplicación por elemento
-miMatriz_1 * miMatriz_5</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplicación por elemento</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>miMatriz_1 <span class="sc">*</span> miMatriz_5</span></code></pre></div>
 <pre><code>##            [,1] [,2] [,3]
 ## miVector_1    6   30   NA
 ## miVector_2   NA  882  129</code></pre>
@@ -876,25 +949,25 @@ miMatriz_1 * miMatriz_5</code></pre>
 <p>Son estructuras de datos de dos dimensiones que pueden almacenar
 datos de diferentes tipos, por tanto son heterogéneas. <strong>Es la más
 usada para realizar análisis de datos</strong>.</p>
-<pre class="r"><code>knitr::include_graphics(&quot;figures/estructuraDataframe.PNG&quot;)</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;figures/estructuraDataframe.PNG&quot;</span>)</span></code></pre></div>
 <p><img src="figures/estructuraDataframe.PNG" /><!-- --></p>
 <p>Para crear un estructura de datos del tipo dataframe empleamos la
 función <code>data.frame()</code>. Recordemos que <strong>un dataframe
 esta compuesto por vectores</strong>.</p>
-<pre class="r"><code>mi_df &lt;- 
-  data.frame(nombre = c(&quot;Alberto&quot;, &quot;Maria&quot;, &quot;Javier&quot;),
-           edad = c(19, 21, 20),
-           talla = c(170, 165, 162))</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>mi_df <span class="ot">&lt;-</span> </span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">nombre =</span> <span class="fu">c</span>(<span class="st">&quot;Alberto&quot;</span>, <span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Javier&quot;</span>),</span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">edad =</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">20</span>),</span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">talla =</span> <span class="fu">c</span>(<span class="dv">170</span>, <span class="dv">165</span>, <span class="dv">162</span>))</span></code></pre></div>
 <p>Podemos usar la función <code>dim()</code> para determinar las
 dimensiones del dataframe.</p>
-<pre class="r"><code>dim(mi_df)</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mi_df)</span></code></pre></div>
 <pre><code>## [1] 3 3</code></pre>
 <p>El largo de un data frame es igual al número de columnas</p>
-<pre class="r"><code>length(mi_df)</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(mi_df)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>La función <code>names()</code> nos permite ver los nombres de las
 variables (columnas).</p>
-<pre class="r"><code>names(mi_df)</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mi_df)</span></code></pre></div>
 <pre><code>## [1] &quot;nombre&quot; &quot;edad&quot;   &quot;talla&quot;</code></pre>
 <div id="importar-un-dataframe" class="section level4">
 <h4>Importar un dataframe</h4>
@@ -910,13 +983,13 @@ respectivamente.</p>
 <p>Siempre se debe direccionar antes la ruta de trabajo mediante la
 función <code>setwd()</code> o crear un proyecto en R dentro del cual
 contenga todas los archivos de trabajo.</p>
-<pre class="r"><code>crabs &lt;- read.csv(&quot;datos/dataSem_4_2021.txt&quot;)</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>crabs <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;datos/dataSem_4_2021.txt&quot;</span>)</span></code></pre></div>
 </div>
 <div id="propiedades-de-un-data-frame" class="section level4">
 <h4>Propiedades de un data frame</h4>
 <p>Al igual que una matriz, si aplicamos una operación aritmética a un
 dataframe, esta se vectorizará.</p>
-<pre class="r"><code>head(crabs)</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crabs)</span></code></pre></div>
 <pre><code>##   Year   Island Month Sex     CL
 ## 1 2013 Sector_1    11   F 123.64
 ## 2 2013 Sector_1    11   F 118.47
@@ -924,23 +997,24 @@ dataframe, esta se vectorizará.</p>
 ## 4 2013 Sector_1    11   F 113.98
 ## 5 2013 Sector_1    11   F 108.75
 ## 6 2013 Sector_1    11   F 106.12</code></pre>
-<pre class="r"><code>head(crabs$CL / 10)</code></pre>
-<pre><code>## [1] 12.364 11.847 11.553 11.398
-## [5] 10.875 10.612</code></pre>
+<div class="sourceCode" id="cb101"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crabs<span class="sc">$</span>CL <span class="sc">/</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 12.364 11.847 11.553 11.398 10.875 10.612</code></pre>
 <p>Algunas funciones que pueden resultar útiles para explorar
 rápidamente la estructura de nuestros datos son: <code>summary()</code>,
 <code>head()</code>, <code>tail()</code>, <code>str()</code>.</p>
-<pre class="r"><code># Resumen estadístico de los datos
-summary(mtcars)
-
-# Primeras filas de mtcars
-head(mtcars)
-
-# últimas filas de mtcars
-tail(mtcars)
-
-# Estructura (tipo de dato) de mtcars
-str(mtcars)</code></pre>
+<div class="sourceCode" id="cb103"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen estadístico de los datos</span></span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Primeras filas de mtcars</span></span>
+<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span>
+<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-7"><a href="#cb103-7" aria-hidden="true" tabindex="-1"></a><span class="co"># últimas filas de mtcars</span></span>
+<span id="cb103-8"><a href="#cb103-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(mtcars)</span>
+<span id="cb103-9"><a href="#cb103-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-10"><a href="#cb103-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Estructura (tipo de dato) de mtcars</span></span>
+<span id="cb103-11"><a href="#cb103-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mtcars)</span></code></pre></div>
 </div>
 <div id="manipulación-de-datos" class="section level4">
 <h4>Manipulación de datos</h4>
@@ -960,7 +1034,8 @@ de operadores que se utilizó en las clases anteriores. Estas fueron:</p>
 <p><img src="figures/operadorLogico.PNG" style="display: block; margin: auto;" /></p>
 <p>Con los operadores en mente, procederemos a manipular la base de
 datos <code>crabs</code> que importamos anteriormente.</p>
-<pre class="r"><code>head(crabs)</code></pre>
+<div class="sourceCode" id="cb104"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crabs)</span></code></pre></div>
 <pre><code>##   Year   Island Month Sex     CL
 ## 1 2013 Sector_1    11   F 123.64
 ## 2 2013 Sector_1    11   F 118.47
@@ -970,63 +1045,68 @@ datos <code>crabs</code> que importamos anteriormente.</p>
 ## 6 2013 Sector_1    11   F 106.12</code></pre>
 <div id="selección-de-datos" class="section level5">
 <h5>Selección de datos</h5>
-<pre class="r"><code># Seleccionar datos
-# Primer argumento son las filas
-# El segundo, las columnas (si no se coloca un número)
-# por defecto R seleccionará todas las columnas
-crabs[3,]
-crabs[1:5,]
-crabs[c(2,4),]
-crabs[,-1]
-# Otras formas de selección
-crabs$Year
-crabs[,c(&quot;Year&quot;, &quot;Island&quot;)]</code></pre>
+<div class="sourceCode" id="cb106"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar datos</span></span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Primer argumento son las filas</span></span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="co"># El segundo, las columnas (si no se coloca un número)</span></span>
+<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="co"># por defecto R seleccionará todas las columnas</span></span>
+<span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a>crabs[<span class="dv">3</span>,]</span>
+<span id="cb106-6"><a href="#cb106-6" aria-hidden="true" tabindex="-1"></a>crabs[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span>
+<span id="cb106-7"><a href="#cb106-7" aria-hidden="true" tabindex="-1"></a>crabs[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>),]</span>
+<span id="cb106-8"><a href="#cb106-8" aria-hidden="true" tabindex="-1"></a>crabs[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb106-9"><a href="#cb106-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Otras formas de selección</span></span>
+<span id="cb106-10"><a href="#cb106-10" aria-hidden="true" tabindex="-1"></a>crabs<span class="sc">$</span>Year</span>
+<span id="cb106-11"><a href="#cb106-11" aria-hidden="true" tabindex="-1"></a>crabs[,<span class="fu">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Island&quot;</span>)]</span></code></pre></div>
 </div>
 <div id="filtrar-datos" class="section level5">
 <h5>Filtrar datos</h5>
-<pre class="r"><code># Filtrar datos
-# Se filtran los valores de cangrejos cuya
-# longitud de cefalotorax es mayor a 100
-crabs[crabs$CL &gt; 100,]
-
-# Se filtran los valores de cangrejos cuya
-# longitud de cefalotorax se encuentre entre
-# 100 y 110
-crabs[crabs$CL &gt;= 100 &amp; crabs$CL &lt;= 110,]
-crabs[crabs$Sex == &quot;F&quot; &amp; crabs$Month &gt; 10,]
-
-# Se filtran solo los cangrejos de sexo hembras (&quot;H&quot;)
-# y/o ovígeras (&quot;O&quot;).
-crabs[!crabs$Sex == &quot;M&quot;,]</code></pre>
+<div class="sourceCode" id="cb107"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar datos</span></span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Se filtran los valores de cangrejos cuya</span></span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="co"># longitud de cefalotorax es mayor a 100</span></span>
+<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a>crabs[crabs<span class="sc">$</span>CL <span class="sc">&gt;</span> <span class="dv">100</span>,]</span>
+<span id="cb107-5"><a href="#cb107-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-6"><a href="#cb107-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Se filtran los valores de cangrejos cuya</span></span>
+<span id="cb107-7"><a href="#cb107-7" aria-hidden="true" tabindex="-1"></a><span class="co"># longitud de cefalotorax se encuentre entre</span></span>
+<span id="cb107-8"><a href="#cb107-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 100 y 110</span></span>
+<span id="cb107-9"><a href="#cb107-9" aria-hidden="true" tabindex="-1"></a>crabs[crabs<span class="sc">$</span>CL <span class="sc">&gt;=</span> <span class="dv">100</span> <span class="sc">&amp;</span> crabs<span class="sc">$</span>CL <span class="sc">&lt;=</span> <span class="dv">110</span>,]</span>
+<span id="cb107-10"><a href="#cb107-10" aria-hidden="true" tabindex="-1"></a>crabs[crabs<span class="sc">$</span>Sex <span class="sc">==</span> <span class="st">&quot;F&quot;</span> <span class="sc">&amp;</span> crabs<span class="sc">$</span>Month <span class="sc">&gt;</span> <span class="dv">10</span>,]</span>
+<span id="cb107-11"><a href="#cb107-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-12"><a href="#cb107-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Se filtran solo los cangrejos de sexo hembras (&quot;H&quot;)</span></span>
+<span id="cb107-13"><a href="#cb107-13" aria-hidden="true" tabindex="-1"></a><span class="co"># y/o ovígeras (&quot;O&quot;).</span></span>
+<span id="cb107-14"><a href="#cb107-14" aria-hidden="true" tabindex="-1"></a>crabs[<span class="sc">!</span>crabs<span class="sc">$</span>Sex <span class="sc">==</span> <span class="st">&quot;M&quot;</span>,]</span></code></pre></div>
 </div>
 <div id="ordenar-datos" class="section level5">
 <h5>Ordenar datos</h5>
-<pre class="r"><code># Ordena el dataframe en función al sexo
-crabs[order(crabs$Sex),]
-# Ordena el dataframe en función al sexo y mes
-crabs[order(crabs$Sex, crabs$Month),]</code></pre>
+<div class="sourceCode" id="cb108"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordena el dataframe en función al sexo</span></span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>crabs[<span class="fu">order</span>(crabs<span class="sc">$</span>Sex),]</span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordena el dataframe en función al sexo y mes</span></span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a>crabs[<span class="fu">order</span>(crabs<span class="sc">$</span>Sex, crabs<span class="sc">$</span>Month),]</span></code></pre></div>
 </div>
 <div id="función-apply" class="section level5">
 <h5>Función apply</h5>
 <p>Operación útil para hacer operaciones por fila o columna de una
 matriz.</p>
-<pre class="r"><code>x &lt;- matrix(rep(1:6, each = 5), nrow = 5, ncol = 6)
-
-# Adjunta el vector resultado en una nueva columna
-x.1 &lt;- cbind(x, apply(x, 1, sum))
-
-# Adjunta el vector resultado en una nueva fila
-x.2 &lt;- rbind(x, apply(x, 2, sum))</code></pre>
+<div class="sourceCode" id="cb109"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">each =</span> <span class="dv">5</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">6</span>)</span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjunta el vector resultado en una nueva columna</span></span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a>x<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">cbind</span>(x, <span class="fu">apply</span>(x, <span class="dv">1</span>, sum))</span>
+<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjunta el vector resultado en una nueva fila</span></span>
+<span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a>x<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">rbind</span>(x, <span class="fu">apply</span>(x, <span class="dv">2</span>, sum))</span></code></pre></div>
 </div>
 <div id="valores-na" class="section level5">
 <h5>Valores NA</h5>
-<pre class="r"><code># Valores NA
-table(is.na(crabs))
-# Cuales son los NA
-which(is.na(crabs))
-crabs[which(is.na(crabs)),]
-# Eliminar NA
-crabs &lt;- na.omit(crabs)</code></pre>
+<div class="sourceCode" id="cb110"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores NA</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">is.na</span>(crabs))</span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Cuales son los NA</span></span>
+<span id="cb110-4"><a href="#cb110-4" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(crabs))</span>
+<span id="cb110-5"><a href="#cb110-5" aria-hidden="true" tabindex="-1"></a>crabs[<span class="fu">which</span>(<span class="fu">is.na</span>(crabs)),]</span>
+<span id="cb110-6"><a href="#cb110-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Eliminar NA</span></span>
+<span id="cb110-7"><a href="#cb110-7" aria-hidden="true" tabindex="-1"></a>crabs <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(crabs)</span></code></pre></div>
 </div>
 </div>
 </div>
