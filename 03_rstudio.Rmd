@@ -1,0 +1,462 @@
+---
+title: "Introducción a R-studio"
+output:
+  html_document:
+    toc: true
+    # toc_depth: 3
+    toc_float: true
+    code_folding: "show"
+date: "2022-10-07"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE, results='hide', include=FALSE}
+library(tidyverse)
+library(kableExtra)
+```
+
+
+## Objetivo {.unnumbered .objectives}
+
+<br>
+
+- Instalación de R-studio
+
+- Conceptos básicos de R-studio
+
+## Conceptos generales
+
+### ¿Qué es R y Rstudio?
+
+1. R es un lenguaje de programación científica.
+
+2. R-studio es un entorno de desarrollo integrado (IDE) que proporciona un entorno de codificación robusta para escribir y ejecutar código en R. Se recomienda revisar el Cheat Sheets de Rstudio a través del menú **Help -> Cheat Sheet -> Rstudio IDE Cheat Sheet** para comprender rápidamente los paneles y atajos de los comandos.
+
+```{r out.width = "700px", fig.align='center'}
+knitr::include_graphics("docs/imagen/cheatSheet.PNG")
+```
+
+### ¿Porqué usar R?
+
+1. !Es gratis y trabaja en múltiples plataformas!
+
+```{r out.width = "700px", fig.align='center'}
+knitr::include_graphics("docs/imagen/Rmultiplataforma.png")
+```
+
+2. Es un comando de programación
+
+3. Gráficos y visualización a nivel profesional.
+
+```{r out.width = "700px", fig.align='center'}
+knitr::include_graphics("docs/imagen/Rgraficos.png")
+```
+
+4. Un solo software para diferentes tipos de análisis. Miles de análisis estadísticos clásicos y modernos se encuentran disponibles en R.
+
+5. Automatización de metodologías. Con R, la realización de un procedimiento y/o ordenamiento de la data mediante un script no necesita crearse cada vez que se inicia el programa. **¡Es automático!**
+
+6. Acceso a técnicas recientemente desarrolladas o en desarrollo permanente por la comunidad científica mundial.
+
+7. No hay límites. Si no se encuentra lo que se busca, uno mismo puede construirlo.
+
+
+### Instalación de R-studio
+
+Para la instalación del software se debe ingresar al sitio web de [R-project](https://cran.r-project.org/bin/windows/base/) y descargar el archivo adecuado según tu sistema operativo de elección (Linux, Mac OS, Windows). Se recomienda descagar el archivo `apk` más reciente. Sigue las instrucciones para completar el proceso de instalación.
+
+Despues de instalar R, se recomienda instalar un editor de texto. El editor de texto por excelencia es [R-studio](https://www.rstudio.com/products/rstudio/download/) razón por la cual en el presente curso se usará esta interfaz de trabajo.
+
+<br>
+
+R-studio es lo que se conoce como un entorno de desarrollo integrado (IDE) para el lenguaje de programación R. Proporciona una única interfaz para que un usuario de R pueda gestionar todos los aspectos de un análisis (escribir código, gestionar y trazar datos. ver resultados, obtener ayuda, etc.). Esta interfaz esta conformado por cuatro paneles:
+
+
+```{r out.width = "700px", fig.align='center'}
+knitr::include_graphics("docs/imagen/ventanasRstudio.png")
+```
+
+1. **Editor de código**. Aquí es donde se escribe el código de los análisis. Cada pestaña representa un un script diferente.
+
+2. **La consola**. Aquí es donde R muestra los resultados de tu código cuando este se ejecuta. Se puede escribir código directamente en la cónsola despues del símbolo `>`.
+
+3. **Espacio de trabajo e historial**. Este panel generalmente tiene dos pestañas:
+
+    - **Environment**, muestra todos los datos, variables y funciones definidas por el usuario. Estos son creados por el usuario en la consola o editor de código.
+  
+    - **History**, muestra una lista de todos los comandos ejecutados previamente.
+
+4. **Ficheros, visualizaciones, ayuda y paquetes**. Este panel contiene cinco pestañas útiles:
+
+    - *Files*, permite visualizar y explorar todos los archivos contenidos en el directorio actual. Aquí puede hacer clic en diferentes scripts de R para abrirlos en el editor de código.
+    
+    - *Plots*, cuando produzca gráficos con su código, se mostrarán aquí.
+    
+    - *Package*, muestra una lista de paqueterías instaladas en el computador. Se pueden instalar nuevas paqueterías o actualizar las existentes dando click a `install` o `update`.
+    
+    - *Help* da acceso a varias páginas de ayuda o consulta.
+    
+    - *Viewer* puede ser usada para visualizar documentos en formato HTML realizados en R.
+
+
+**Configuraciones adicionales**
+
+Como preferencia personal, se recomienda configurar algunos ajustes: 
+
+`R-studio -> tools -> global options -> general`,
+
+  - Asegúrese de que la opción *Restore .RData into workspace at startup* este deshabilitado.
+    
+  - Asegúrese de que la opción *Save workspace to .RData on exit este configurado como *Never*
+    
+  - Asegúrese de que la opción *Always save history (even when not saving .RData) no esté marcada.
+    
+Estos ajustes evitarán que se generen diferentes cuadros de diálogos y archivos inútiles cada vez que abra y cierre R.
+
+    
+```{r out.width="50%", fig.align='center'}
+knitr::include_graphics("docs/imagen/optionalConfiguration_1.PNG")
+```
+
+<br>  
+    
+`R-studio -> tools -> global options -> code`,
+
+  - Asegúrese de tener deshabilitado la opción *Soft-wrap R source files*. Esto le permitirá que las líneas de código se ajusten al tamaño de la ventana del editor de código.
+    
+```{r out.width="50%", fig.align='center'}
+knitr::include_graphics("docs/imagen/optionalConfiguration_2.PNG")
+```
+
+<br>
+
+`R-studio -> tools -> global options -> Appearence`,
+
+  - Aquí podrá ajustar el tamaño, letra, fondo de la consola de acuerdo a sus preferencias.
+
+
+```{r out.width="50%", fig.align='center'}
+knitr::include_graphics("docs/imagen/optionalConfiguration_3.PNG")
+```
+
+<br>
+
+
+### Directorio de trabajo
+
+Mantener las cosas organizadas es esencial para un uso eficiente de R. Es de vital importancia asegurarse de que todos los archivos se encuentren en un mismo directorio. Para lograr esto, se recomienda crear un proyecto en R. Básicamente, un proyecto de R es un entorno creado para almacenar todos los archivos (script, imagenes, reportes) que serán creados durante la codificación. Algunas de las ventajas de crear un proyecto son:
+
+  - Los archivos se leen y se escriben dentro del proyecto.
+  
+  - Todos lo necesario para los análisis se encuentran organizados en un solo lugar.
+  
+  - No tienes que escribir continuamente la ruta de los archivos de trabajo. Estos serán reconocidos inmediatamente.
+
+Para crear un proyecto en R ir a `file -> New Project`
+
+
+```{r out.width="50%", fig.align='center'}
+knitr::include_graphics("docs/imagen/createProject_1.PNG")
+```
+
+```{r out.width="50%", fig.align='center'}
+knitr::include_graphics("docs/imagen/createProject_2.PNG")
+```
+
+```{r out.width="50%", fig.align='center'}
+knitr::include_graphics("docs/imagen/createProject_3.PNG")
+```
+
+
+```{r out.width="50%", fig.align='center'}
+knitr::include_graphics("docs/imagen/createProject_4.PNG")
+```
+
+
+<!-- agregar como crear un script en blanco -->
+
+## Primeras aproximaciones
+
+### Tipos de datos en R
+
+Los datos son registros, observaciones o mediciones de cosas (personas, animales, localidad, clima) que ocurren en el tiempo y el espacio. Estos pueden ser cuantitativos o cualitativos. En R los datos pueden ser de diferentes tipos. Cada tipo tiene características particulares que los distinguen de los demás. Algunas operaciones sólo pueden realizarse con tipos de datos específicos.
+
+Algunos de los tipos más básicos de datos en R son:
+
+  - Valores decimales `4.5` son llamados **doubles**. Pueden ser usados en operaciones matemáticas.
+  
+  - Números enteros como 2 son llamados **integers**. Los números enteros y decimales son llamados también como **numerics**.
+  
+  - Valores booleanos (`TRUE` o `FALSE`) son denominados **logical**. Representan una condición.
+  
+  - Los cadenas de textos (ej. "concha negra") son llamados **characters**. Estos son reconocimos porque inician y terminan con comillas(`"`).
+  
+  - Valores perdidos y vacíos, representa la ausencia de datos (`NA, NA_integer_, NA_real_, NA_character`).
+  
+```{r results='hide', echo=TRUE}
+dato_double <- 17.5
+dato_integers <- 19
+dato_booleano <- TRUE
+dato_character <- "sarda chiliensis"
+```
+  
+Observemos que previo a cada tipo de dato le anteponemos un nombre relacionado al dato (llamado comúnmente como objeto) seguido de un operador de asignación `<-`. Para ejecutar un proceso se debe clickear en el boton `Run` de la esquina superior derecha del panel editor de código o usar la combinación de teclas `ctrl + enter`. 
+
+Se puede verificar el tipo de un dato con la función class(). Esto es de utilidad para asegurar las operaciones que deseamos realizar se puedan llevar a cabo con éxito. La función `class()` recibe como argumento un dato o vector y devuelve el nombre del tipo al que pertenece.
+
+```{r}
+class(dato_booleano)
+```
+
+### Estructura de datos
+
+Son objetos que contienen datos. Cuando utilizamos R, estamos manipulando estas estructuras. Una estructura de datos puede tener diferentes características que las distinguen unas de otra como por ejemplo el número de dimensiones (1d, 2d), o si son datos homogéneos (todos los datos deben ser del mismo tipo) o heterogéneos (los datos pueden ser de diferentes tipos). Esto da lugar a los cinco tipos de datos más utilizados en el análisis de datos:
+
+```{r}
+tibble::tibble(
+  Dimensiones = c("1",
+           "2",
+           "n"),
+  Homogeneas = c("Vector", "Matriz", "Array"),
+  Heterogéneas = c("Lista", "Dataframe", "-")) %>% 
+  kbl(booktabs = T) %>% 
+  kable_styling(bootstrap_options = "striped",
+                full_width = F,
+                position = "center")
+```
+
+#### Vector
+
+Es la estructura más simple en R. Un vector es una colección de uno o más datos del mismo tipo. Son usualmente creados con las funciones `c()`, `seq`, `rep`:
+
+```{r results='hide'}
+# Con la función concatenar c()
+var_dob <- c(1, 4, 6)
+var_log <- c(TRUE, FALSE, T, F)
+var_char <- c("desembarque", "pesca", "sostenible") 
+```
+
+```{r}
+# Con la función secuencia seq()
+seq(from = 100, to = 1000, by = 100)
+```
+```{r}
+# Con la función repetir rep()
+rep("pesca", times = 3)
+```
+
+Tambien podemos crear vectores que son combinaciones de vectores:
+
+```{r}
+comb_vector1 <- c(12,24,36)
+comb_vector2 <- c(10, 20, 30)
+c(comb_vector1, comb_vector2)
+```
+
+##### Propiedades de los vectores
+
+1. El tipo de vector puede determinarse con la función `typeof`.
+
+2. La longitud del vector puede determinarse con la función `length`.
+
+```{r}
+typeof(1:10)
+```
+
+```{r}
+x <- c(200, 400, 600, 800)
+length(x)
+```
+
+##### Aspectos importantes
+
+  - ¿Cómo convertir un tipo de vector a otro y cuando ocurre automaticamente?
+  
+  - ¿Qué pasa cuando trabajas con vectores de **diferentes tamaños**?
+  
+  - ¿Cómo nominar los elementos de un vector?
+  
+  - ¿Cómo sacar los elementos de interés?
+
+
+1. **Coerción**
+  
+    - Todos los elementos de un vector deben ser del **mismo tipo**
+    
+    - **Diferentes tipos** de vector serán coaccionados al tipo más flexible.
+    
+    - Los tipos de datos de menor a mayor flexibilidad son:
+    
+        - logical < integer < double < character
+
+Por ejemplo, el resultado de combinar un dato del tipo caracter con otro entero es un vector del tipo caracter.
+  
+```{r}
+str(c("a", 3))
+```
+
+Cuando un vector lógico es coaccionado con un vector double, `TRUE` se convierte en 1 y `FALSO` en 0. Esto es particularmente útil en operaciones con las funciones `sum()` y `mean()`.
+
+```{r}
+x <- c(FALSE, FALSE, TRUE)
+
+# Transforma a un vector del tipo numérico
+as.numeric(x)
+```
+
+```{r}
+# Número total de valores TRUEs
+sum(x)
+```
+<!-- Cuestionario 1: Cuál es el resultado de usar las siguientes funciones c()-->
+
+<!-- c(1, FALSE) .. DOUBLE-->
+
+<!-- Test your knowledge of vector coercion rules by predicting the output of the following uses of c(): -->
+
+<!-- c("a", 1) ... Character-->
+
+<!-- x <- c(TRUE, FALSE, TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, TRUE, FALSE) -->
+
+<!--     What would be the result if you sum up all elements of x? -->
+
+
+```{r}
+# x <- 1:10000 
+# set.seed(123) # so we get all the same results
+# y <- sample(1:10000, 1) # random number of NAs
+# z <- sample(1:10000, y) # randomly assign positions of the y NAs
+# x[z] <- NA 
+# 
+# sum(is.na(x))
+
+# How many NAs are in x?
+```
+
+
+```{r}
+knitr::knit_exit()
+```
+
+
+
+
+<!-- ### Mi primer comando -->
+
+<!-- Para iniciar: Abrir Rstudio, luego en la consola escribir ` 1 + 3` debería aparecer en el indicador `>`. Luego presione enter. -->
+
+<!-- ```{r out.width="80%", fig.align='center'} -->
+<!-- knitr::include_graphics("docs/imagen/firstCommand.PNG") -->
+<!-- ``` -->
+
+<!-- Trata de realizar operaciones aritméticas simples (suma, resta, división, multiplicación). -->
+
+<!-- ```{r} -->
+<!-- # suma -->
+<!-- 2 + 5 -->
+
+<!-- # resta -->
+<!-- 45 - 12 -->
+
+<!-- # multiplicación -->
+<!-- 2 * 10 -->
+
+<!-- # división -->
+<!-- 2 / 10 -->
+
+<!-- # potencia -->
+<!-- 3 ^ 2 -->
+
+<!-- # log natural -->
+<!-- log(10) -->
+
+<!-- # log base 10 -->
+<!-- log(10, 10) -->
+<!-- ``` -->
+
+<!-- ### Almacenar y reusar resultados -->
+
+<!-- Para asignar valores a un objeto se debe emplear los llamados *operadores de asignación* `<-` o `=`. -->
+
+<!-- ```{r} -->
+<!-- library(kableExtra) -->
+<!-- tibble::tibble( -->
+<!--   operador = c("<-", "="), -->
+<!--   `Operación` = c("Asigna un valor a una variable", -->
+<!--                 "Asigna un valor a una variable") -->
+<!-- ) %>%  -->
+<!--   kbl(booktabs = T) %>%  -->
+<!--   kable_styling(bootstrap_options = "striped", -->
+<!--                 full_width = F, -->
+<!--                 position = "center") -->
+<!-- ``` -->
+
+<!-- Aunque se puede usar el símbolo `<-` o `=` se recomienda emplear el primero debido a que es más fácil de reconocerlo visualmente. Además, no genera problemas en procesos más complejos de programación. -->
+
+<!-- Para correr un proceso señalar con el cursor del mouse la línea del script a ejecutar. Luego hacer click en el boton `Run` ubicado en la parte superior derecha del panel del script o usar la combinación de teclas `ctrl + enter`. -->
+
+<!-- ```{r} -->
+<!-- # asignamos un nombre a la operación -->
+<!-- a <- 2 + 5 -->
+
+<!-- # Obtenemos los resultados de la operación -->
+<!-- a -->
+
+<!-- # Podemos realizar operaciones -->
+<!-- a * 5 -->
+<!-- ``` -->
+
+<!-- **¿Que nombres emplear?** -->
+
+<!-- Se pueden emplear letras, números o caracteres especiales como `.`; `_`. Algunos ejemplos son: `var_1`, `var.1`, `VAR1`, `myVar1`. Recordemos que R es muy sensible a las mayúsculas y minúsculas, `Mi_var` y `mi_var` son diferentes. Evitar espacios en los nombres de los objetos ya que será mas fácil de trabajar con ellos. -->
+
+<!-- ### Crear un script -->
+
+<!-- Para crear un script ir a `file -> New file -> Rscript`.  -->
+
+<!-- ```{r out.width="80%", fig.align='center'} -->
+<!-- knitr::include_graphics("docs/imagen/firstScript.png") -->
+<!-- ``` -->
+
+<!-- Repetir todas las operaciones realizadas anteriormente pero ahora escribiéndolas en el nuevo script. ¿Qué observa? -->
+
+<!-- ### Importante {.unnumbered .keypoints} -->
+
+<!-- Cuando escribas instrucciones en el script de R, debemos asegurarnos que todas las instrucciones se encuentren allí y no tipear directamente en la consola. Si tipeamos unos comandos en el script y otros en la consola, pronto tendremos un desorden en los procedimientos y dificultades al momento de intentar reproducirlo generando una gran frustación. -->
+
+<!-- ### Comentando tu script -->
+
+<!-- Tomar apuntes respecto a lo que hace cada línea de código es de vital importancia para uno mismo o para otra persona con la que compartas tu código. -->
+
+<!-- En R podemos realizar comentarios empezando una línea con el caracter `#`. Todo lo que se escriba después del `#` será ignorado por R.  -->
+
+<!-- ```{r out.width="80%", fig.align='center'} -->
+<!-- knitr::include_graphics("docs/imagen/firstComment.PNG") -->
+<!-- ``` -->
+
+<!-- ### Guardar y mantener seguro tu script -->
+
+<!-- Nuestro script contiene todo las instrucciones y detalles de un trabajo especifico por tanto será importante guardarlo y mantener seguro generando respaldos si es necesario. Para realizar este proceso ir a `file -> Save us .. ` o usa la combinación de teclas `ctrl + s`. Asigna al script un nombre fácil de ubicar pero que signifique algo para nosotros (idealmente un nombre conciso sobre lo que hace el script o los datos que contiene). -->
+
+<!-- ### Errores comunes -->
+
+<!-- Probablemente experimentaras diferentes errores a lo largo de este proceso de aprendizaje. Algunos de los más comunes son los siguientes: -->
+
+<!--  - Objeto no encontrado. R no encontrará un objeto si no ha sido definido previamente.  -->
+
+<!-- ```{r fig.align='center'} -->
+<!-- knitr::include_graphics("docs/imagen/errorMissedObject.PNG") -->
+<!-- ``` -->
+
+<!-- - Advertencias. El código se ejecutará pero se notificará un mensaje de advertencia lo que significa que el código puede que no esté haciendo lo que se pretende o que R ha reconocido algo que solicitaste como riesgoso. **Nunca ignores un mensaje de advertencia** -->
+
+<!-- - El temido `+`. Otro error es un resultado en la consola que luce como:\ -->
+<!-- Esto significa que la sintaxis del código escrito no esta completo. El `+` en la consola es la forma de decir de R "estoy esperando que el proceso se termine". Cuando vea el `+` presione la tecla `esc` y vuelva a ejecutar todo el comando escrito correctamente. -->
+
+<!-- ```{r fig.align='center', out.width="30%"} -->
+
+<!-- knitr::include_graphics("docs/imagen/errorTemido.PNG") -->
+<!-- ``` -->
