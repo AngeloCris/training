@@ -1,33 +1,41 @@
-name: "R<sup>3</sup>"
+name: "R<sup>3</sup>" 
 navbar:
   title: "R Training"
+  tipe: inverse
   left:
     - text: "Home"
       icon: "fas fa-home"
-      href: index.html
+      href: 01_index.html
     - text: "Lecturas"
-      href: lecturas.html
+      href: 02_lecturas.html
       icon: "fas fa-graduation-cap"
       menu:
-      - text: "Programación en R"
-      - text: "1. Introducción a la ciencia de datos y R"
-        href: rstudio1.html
-      - text: "2. Datos"
-        href: datos.html
-      - text: "3. Programación"
-        href: condicionales.html
-      - text: "4. Gráficos"
-        href: graficos.html
-  right:
-    - text: "Repo"
-      icon: "fab fa-github"
-      href: https://github.com/AngeloCris/training
-    - text: "Bibliografia"
-      icon: "fas fa-search"
-      href: bibliografia.html
+      - text: "Programación en R" #submenu bar
+      - text: "1. Introducción a R"
+        href: 03_rstudio.html
+        
+  #     - text: "2. Datos"
+  #       href: datos.html
+  #     - text: "3. Programación"
+  #       href: condicionales.html
+  #     - text: "4. Gráficos"
+  #       href: graficos.html
+  # right:
+  #   - text: "Repo"
+  #     icon: "fab fa-github"
+  #     href: https://github.com/AngeloCris/training
+  #   - text: "Bibliografia"
+  #     icon: "fas fa-search"
+  #     href: bibliografia.html
 output_dir: "."
 output: 
   html_document:
+    theme: spacelab
+    highlight: tango
     toc_depth: 6
     toc_float: true
-    css: docs/css/swcarpentry-lesson.css
+    css: docs/css/style_site.css
+    include:
+      before_body: footer.html
+    
+  
