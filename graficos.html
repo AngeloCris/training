@@ -417,20 +417,41 @@ Portugal.</p>
 <pre class="r"><code>readLines(&quot;datos/bank.csv&quot;, n = 4)
 banco &lt;- read.csv(&quot;datos/bank.csv&quot;, sep = &quot;;&quot;)</code></pre>
 <pre class="r"><code>head(banco)</code></pre>
-<pre><code>##   age         job marital education default balance housing loan  contact day
-## 1  30  unemployed married   primary      no    1787      no   no cellular  19
-## 2  33    services married secondary      no    4789     yes  yes cellular  11
-## 3  35  management  single  tertiary      no    1350     yes   no cellular  16
-## 4  30  management married  tertiary      no    1476     yes  yes  unknown   3
-## 5  59 blue-collar married secondary      no       0     yes   no  unknown   5
-## 6  35  management  single  tertiary      no     747      no   no cellular  23
-##   month duration campaign pdays previous poutcome  y
-## 1   oct       79        1    -1        0  unknown no
-## 2   may      220        1   339        4  failure no
-## 3   apr      185        1   330        1  failure no
-## 4   jun      199        4    -1        0  unknown no
-## 5   may      226        1    -1        0  unknown no
-## 6   feb      141        2   176        3  failure no</code></pre>
+<pre><code>##   age         job marital education
+## 1  30  unemployed married   primary
+## 2  33    services married secondary
+## 3  35  management  single  tertiary
+## 4  30  management married  tertiary
+## 5  59 blue-collar married secondary
+## 6  35  management  single  tertiary
+##   default balance housing loan
+## 1      no    1787      no   no
+## 2      no    4789     yes  yes
+## 3      no    1350     yes   no
+## 4      no    1476     yes  yes
+## 5      no       0     yes   no
+## 6      no     747      no   no
+##    contact day month duration
+## 1 cellular  19   oct       79
+## 2 cellular  11   may      220
+## 3 cellular  16   apr      185
+## 4  unknown   3   jun      199
+## 5  unknown   5   may      226
+## 6 cellular  23   feb      141
+##   campaign pdays previous poutcome
+## 1        1    -1        0  unknown
+## 2        1   339        4  failure
+## 3        1   330        1  failure
+## 4        4    -1        0  unknown
+## 5        1    -1        0  unknown
+## 6        2   176        3  failure
+##    y
+## 1 no
+## 2 no
+## 3 no
+## 4 no
+## 5 no
+## 6 no</code></pre>
 <pre class="r"><code># #Cómo conocemos las dimensiones del dataframe?
 # dim(banco)
 # 
@@ -581,12 +602,12 @@ y1 &lt;- rnorm( 50, mean = 0 )
 y2 &lt;- rnorm( 50, mean = -5 )
 head(data.frame(x,y0,y1,y2))</code></pre>
 <pre><code>##   x       y0         y1        y2
-## 1 1 4.973924  1.4383303 -6.384831
-## 2 2 4.386030 -0.7799454 -3.776401
-## 3 3 2.716038  0.8744821 -4.496167
-## 4 4 4.462156  1.2249449 -5.393410
-## 5 5 5.429247  1.8168403 -4.428056
-## 6 6 6.200904  0.1803436 -3.878692</code></pre>
+## 1 1 7.283303 -0.5344946 -5.217384
+## 2 2 6.558602  0.3206522 -5.562216
+## 3 3 5.996005 -2.7004890 -6.471452
+## 4 4 4.963346  0.4474810 -5.984750
+## 5 5 6.947467  1.2750412 -2.991340
+## 6 6 5.513328 -0.5509632 -6.132959</code></pre>
 <pre class="r"><code>plot(c(-1,50),
      c(-8,9),
      type = &quot;n&quot;,

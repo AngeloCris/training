@@ -721,8 +721,9 @@ mayor a las celdas de la matriz, se acomodarán todos los datos posibles
 y los demás serán omitidos.</p>
 <pre class="r"><code># El vector contiene 12 elementos pero la matriz solo 9 celdas
 matrix(1:12, nrow = 3, ncol = 3)</code></pre>
-<pre><code>## Warning in matrix(1:12, nrow = 3, ncol = 3): data length differs from size of
-## matrix: [12 != 3 x 3]</code></pre>
+<pre><code>## Warning in matrix(1:12, nrow = 3,
+## ncol = 3): data length differs from
+## size of matrix: [12 != 3 x 3]</code></pre>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
@@ -731,8 +732,10 @@ matrix(1:12, nrow = 3, ncol = 3)</code></pre>
 elementos, estos se <strong>reciclaran</strong> sin antes advertirnos.
 Luego R empezará a usar los elementos a partir del primero de ellos.</p>
 <pre class="r"><code>matrix(1:18, nrow = 6, ncol = 4)</code></pre>
-<pre><code>## Warning in matrix(1:18, nrow = 6, ncol = 4): la longitud de los datos [18] no es
-## un submúltiplo o múltiplo del número de columnas [4] en la matriz</code></pre>
+<pre><code>## Warning in matrix(1:18, nrow = 6,
+## ncol = 4): data length [18] is not
+## a sub-multiple or multiple of the
+## number of columns [4]</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    7   13    1
 ## [2,]    2    8   14    2
@@ -781,13 +784,20 @@ miMatriz_4 &lt;- cbind(miVector_1, miVector_2, miVector_3)
 
 # Resultado
 miMatriz_4</code></pre>
-<pre><code>##      miVector_1 miVector_2 miVector_3
-## [1,]          3          2          3
-## [2,]          6          9          6
-## [3,]          8          3          8
-## [4,]          3          2          2
-## [5,]          6          9          9
-## [6,]          8          3          3</code></pre>
+<pre><code>##      miVector_1 miVector_2
+## [1,]          3          2
+## [2,]          6          9
+## [3,]          8          3
+## [4,]          3          2
+## [5,]          6          9
+## [6,]          8          3
+##      miVector_3
+## [1,]          3
+## [2,]          6
+## [3,]          8
+## [4,]          2
+## [5,]          9
+## [6,]          3</code></pre>
 <p>Por último, las matrices pueden contener valores <em>NA</em> para
 representar valores perdidos, por ejemplo:</p>
 <pre class="r"><code>vector_1 &lt;- c(2, 5, NA)
@@ -915,7 +925,8 @@ dataframe, esta se vectorizará.</p>
 ## 5 2013 Sector_1    11   F 108.75
 ## 6 2013 Sector_1    11   F 106.12</code></pre>
 <pre class="r"><code>head(crabs$CL / 10)</code></pre>
-<pre><code>## [1] 12.364 11.847 11.553 11.398 10.875 10.612</code></pre>
+<pre><code>## [1] 12.364 11.847 11.553 11.398
+## [5] 10.875 10.612</code></pre>
 <p>Algunas funciones que pueden resultar útiles para explorar
 rápidamente la estructura de nuestros datos son: <code>summary()</code>,
 <code>head()</code>, <code>tail()</code>, <code>str()</code>.</p>

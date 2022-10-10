@@ -529,23 +529,34 @@ cumple</p></li>
 </ul>
 <pre class="r"><code>vector &lt;- 1:10
 ifelse(vector &gt; 5, &quot;TRUE&quot;, &quot;FALSE&quot;)</code></pre>
-<pre><code>##  [1] &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot; 
-## [10] &quot;TRUE&quot;</code></pre>
+<pre><code>##  [1] &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot;
+##  [5] &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot; 
+##  [9] &quot;TRUE&quot;  &quot;TRUE&quot;</code></pre>
 <pre class="r"><code>edad &lt;- c(10,15,17,19, 20, 13, 11, 16, 15)
 
 ifelse(edad &gt;= 15, &quot;TRUE&quot;, &quot;FALSE&quot;)</code></pre>
-<pre><code>## [1] &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;</code></pre>
+<pre><code>## [1] &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot; 
+## [5] &quot;TRUE&quot;  &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot; 
+## [9] &quot;TRUE&quot;</code></pre>
 <pre class="r"><code>#Determinar cual de los números del 1 al 60 son pares y cuales impares ¿que se debe cumplir?
 
 numeros &lt;- 1:60
 ifelse(numeros %% 2 == 0, &quot;par&quot;, &quot;impar&quot;)</code></pre>
-<pre><code>##  [1] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot;
-## [10] &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
-## [19] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot;
-## [28] &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
-## [37] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot;
-## [46] &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
-## [55] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;</code></pre>
+<pre><code>##  [1] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+##  [5] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+##  [9] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [13] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [17] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [21] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [25] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [29] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [33] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [37] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [41] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [45] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [49] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [53] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [57] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;</code></pre>
 <p>Otro ejemplo más complejo. Solicitamos sólo los números que son
 exactamente divisibles entre 2 y 3.</p>
 <pre class="r"><code>numeros &lt;- 1:20
@@ -553,17 +564,25 @@ exactamente divisibles entre 2 y 3.</p>
 ifelse(numeros %% 2 == 0 &amp; numeros %% 3 == 0,
        &quot;Divisible&quot;,
        &quot;No divisible&quot;)</code></pre>
-<pre><code>##  [1] &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot;
-##  [6] &quot;Divisible&quot;    &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot;
-## [11] &quot;No divisible&quot; &quot;Divisible&quot;    &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot;
-## [16] &quot;No divisible&quot; &quot;No divisible&quot; &quot;Divisible&quot;    &quot;No divisible&quot; &quot;No divisible&quot;</code></pre>
+<pre><code>##  [1] &quot;No divisible&quot; &quot;No divisible&quot;
+##  [3] &quot;No divisible&quot; &quot;No divisible&quot;
+##  [5] &quot;No divisible&quot; &quot;Divisible&quot;   
+##  [7] &quot;No divisible&quot; &quot;No divisible&quot;
+##  [9] &quot;No divisible&quot; &quot;No divisible&quot;
+## [11] &quot;No divisible&quot; &quot;Divisible&quot;   
+## [13] &quot;No divisible&quot; &quot;No divisible&quot;
+## [15] &quot;No divisible&quot; &quot;No divisible&quot;
+## [17] &quot;No divisible&quot; &quot;Divisible&quot;   
+## [19] &quot;No divisible&quot; &quot;No divisible&quot;</code></pre>
 <p>Conocer esta función puede ser particularmente útil para recodificar
 datos. Por ejemplo:</p>
 <pre class="r"><code>sexo &lt;- c(0, 1, 0, 0, 0, 0, 0, 1, 1, 0)
 sexo &lt;- ifelse(sexo == 0, &quot;hembra&quot;, &quot;macho&quot;)
 sexo</code></pre>
-<pre><code>##  [1] &quot;hembra&quot; &quot;macho&quot;  &quot;hembra&quot; &quot;hembra&quot; &quot;hembra&quot; &quot;hembra&quot; &quot;hembra&quot; &quot;macho&quot; 
-##  [9] &quot;macho&quot;  &quot;hembra&quot;</code></pre>
+<pre><code>##  [1] &quot;hembra&quot; &quot;macho&quot;  &quot;hembra&quot;
+##  [4] &quot;hembra&quot; &quot;hembra&quot; &quot;hembra&quot;
+##  [7] &quot;hembra&quot; &quot;macho&quot;  &quot;macho&quot; 
+## [10] &quot;hembra&quot;</code></pre>
 </div>
 <div id="uso-de-condicionales-y-estructuras-de-control-en-un-dataframe"
 class="section level3">
@@ -580,8 +599,12 @@ class="uri">https://github.com/AngeloCris/computacionCientifica_2021/blob/master
 datosCrangrejo</code></pre>
 <p>Para determinar el total de filas de mi data frame usamos la función
 <em>length</em>.</p>
-<pre class="r"><code>attach(datosCrangrejo)
-length(datosCrangrejo$Year)</code></pre>
+<pre class="r"><code>attach(datosCrangrejo)</code></pre>
+<pre><code>## The following objects are masked from datosCrangrejo (pos = 3):
+## 
+##     C_Length, Month, Sector,
+##     Sex, Year</code></pre>
+<pre class="r"><code>length(datosCrangrejo$Year)</code></pre>
 <pre><code>## [1] 71013</code></pre>
 <p>La base de datos muestra los registros mensuales de la longitud y
 sexo de un cangrejo para el periodo 2008 y 2014. En función a lo
@@ -617,13 +640,20 @@ datosCrangrejo$estacion[datosCrangrejo$Month %in% c(3,4,5)] &lt;- &quot;otoño&q
 datosCrangrejo$estacion[datosCrangrejo$Month %in% c(6,7,8)] &lt;- &quot;invierno&quot;
 datosCrangrejo$estacion[datosCrangrejo$Month %in% c(9,10,11)] &lt;- &quot;primavera&quot;
 head(datosCrangrejo)</code></pre>
-<pre><code>##   Year   Sector Month Sex C_Length    sexo  estacion
-## 1 2013 Sector_1    11   F   123.64 Females primavera
-## 2 2013 Sector_1    11   F   118.47 Females primavera
-## 3 2013 Sector_1    11   F   115.53 Females primavera
-## 4 2013 Sector_1    11   F   113.98 Females primavera
-## 5 2013 Sector_1    11   F   108.75 Females primavera
-## 6 2013 Sector_1    11   F   106.12 Females primavera</code></pre>
+<pre><code>##   Year   Sector Month Sex C_Length
+## 1 2013 Sector_1    11   F   123.64
+## 2 2013 Sector_1    11   F   118.47
+## 3 2013 Sector_1    11   F   115.53
+## 4 2013 Sector_1    11   F   113.98
+## 5 2013 Sector_1    11   F   108.75
+## 6 2013 Sector_1    11   F   106.12
+##      sexo  estacion
+## 1 Females primavera
+## 2 Females primavera
+## 3 Females primavera
+## 4 Females primavera
+## 5 Females primavera
+## 6 Females primavera</code></pre>
 <ul>
 <li>Determinar las posiciones de la categoría “primavera” y luego
 determinar los valores que se asocian a esas posiciones.</li>
@@ -642,21 +672,35 @@ media.</li>
 head(which(datosCrangrejo$C_Length &gt; media))</code></pre>
 <pre><code>## [1] 1 2 3 4 5 6</code></pre>
 <pre class="r"><code>head(datosCrangrejo[which(datosCrangrejo$C_Length &gt; media),])</code></pre>
-<pre><code>##   Year   Sector Month Sex C_Length    sexo  estacion
-## 1 2013 Sector_1    11   F   123.64 Females primavera
-## 2 2013 Sector_1    11   F   118.47 Females primavera
-## 3 2013 Sector_1    11   F   115.53 Females primavera
-## 4 2013 Sector_1    11   F   113.98 Females primavera
-## 5 2013 Sector_1    11   F   108.75 Females primavera
-## 6 2013 Sector_1    11   F   106.12 Females primavera</code></pre>
+<pre><code>##   Year   Sector Month Sex C_Length
+## 1 2013 Sector_1    11   F   123.64
+## 2 2013 Sector_1    11   F   118.47
+## 3 2013 Sector_1    11   F   115.53
+## 4 2013 Sector_1    11   F   113.98
+## 5 2013 Sector_1    11   F   108.75
+## 6 2013 Sector_1    11   F   106.12
+##      sexo  estacion
+## 1 Females primavera
+## 2 Females primavera
+## 3 Females primavera
+## 4 Females primavera
+## 5 Females primavera
+## 6 Females primavera</code></pre>
 <pre class="r"><code>head(datosCrangrejo[datosCrangrejo$C_Length &gt; media,])</code></pre>
-<pre><code>##   Year   Sector Month Sex C_Length    sexo  estacion
-## 1 2013 Sector_1    11   F   123.64 Females primavera
-## 2 2013 Sector_1    11   F   118.47 Females primavera
-## 3 2013 Sector_1    11   F   115.53 Females primavera
-## 4 2013 Sector_1    11   F   113.98 Females primavera
-## 5 2013 Sector_1    11   F   108.75 Females primavera
-## 6 2013 Sector_1    11   F   106.12 Females primavera</code></pre>
+<pre><code>##   Year   Sector Month Sex C_Length
+## 1 2013 Sector_1    11   F   123.64
+## 2 2013 Sector_1    11   F   118.47
+## 3 2013 Sector_1    11   F   115.53
+## 4 2013 Sector_1    11   F   113.98
+## 5 2013 Sector_1    11   F   108.75
+## 6 2013 Sector_1    11   F   106.12
+##      sexo  estacion
+## 1 Females primavera
+## 2 Females primavera
+## 3 Females primavera
+## 4 Females primavera
+## 5 Females primavera
+## 6 Females primavera</code></pre>
 <ul>
 <li>Extraer todos los registros de cangrejos hembras que superan la
 talla media.</li>
@@ -674,13 +718,20 @@ supera o no la talla mínima.</li>
 datosCrangrejo$lengthMin &lt;- &quot;NA&quot;
 datosCrangrejo$lengthMin &lt;- ifelse(datosCrangrejo$C_Length &gt; 110, &quot;&gt;tmin&quot;, &quot;&lt;tmin&quot;)
 head(datosCrangrejo)</code></pre>
-<pre><code>##   Year   Sector Month Sex C_Length    sexo  estacion lengthMin
-## 1 2013 Sector_1    11   F   123.64 Females primavera     &gt;tmin
-## 2 2013 Sector_1    11   F   118.47 Females primavera     &gt;tmin
-## 3 2013 Sector_1    11   F   115.53 Females primavera     &gt;tmin
-## 4 2013 Sector_1    11   F   113.98 Females primavera     &gt;tmin
-## 5 2013 Sector_1    11   F   108.75 Females primavera     &lt;tmin
-## 6 2013 Sector_1    11   F   106.12 Females primavera     &lt;tmin</code></pre>
+<pre><code>##   Year   Sector Month Sex C_Length
+## 1 2013 Sector_1    11   F   123.64
+## 2 2013 Sector_1    11   F   118.47
+## 3 2013 Sector_1    11   F   115.53
+## 4 2013 Sector_1    11   F   113.98
+## 5 2013 Sector_1    11   F   108.75
+## 6 2013 Sector_1    11   F   106.12
+##      sexo  estacion lengthMin
+## 1 Females primavera     &gt;tmin
+## 2 Females primavera     &gt;tmin
+## 3 Females primavera     &gt;tmin
+## 4 Females primavera     &gt;tmin
+## 5 Females primavera     &lt;tmin
+## 6 Females primavera     &lt;tmin</code></pre>
 </div>
 </div>
 <div id="bucles" class="section level2">
@@ -765,16 +816,16 @@ for (i in 1:10) {
   usq[i] &lt;- u1[i] * u1[i]
   print(usq[i])
 }</code></pre>
-<pre><code>## [1] 0.2089817
-## [1] 3.51731
-## [1] 0.08774506
-## [1] 1.344094
-## [1] 0.6776735
-## [1] 0.328735
-## [1] 0.6276328
-## [1] 0.2471809
-## [1] 0.5077139
-## [1] 0.7118727</code></pre>
+<pre><code>## [1] 1.030614
+## [1] 0.3007628
+## [1] 0.149697
+## [1] 2.004194
+## [1] 0.8112623
+## [1] 0.433721
+## [1] 1.287684
+## [1] 2.262498
+## [1] 0.2011826
+## [1] 0.9297034</code></pre>
 </div>
 <div id="while" class="section level3">
 <h3>while</h3>
