@@ -13,7 +13,6 @@ navbar:
       - text: "Programación en R" #submenu bar
       - text: "1. Introducción a R"
         href: 03_rstudio.html
-        
       - text: "2. Datos"
         href: datos.html
       - text: "3. Programación"
