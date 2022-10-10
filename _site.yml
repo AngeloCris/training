@@ -7,7 +7,27 @@ navbar:
       href: index.html
     - text: "Lecturas"
       href: lecturas.html
-      icon: "fas fa-face"
+      icon: "fas fa-graduation-cap"
       menu:
-      - text: "sub-seccion"
+      - text: "Programación en R"
+      - text: "1. Introducción a la ciencia de datos y R"
+        href: rstudio1.html
+      - text: "2. Datos"
+        href: datos.html
+      - text: "3. Programación"
+        href: condicionales.html
+      - text: "4. Gráficos"
+        href: graficos.html
+  right:
+    - text: "Repo"
+      icon: "fab fa-github"
+      href: https://github.com/AngeloCris/training
+    - text: "Bibliografia"
+      icon: "fas fa-search"
+      href: bibliografia.html
 output_dir: "."
+output: 
+  html_document:
+    toc_depth: 6
+    toc_float: true
+    css: docs/css/swcarpentry-lesson.css
