@@ -452,11 +452,33 @@ div.tocify {
     <li>
       <a href="03_rstudio.html">1. Introducción a R</a>
     </li>
+    <li>
+      <a href="datos.html">2. Datos</a>
+    </li>
+    <li>
+      <a href="condicionales.html">3. Programación</a>
+    </li>
+    <li>
+      <a href="graficos.html">4. Gráficos</a>
+    </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/AngeloCris/training">
+    <span class="fab fa-github"></span>
+     
+    Repo
+  </a>
+</li>
+<li>
+  <a href="bibliografia.html">
+    <span class="fas fa-search"></span>
+     
+    Bibliografia
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -804,8 +826,8 @@ mayor a las celdas de la matriz, se acomodarán todos los datos posibles
 y los demás serán omitidos.</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El vector contiene 12 elementos pero la matriz solo 9 celdas</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## Warning in matrix(1:12, nrow = 3, ncol = 3): data length differs from size of
-## matrix: [12 != 3 x 3]</code></pre>
+<pre><code>## Warning in matrix(1:12, nrow = 3, ncol = 3): data length
+## differs from size of matrix: [12 != 3 x 3]</code></pre>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
@@ -814,8 +836,9 @@ y los demás serán omitidos.</p>
 elementos, estos se <strong>reciclaran</strong> sin antes advertirnos.
 Luego R empezará a usar los elementos a partir del primero de ellos.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## Warning in matrix(1:18, nrow = 6, ncol = 4): data length [18] is not a sub-
-## multiple or multiple of the number of columns [4]</code></pre>
+<pre><code>## Warning in matrix(1:18, nrow = 6, ncol = 4): data length [18]
+## is not a sub-multiple or multiple of the number of columns
+## [4]</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    7   13    1
 ## [2,]    2    8   14    2
