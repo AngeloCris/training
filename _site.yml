@@ -14,19 +14,19 @@ navbar:
       - text: "1. Introducción a R"
         href: 03_rstudio.html
         
-  #     - text: "2. Datos"
-  #       href: datos.html
-  #     - text: "3. Programación"
-  #       href: condicionales.html
-  #     - text: "4. Gráficos"
-  #       href: graficos.html
-  # right:
-  #   - text: "Repo"
-  #     icon: "fab fa-github"
-  #     href: https://github.com/AngeloCris/training
-  #   - text: "Bibliografia"
-  #     icon: "fas fa-search"
-  #     href: bibliografia.html
+      - text: "2. Datos"
+        href: datos.html
+      - text: "3. Programación"
+        href: condicionales.html
+      - text: "4. Gráficos"
+        href: graficos.html
+  right:
+    - text: "Repo"
+      icon: "fab fa-github"
+      href: https://github.com/AngeloCris/training
+    - text: "Bibliografia"
+      icon: "fas fa-search"
+      href: bibliografia.html
 output_dir: "."
 output: 
   html_document:
