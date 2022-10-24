@@ -163,6 +163,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="docs/css/style_site.css" type="text/css" />
+<link rel="stylesheet" href="docs/css/swcarpentry-lessons.css" type="text/css" />
 
 
 
@@ -634,19 +635,26 @@ cumple</p></li>
 </ul>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(vector <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot;</code></pre>
+<pre><code>##  [1] &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot; 
+##  [8] &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot;</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">15</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(edad <span class="sc">&gt;=</span> <span class="dv">15</span>, <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;</code></pre>
+<pre><code>## [1] &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;FALSE&quot; &quot;FALSE&quot;
+## [8] &quot;TRUE&quot;  &quot;TRUE&quot;</code></pre>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Determinar cual de los números del 1 al 60 son pares y cuales impares ¿que se debe cumplir?</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">60</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(numeros <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>, <span class="st">&quot;par&quot;</span>, <span class="st">&quot;impar&quot;</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot;
-## [16] &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
-## [31] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot;
-## [46] &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;</code></pre>
+<pre><code>##  [1] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot;
+##  [8] &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [15] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot;
+## [22] &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [29] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot;
+## [36] &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [43] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot;
+## [50] &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [57] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;</code></pre>
 <p>Otro ejemplo más complejo. Solicitamos sólo los números que son
 exactamente divisibles entre 2 y 3.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
@@ -654,15 +662,20 @@ exactamente divisibles entre 2 y 3.</p>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(numeros <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> numeros <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span>,</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;Divisible&quot;</span>,</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;No divisible&quot;</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot; &quot;Divisible&quot;    &quot;No divisible&quot; &quot;No divisible&quot;
-##  [9] &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot; &quot;Divisible&quot;    &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot;
-## [17] &quot;No divisible&quot; &quot;Divisible&quot;    &quot;No divisible&quot; &quot;No divisible&quot;</code></pre>
+<pre><code>##  [1] &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot;
+##  [4] &quot;No divisible&quot; &quot;No divisible&quot; &quot;Divisible&quot;   
+##  [7] &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot;
+## [10] &quot;No divisible&quot; &quot;No divisible&quot; &quot;Divisible&quot;   
+## [13] &quot;No divisible&quot; &quot;No divisible&quot; &quot;No divisible&quot;
+## [16] &quot;No divisible&quot; &quot;No divisible&quot; &quot;Divisible&quot;   
+## [19] &quot;No divisible&quot; &quot;No divisible&quot;</code></pre>
 <p>Conocer esta función puede ser particularmente útil para recodificar
 datos. Por ejemplo:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sexo <span class="sc">==</span> <span class="dv">0</span>, <span class="st">&quot;hembra&quot;</span>, <span class="st">&quot;macho&quot;</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
-<pre><code>##  [1] &quot;hembra&quot; &quot;macho&quot;  &quot;hembra&quot; &quot;hembra&quot; &quot;hembra&quot; &quot;hembra&quot; &quot;hembra&quot; &quot;macho&quot;  &quot;macho&quot;  &quot;hembra&quot;</code></pre>
+<pre><code>##  [1] &quot;hembra&quot; &quot;macho&quot;  &quot;hembra&quot; &quot;hembra&quot; &quot;hembra&quot; &quot;hembra&quot;
+##  [7] &quot;hembra&quot; &quot;macho&quot;  &quot;macho&quot;  &quot;hembra&quot;</code></pre>
 </div>
 <div id="uso-de-condicionales-y-estructuras-de-control-en-un-dataframe"
 class="section level3">
@@ -776,13 +789,20 @@ supera o no la talla mínima.</li>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>datosCrangrejo<span class="sc">$</span>lengthMin <span class="ot">&lt;-</span> <span class="st">&quot;NA&quot;</span></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>datosCrangrejo<span class="sc">$</span>lengthMin <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(datosCrangrejo<span class="sc">$</span>C_Length <span class="sc">&gt;</span> <span class="dv">110</span>, <span class="st">&quot;&gt;tmin&quot;</span>, <span class="st">&quot;&lt;tmin&quot;</span>)</span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datosCrangrejo)</span></code></pre></div>
-<pre><code>##   Year   Sector Month Sex C_Length    sexo  estacion lengthMin
-## 1 2013 Sector_1    11   F   123.64 Females primavera     &gt;tmin
-## 2 2013 Sector_1    11   F   118.47 Females primavera     &gt;tmin
-## 3 2013 Sector_1    11   F   115.53 Females primavera     &gt;tmin
-## 4 2013 Sector_1    11   F   113.98 Females primavera     &gt;tmin
-## 5 2013 Sector_1    11   F   108.75 Females primavera     &lt;tmin
-## 6 2013 Sector_1    11   F   106.12 Females primavera     &lt;tmin</code></pre>
+<pre><code>##   Year   Sector Month Sex C_Length    sexo  estacion
+## 1 2013 Sector_1    11   F   123.64 Females primavera
+## 2 2013 Sector_1    11   F   118.47 Females primavera
+## 3 2013 Sector_1    11   F   115.53 Females primavera
+## 4 2013 Sector_1    11   F   113.98 Females primavera
+## 5 2013 Sector_1    11   F   108.75 Females primavera
+## 6 2013 Sector_1    11   F   106.12 Females primavera
+##   lengthMin
+## 1     &gt;tmin
+## 2     &gt;tmin
+## 3     &gt;tmin
+## 4     &gt;tmin
+## 5     &lt;tmin
+## 6     &lt;tmin</code></pre>
 </div>
 </div>
 <div id="bucles" class="section level2">

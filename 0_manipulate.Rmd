@@ -1,0 +1,433 @@
+---
+title: "Manipulando, analizando y exportando datos con tidyverse"
+output: 
+  html_document:
+    toc: true
+    # toc_depth: 3
+    toc_float: true
+  # html_document:
+  #   theme: spacelab
+  #   highlight: tango
+  #   toc_depth: 6
+  #   toc_float: true
+  #   css: docs/css/swcarpentry-lessons.css
+---
+
+La forma de manipulación de datos usando base R puede resultar complicado y difícil de entender, especialmente para procesos complejos. Como una alternativa a ello se han desarrollado diferentes paqueterías que ayuda a manipular, depurar y visualizar datos. Todas estas paqueterías estan englobadas en una sola conocida como `tidyverse`. Este universo incluye paqueterías como `dplyr`, `tidyr`, `readr` y `ggplo2`. `tidyr` y `dplyr` resultan muy útiles para manipular datos, `readr` es genial para importar datos como archivos `csv`, mientras que `ggplot2` es uno de los mejores paquetes para la vizualización de datos. `lubridate` es otro paquete muy útil cuando se trabaja con fechas y horas. Aprenda más de la colección de paquetes que conforman el universo `tidyverse` [here](https://www.tidyverse.org/).
+
+## Objetivo {.unnumbered .objectives}
+
+- Describir los propósitos de las librerías dplyr y tidyr.
+
+- Seleccionar columnas específicas de una base de datos usando la función `select()` de dplyr.
+
+- Extraer filas de una base de datos de acuerdo a condiciones lógicas usando la función `filter()` de dplyr.
+
+- Aprender a usar el operador pipeline `%>%`
+
+- Añadir nuevas columnas a una base de datos usando la función `mutate()` de dplyr.
+
+- Utilizar la función `group_by()` y `count()` para dividir una base de datos en grupos de observaciones y aplicar estadísticos descriptivos a los mismos.
+
+- Describir el concepto de formato de tabla largo y ancho de una base de datos y para qué son útiles estos formatos.
+
+- Reestructurar una base de datos en formaro largo y ancho empleando las funciones `pivot_longer()` y `pivot_wider()` de tidyr.
+
+- Exportar un marco de datos a un archivo .csv.
+
+
+<!-- El universo `tidyverse` trata de resolver 3 problemas comunes que surgen al realizar análisis de datos en R -->
+
+<!-- 1. Los resultados de una función base de R depende del tipo de datos. -->
+
+<!-- 2. Las expresiones utilizadas en R no tienen un formato estandar, lo que puede resultar confuso para los nuevos alumnos. -->
+
+<!-- 3. La existencia de argumentos ocultos con operaciones por defectos que los nuevos alumnos desconocen. -->
+
+<!-- Para instalar este paquete se debe escribir directamente en la consola el siguiente argumento `install.package("tidyverse")". -->
+
+## Dplyr - Tidyr
+
+El paquete `dplyr` fue construido para trabajar directamente con bases de datos. Proporciona herramientas útiles para las tareas más comunes de manipulación de datos (seleccionar, filtrar, agregar columnsa, agrupar observaciones). El paquete `tidyr` aborda la necesidad de reestructurar y reordenar datos para visualizarlos o utilizarlos con diferentes funciones de R. Para conocer las principales funciones de las librerías `dplyr` y `tidyr` puedes consultar [este fichero resumen](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf).
+
+Antes de comenzar asegurémonos de tener instalado los siguientes paquetes: `tidyverse` y `palmerpenguins`. La librería `palmerpenguins` será de utilidad para obtenrer la base de datos con la cual trabajaremos en esta sección.
+
+<!-- Por ejemplo, a veces queremos conjuntos de datos en los que tenemos una fila por medición. Otras veces queremos un marco de datos donde cada tipo de medición tiene su propia columna, y las filas son en cambio grupos más agregados (por ejemplo, un período de tiempo, una unidad experimental como una parcela o un número de lote). Pasar de un formato a otro no es trivial, y tidyr le ofrece herramientas para esto y para una manipulación de datos más sofisticada. -->
+
+```{r warning=FALSE, message=FALSE}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+```{r results='hide'}
+# Inspeccionando la data
+data(penguins)
+str(penguins)
+```
+
+```{r eval=FALSE}
+# Visualizando datos
+View(penguins)
+```
+
+Las funciones más comunes de `dplyr` son:
+
+  - `select()`: selección de columnas
+  
+  - `filter()`: selección de filas que cumplen una condición
+  
+  - `mutate()`: Crea nuevas columnas usando información de otras
+  
+  - `group_by()` y `summarize()`: Obtiene estadísticos descriptivos en función a datos agrupados
+  
+  - `arrange()`: Ordena los resultados
+  
+  - `count()`: Cuenta valores discretos
+  
+  
+## Seleccionar filas y columnas
+
+Para seleccionar columnas de una base de datos usaremos la función `select()`. El primer argumento de la función es la base de datos (`penguins`) y el segundo, las columnas que se desea mantener.
+
+```{r results='hide'}
+# Formato:
+# select(dataframe, columnas)
+select(penguins, island, species, body_mass_g)
+```
+
+Para seleccionar todas las variables del objeto `penguins` - excluyendo las variables `year` y `species` - coloca el signo `-` delante de cada una de ellas.
+
+```{r results='hide'}
+select(penguins, -year, -species)
+```
+
+## Tuberías o pipelines
+
+¿Que sucede si deseamos seleccionar y filtrar datos en una misma línea de código? Existen tres formas de hacerlo. Usar pasos intermedios, funciones anidadas o tuberias (pipes).
+
+Al usar pasos intermedios lo que se hace es crear un archivo temporal y usarlo como "input" en la siguiente función:
+
+```{r results='hide'}
+# Creamos un archivo temporal
+penguins2 <- filter(penguins, body_mass_g < 3000)
+
+# Usamos el archivo temporal para seleccionar columnas
+penguins_sml <- select(penguins2, species, sex, body_mass_g)
+```
+
+Esta forma es legible pero puedes crear muchos objetos temporales en tu espacio de trabajo que en futuro se te hará complicado hacer el seguimiento de los objetos de interés. Otra forma de hacer el proceso anterior es usando funciones anidadas (ej. una función dentro de otra).
+
+```{r results='hide'}
+penguins_sml <- select(filter(penguins, body_mass_g < 3000), species, sex, body_mass_g)
+```
+
+Esta forma es mucho útil que la anterior pero puede ser difícil de entender si se usan muchas funciones anidades. 
+
+La última opción, tuberias o pipes, son las usadas más recientemente. Los pipes te permite tomar el resultado de una función y enviarla directamente a la siguiente operación. Esto resulta útil cuando necesitas hacer muchos procesos a la vez en una misma base de datos. Los pipes en R esta representado por el simbolo `%>%` y son extraídos de la paquetería `magrittr`, instalada automaticamente con `dplyr`. El símbolo de pipe puede ser rápidamente escrita usando los atajos del teclado `ctrl` + `shift` + `M`.
+
+```{r results='hide'}
+penguins %>% 
+  filter(body_mass_g < 3000) %>% 
+  select(species, sex, body_mass_g)
+```
+
+En el código anterior los procesos que se realizaron fueron los siguientes: 1) Primero se filtra todas las variables en donde los pinguinos hayan registrado un peso menor a 3000g  (`body_mass_g` < 3000). 2) Segundo, através del operador pipe (`%>%`), le decimos a R que del sub-conjunto de datos resultante seleccione únicamente las variables `sex` y `body_mass_g`.
+
+Si deseamos crear un nuevo objeto usando pipes simplemente asignamos un nuevo nombre al objeto:
+
+```{r results='hide', message=FALSE, warning=FALSE}
+penguins_sml <- 
+  penguins %>% 
+  filter(body_mass_g < 3000) %>% 
+  select(species, sex, body_mass_g)
+
+penguins_sml
+```
+
+## Crear nuevas variables
+
+Durante el análisis de datos frecuentemente se deseará incorporar nuevas columnas en el objeto de interés. Por ejemplo, para hacer conversión de unidades o encontrar la proporción de valores en dos columnas. La función `mutate()` te permite hacer estos procesos. Por ejemplo:
+
+```{r results='hide'}
+# Conversión de unidades
+penguins %>% 
+  mutate(body_mass_kg = body_mass_g/1000)
+```
+
+También podemos crear otra columna basada en la primera dentro de la misma función `mutate()`:
+
+```{r results='hide'}
+# Creamos dos columnas
+penguins %>% 
+  mutate(body_mass_kg = body_mass_g/1000,
+         body_mass_lb = body_mass_kg * 2.2)
+```
+
+La función `head()` también funciona con las tuberías (`%>%`)
+
+```{r results='hide'}
+penguins %>% 
+  mutate(body_mass_kg = body_mass_g / 1000,
+         body_mass_lb = body_mass_kg * 2.2) %>% 
+  head()
+```
+
+Si una base de datos presenta valores "NA", podemos removerlos usando la función `filter()` en conjunto con la función `is.na()` y el operador `!`.
+
+```{r results='hide'}
+penguins %>%
+  filter(!is.na(body_mass_g)) %>% 
+  mutate(body_mass_kg = body_mass_g / 1000,
+         body_mass_lb = body_mass_kg * 2.2) %>%
+  head()
+```
+
+La función `is.na()` determina si en la base de datos existen valores `NA`. El símbolo `!` actúa como negación. En otras palabras,  estamos consultando a R si existen filas en donde la variable `body_mass_g` no tienen valores `NA`
+
+
+```{r}
+# EJERCICIO
+# Crea una base de datos a partir de penguins que cumpla con los siguientes criterios:
+
+# 1. La nueva base de datos debe contener solamente la columna species y una nueva llamada flipper_length_cm 
+#    que contiene la longitud de las aletas de los pinguinos (actualmente en milímetros) en centímetros.
+# 2. En la variable flipper_length_cm no deben haber valores NA y deben ser menores a 20 cm.
+
+```
+
+```{r echo=FALSE, results='hide'}
+# Sub conjunto de datos
+penguins %>% 
+  mutate(flipper_length_cm = flipper_length_mm / 10) %>% 
+  select(species, flipper_length_cm)
+
+penguins %>% 
+  mutate(flipper_length_cm = flipper_length_mm / 10) %>% 
+  select(species, flipper_length_cm) %>% 
+  filter(!is.na(flipper_length_cm)) %>% 
+  filter(flipper_length_cm < 20)
+
+```
+
+## Resumir operaciones
+
+Muchas tareas en los análisis de datos pueden abordarse dividiéndola en pequeños grupos, aplicar algunos análisis a cada uno de estos y luego combinar los resultados en una sóla base de datos. Las principales funciones de `dplyr` para estos procesos son `group_by()` y `summarise()`. Las funciones `group_by()` y `summarise()` son frecuentemente utilizadas en conjunto de la siguiente manera:
+
+```{r results='hide'}
+penguins %>% 
+  group_by(sex) %>% 
+  summarise(mean_body_mass_g = mean(body_mass_g))
+```
+
+Dentro de la función `group_by()` se puede agrupar múltiples columnas, por ejemplo:
+
+```{r results='hide', message=FALSE, warning=FALSE}
+penguins %>% 
+  group_by(sex, species) %>% 
+  summarise(mean_body_mass_g = mean(body_mass_g))
+```
+
+Un aspecto a tener en cuentra durante estos análisis son los valores `NA`. Como observamos en los resultados anteriores, la presencia de valores `NA` no permite que la operación indicada sea llevada a cabo. Por tanto, debemos removerla u omitirla. Para este fin, agregamos dentro de la función `mean()` el argumento `na.rm = TRUE`.
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+penguins %>% 
+  group_by(sex, species) %>% 
+  summarise(mean_body_mass_g = mean(body_mass_g, na.rm = T))
+
+```
+
+De la misma forma que en la función `group_by()`, en `summarise()` se pueden agregar múltiples operaciones.
+
+```{r results='hide', message=FALSE}
+penguins %>% 
+  group_by(sex, species) %>% 
+  summarise(
+    # Promedio
+    mean_body_mass_g = mean(body_mass_g, na.rm = T),
+    # El valor mínimo por grupo
+    min_body_mass_g = min(body_mass_g, na.rm = T),
+    # Total de observaciones por grupo
+    num_cases = n())
+```
+
+En ocasiones resulta útil reordenar los resultados para inspeccionar los valores de acuerdo a un patrón establecido. Por ejemplo, si deseamos ordenar los pesos de los pinguinos (`body_mass_g`) de menor a mayor haremos lo siguiente:
+
+```{r results='hide', message=FALSE}
+penguins %>% 
+  group_by(sex, species) %>%
+  summarize(mean_body_mass_g = mean(body_mass_g, na.rm = T),
+            min_body_mass_g = min(body_mass_g, na.rm = T)) %>%
+  arrange(min_body_mass_g)
+```
+
+## Contar observaciones
+
+Al trabajar con datos, a menudo queremos conocer el número de observaciones para cada variable o combinación de variables. Para esta tarea, `dplyr` proporciona la función `count()`. Por ejemplo, si quisiéramos contar el número de filas de datos para cada sexo, haríamos:
+
+```{r results='hide'}
+penguins %>% 
+  count(sex)
+```
+
+La función `count()` es una abreviación de lo que ya hemos visto: agrupar una variable y ejecutar una operación. En otras palabras `penguins %>% count()` es equivalente a:
+
+```{r results='hide'}
+penguins %>% 
+  group_by(sex) %>% 
+  summarise(count = n())
+```
+
+Para nuestra conveniencia, la función `count()` incluye un argumento que ordena los elementos de la variable de interés (`sort`).
+
+```{r results='hide'}
+# Cuenta el total de observaciones de la variable sexo
+penguins %>% 
+  count(sex, sort = T)
+
+# Cuenta el total de observaciones en la variable sexo y especie
+penguins %>% 
+  count(sex, species)
+```
+
+Con el código anterior, podemos usar la función `arrange()` para ordenar la tabla según una serie de criterios. Por ejemplo, podríamos ordenar la tabla anterior en (i) un orden alfabético de los niveles de las especies y (ii) en orden descendente del recuento:
+
+```{r results='hide'}
+penguins %>% 
+  count(sex, species) %>% 
+  arrange(species, desc(n))
+```
+
+De la tabla anterior podemos observar que existen 6 observaciones de la especie Adelie y 5 de la especie Gentoo que no han sido especificados su sexo (ej. NA)
+
+```{r}
+# Ejercicios
+# 1. ¿Cuántos pinguinos se registran por isla?
+# 2. Usa group_by() y summarise() para encontrar la media, y la longitud mínima y máxima del pico de cada especie. 
+# Agrega también el número de observaciones.
+# 3. ¿Cual es el animal más pesado en cada año? 
+```
+
+
+```{r results='hide', echo=FALSE}
+# Registro por isla
+penguins %>% 
+  count(island)
+
+# Agrupando datos
+penguins %>% 
+  group_by(species) %>% 
+  summarise(media = mean(bill_length_mm, na.rm = T),
+            min = min(bill_length_mm, na.rm = T),
+            max = max(bill_length_mm, na.rm = T),
+            obs = n())
+
+# Animal más pesado
+penguins %>%
+  filter(!is.na(body_mass_g)) %>% 
+  group_by(year) %>% 
+  filter(body_mass_g == max(body_mass_g)) %>% 
+  select(year, island, species, body_mass_g)
+
+```
+
+## Reordenar datos
+
+Anteriormente discutimos sobre cómo estructurar nuestros datos, lo que nos llevó a los cuatro principios que definen un conjunto de datos ordenado:
+
+    - Cada variable tiene su propia columna
+    
+    - Cada observación tiene su propia fila
+    
+    - Cada valor debe tener su propia celda
+      
+    - Cada tipo de unidad de unidad de observación forma una tabla.
+
+En el objeto `penguins`, las filas contienen valores de las variables asociadas en cada registro (la unidad), valores asociados a las variables `body_mass_g` o `sex` de cada animal se encuentran asociadas con cada registro. Que pasaría si en lugar de comparar registros, deseamos comparar los diferentes promedios de `body_mass_g` de cada `sex` entre `island`.
+
+Tendríamos que crear una nueva tabla en la que cada fila (la unidad) estuviera compuesta por los valores de las variables asociadas a cada isla. En términos prácticos, esto significa que los valores del sexo se convertirían en los nombres de las variables de la columna y las celdas contendrían los valores de la media de body_mass_g observada en cada isla.
+
+Una vez creada la nueva tabla, resulta sencillo explorar la relación entre la `body_mass_g` de los distintos pingüinos dentro de las `island` y entre ellas. El punto clave aquí es que seguimos una estructura de datos ordenada, pero hemos reformado los datos según las observaciones de interés: masa `body_mass_g` por `island` en lugar de registros por fecha.
+
+
+La transformación opuesta sería transformar los nombres de las columnas en valores de una variable.
+
+Podemos hacer estas dos transformaciones con dos funciones de la paquetería `tidyr`, `pivot_wider()` y `pivot_longer()`.
+
+Pueden parecer diseños de datos muy diferentes, pero hay algunas herramientas que hacen que las transiciones entre estos diseños sean más sencillas de lo que se piensa. El siguiente gif muestra cómo se relacionan estos dos formatos, y le da una idea de cómo podemos utilizar R para cambiar de un formato a otro
+
+
+### Datos largos
+
+Un problema común es cuando en una base de datos los nombres de las columnas no representan nombres de variables, sino que representan los valores de una variable. Para ejemplificar veamos la siguiente base de datos. Tomando el caso del objeto `tabla4a`: los nombres de las columnas 1999 y 2000 representan valores de la variable 
+
+
+```{r}
+# Cargemos la paquetería
+library(datos)
+
+# 
+tabla4a
+```
+
+Tomando el caso de la tabla4a: los nombres de las columnas 1999 y 2000 representan los valores de la variable año, los valores en las columnas 1999 y 2000 representan valores de la variable casos y cada fila representa dos observaciones en lugar de una.
+
+
+
+```{r message=FALSE, results='hide'}
+penguins_gw <- 
+  penguins %>% 
+  filter(!is.na(body_mass_g)) %>% 
+  group_by(island, sex) %>% 
+  summarise(mean_body_mass_g = mean(body_mass_g))
+```
+
+```{r}
+glimpse(penguins_gw)
+```
+
+## Exportando datos
+
+Ahora que hemos aprendido a usar `dplyr` para extraer información, es necesario conocer como exportar estos nuevos set de datos para compartirlos con los colegas.
+
+De la misma forma en que usamos la función `read_csv()` para importar los datos, existe una función denominada `write_csv()` que genera un archivo en formato csv de tus nuevo set de datos
+
+Antes de usar `write_csv()`, crearemos una carpeta, `data`, en nuestro directorio de trabajo en donde se almacerán los datos creados. No deseamos escribir el mismo conjunto de datos en el mismo directorio donde se encuentra nuestra base de datos original. Una buena práctica es separarla. Los datos originales no deben ser modificados y deben estar aislados para evitar modificarlos o eliminarlos.
+
+Como preparación para nuestra próxima lección sobre visualización, vamos a preparar una versión depurada del conjunto de datos que no incluya ningún dato que falte. Empezamos removiendo las observaciones de pinguinos que tengan valores `NA`.
+
+
+```{r}
+# Solo registros completos
+penguins_complete <- 
+  penguins %>% 
+  drop_na()
+
+penguins_raw_complete <-
+  penguins_raw %>% 
+  drop_na()
+  
+```
+
+
+Para asegurarnos que todos tengamos el mismo sub-conjunto de datos, revisemos las dimensiones de los objetos `penguins_complete` y `penguins_raw_complete` usando `dim()`.
+
+```{r echo=FALSE, results='hide'}
+dim(penguins_complete)
+dim(penguins_raw_complete)
+```
+
+Ahora que nuestro set de datos esta listo procedamos a guardarlo en formato CSV dentro de la carpeta `data`
+
+```{r message=FALSE}
+write_csv(penguins, file = "data/penguins_complete.csv")
+write_csv(penguins, file = "data/penguins_raw_complete.csv")
+```
+
+Ahora en nuestra carpeta `data` tendremos los dos sub-conjunto de datos previamente procesados. Pruebe importando estos nuevos archivos dentro de R y explore los datos con la función `str()`. Puede también usar la función `glimpse()` ¿Qué observa?
+
+```{r results='hide', echo=FALSE, message=FALSE}
+pcom <- read_csv("data/penguins_complete.csv")
+glimpse(pcom)
+glimpse(penguins_complete)
+```
+

@@ -10,16 +10,24 @@ navbar:
       href: 02_lecturas.html
       icon: "fas fa-graduation-cap"
       menu:
-      - text: "Programación en R" #submenu bar
-      - text: "1. Introducción a R"
+      - text: "Análisis de datos en R" #submenu bar
+      - text: "1. Principios básicos"
         href: 03_rstudio.html
-      - text: "2. Datos"
-        href: datos.html
-      - text: "3. Programación"
-        href: condicionales.html
-      - text: "4. Gráficos"
-        href: graficos.html
+      - text: "2. Manipulación de datos"
+        href: 0_manipulate.html
+      - text: "3. Visualización de datos"
+        href: 0_visualize.html
+      - text: "Casos prácticos"
+      - text: "4. Datos Pesqueros"
+        href: 04_casoPractico.html
+      # - text: "3. Programación"
+      #   href: condicionales.html
+      # - text: "4. Gráficos"
+      #   href: graficos.html
   right:
+    - text: "Setup"
+      icon: "fas fa-cogs"
+      href: 00_setup.html
     - text: "Repo"
       icon: "fab fa-github"
       href: https://github.com/AngeloCris/training
@@ -33,7 +41,8 @@ output:
     highlight: tango
     toc_depth: 6
     toc_float: true
-    css: docs/css/style_site.css
+    css: "docs/css/swcarpentry-lessons.css"
+    # css: ["docs/css/style_site.css", "docs/css/swcarpentry-lessons.css"]
     include:
       before_body: footer.html
     
