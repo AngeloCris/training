@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Instalación de R y RStudio</title>
+
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="docs/css/swcarpentry-lessons.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R Training</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="01_index.html">
+    <span class="fas fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fas fa-graduation-cap"></span>
+     
+    Lecturas
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Programación en R</li>
+    <li>
+      <a href="03_rstudio.html">1. Introducción a R</a>
+    </li>
+    <li>
+      <a href="03_basicR.html">2. Principios básicos de R</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="00_setup.html">
+    <span class="fas fa-cogs"></span>
+     
+    Setup
+  </a>
+</li>
+<li>
+  <a href="https://github.com/AngeloCris/training">
+    <span class="fab fa-github"></span>
+     
+    Repo
+  </a>
+</li>
+<li>
+  <a href="bibliografia.html">
+    <span class="fas fa-search"></span>
+     
+    Bibliografia
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<body>
+    <p style="height: 200px;">
+        <img src="tnc_logo-removebg-preview.png" alt="Right Logo"
+          title="Right Logo" style="height: 150px;  margin-top: 10px; float: right; margin-right: 0.5%;">
+    </p>
+</body>
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Instalación de R y RStudio</h1>
+
+</div>
+
+
+<p>Para la instalación del software se debe ingresar al sitio web de <a
+href="https://cran.r-project.org/bin/windows/base/">R-project</a> y
+descargar el archivo adecuado según tu sistema operativo de elección
+(Linux, Mac OS, Windows). Se recomienda descagar el archivo
+<code>apk</code> más reciente. Sigue las instrucciones para completar el
+proceso de instalación.</p>
+<p>Despues de instalar R, se recomienda instalar un editor de texto. El
+editor de texto por excelencia es <a
+href="https://www.rstudio.com/products/rstudio/download/">R-studio</a>
+razón por la cual en el presente curso se usará esta interfaz de
+trabajo.</p>
+<p>R-studio es lo que se conoce como un entorno de desarrollo integrado
+(IDE) para el lenguaje de programación R. Proporciona una única interfaz
+para que un usuario de R pueda gestionar todos los aspectos de un
+análisis (escribir código, gestionar y trazar datos. ver resultados,
+obtener ayuda, etc.). Esta interfaz esta conformado por cuatro
+paneles:</p>
+<p><br></p>
+<p><img src="docs/imagen/ventanasRstudio.png" width="700px" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Editor de código</strong>. Aquí es donde se escribe el
+código de los análisis. Cada pestaña representa un un script
+diferente.</p></li>
+<li><p><strong>La consola</strong>. Aquí es donde R muestra los
+resultados de tu código cuando este se ejecuta. Se puede escribir código
+directamente en la cónsola despues del símbolo
+<code>&gt;</code>.</p></li>
+<li><p><strong>Espacio de trabajo e historial de archivos</strong>. Este
+panel generalmente tiene dos pestañas:</p>
+<ul>
+<li><p><strong>Environment</strong>, muestra todos los datos, variables
+y funciones definidas por el usuario.</p></li>
+<li><p><strong>History</strong>, muestra una lista de todos los comandos
+ejecutados previamente.</p></li>
+</ul></li>
+<li><p><strong>Ficheros, visualizaciones, ayuda y paquetes</strong>.
+Este panel contiene cinco pestañas útiles:</p>
+<ul>
+<li><p><em>Files</em>, permite visualizar y explorar todos los archivos
+contenidos en el directorio de trabajo.</p></li>
+<li><p><em>Plots</em>, cuando realice gráficos con su código, se
+mostrarán aquí.</p></li>
+<li><p><em>Package</em>, muestra una lista de paqueterías instaladas en
+el computador. Se pueden instalar nuevas paqueterías o actualizar las
+existentes dando click a <code>install</code> o
+<code>update</code>.</p></li>
+<li><p><em>Help</em> para acceder a varias páginas de ayuda o
+consulta.</p></li>
+<li><p><em>Viewer</em>, usada para visualizar documentos en formato HTML
+elaborados en R.</p></li>
+</ul></li>
+</ol>
+<div id="configuraciones-opcional" class="section level2">
+<h2>Configuraciones (opcional)</h2>
+<p>Como recomendación personal sugiero configurar algunos aspectos del
+programa que te ayudaran a tener una experiencia mucho más agradable.
+Realizar lo siguiente:</p>
+<p><code>abrir R-studio -&gt; tools -&gt; global options -&gt; general</code>,</p>
+<ul>
+<li><p>Asegúrese de que la opción <em>Restore .RData into workspace at
+startup</em> se encuentre deshabilitada.</p></li>
+<li><p>Asegúrese de que la opción <em>Save workspace to .RData on
+exit</em> este configurado como <em>Never</em>.</p></li>
+<li><p>Asegúrese de que la opción <em>Always save history (even when not
+saving .RData)</em> se encuentre deshabilitada.</p></li>
+</ul>
+<p>Estos ajustes evitarán que se generen diferentes cuadros de diálogos
+y archivos inútiles cada vez que abra y cierre el programa.</p>
+<p><br></p>
+<p><img src="docs/imagen/optionalConfiguration_1.PNG" width="50%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p><code>R-studio -&gt; tools -&gt; global options -&gt; code</code>,</p>
+<ul>
+<li>Asegúrese de tener deshabilitado la opción <em>Soft-wrap R source
+files</em>. Esto le permitirá que las líneas de código se ajusten al
+tamaño de la ventana del editor de código.</li>
+</ul>
+<p><img src="docs/imagen/optionalConfiguration_2.PNG" width="50%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p><code>R-studio -&gt; tools -&gt; global options -&gt; Appearence</code>,</p>
+<ul>
+<li>Aquí podrá ajustar el tamaño, letra, fondo de la consola de acuerdo
+a sus preferencias.</li>
+</ul>
+<p><img src="docs/imagen/optionalConfiguration_3.PNG" width="50%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="directorio-de-trabajo" class="section level2">
+<h2>Directorio de trabajo</h2>
+<p>Mantener las cosas organizadas es esencial para un uso eficiente de
+R. Es importante asegurarse de que todos los archivos se encuentren en
+un mismo directorio. Para este fin, se recomienda crear un proyecto en
+R. Básicamente, un proyecto de R es un entorno creado para almacenar
+todos los archivos (script, imágenes, reportes, datos) que serán creados
+durante la codificación. Algunas de las ventajas de crear un proyecto
+son:</p>
+<ul>
+<li><p>Los archivos se leen y se escriben dentro del proyecto.</p></li>
+<li><p>Todos lo necesario para los análisis se encuentran organizados en
+un solo lugar.</p></li>
+<li><p>No tienes que escribir continuamente la ruta de los archivos de
+trabajo. Estos serán reconocidos inmediatamente.</p></li>
+<li><p>Mayor reproducibilidad.</p></li>
+</ul>
+<p>Para crear un proyecto en R debemos de ir a
+<code>file -&gt; New Project</code></p>
+<p><img src="docs/imagen/createProject_1.PNG" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="docs/imagen/createProject_2.PNG" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="docs/imagen/createProject_3.PNG" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="docs/imagen/createProject_4.PNG" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
