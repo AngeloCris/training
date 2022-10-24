@@ -448,18 +448,32 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Programación en R</li>
+    <li class="dropdown-header">Análisis de datos en R</li>
     <li>
-      <a href="03_rstudio.html">1. Introducción a R</a>
+      <a href="03_rstudio.html">1. Principios básicos</a>
     </li>
     <li>
-      <a href="03_basicR.html">2. Principios básicos de R</a>
+      <a href="0_manipulate.html">2. Manipulación de datos</a>
+    </li>
+    <li>
+      <a href="0_visualize.html">3. Visualización de datos</a>
+    </li>
+    <li class="dropdown-header">Casos prácticos</li>
+    <li>
+      <a href="04_casoPractico.html">4. Datos Pesqueros</a>
     </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
+  <a href="00_setup.html">
+    <span class="fas fa-cogs"></span>
+     
+    Setup
+  </a>
+</li>
+<li>
   <a href="https://github.com/AngeloCris/training">
     <span class="fab fa-github"></span>
      
@@ -820,8 +834,8 @@ mayor a las celdas de la matriz, se acomodarán todos los datos posibles
 y los demás serán omitidos.</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El vector contiene 12 elementos pero la matriz solo 9 celdas</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## Warning in matrix(1:12, nrow = 3, ncol = 3): data length differs from size of
-## matrix: [12 != 3 x 3]</code></pre>
+<pre><code>## Warning in matrix(1:12, nrow = 3, ncol = 3): data length differs from size of matrix: [12 != 3
+## x 3]</code></pre>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
@@ -830,8 +844,8 @@ y los demás serán omitidos.</p>
 elementos, estos se <strong>reciclaran</strong> sin antes advertirnos.
 Luego R empezará a usar los elementos a partir del primero de ellos.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## Warning in matrix(1:18, nrow = 6, ncol = 4): la longitud de los datos [18] no es
-## un submúltiplo o múltiplo del número de columnas [4] en la matriz</code></pre>
+<pre><code>## Warning in matrix(1:18, nrow = 6, ncol = 4): data length [18] is not a sub-multiple or multiple
+## of the number of columns [4]</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    7   13    1
 ## [2,]    2    8   14    2

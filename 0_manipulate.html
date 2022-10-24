@@ -726,11 +726,11 @@ mayor haremos lo siguiente:</p>
 </div>
 <div id="contar-observaciones" class="section level2">
 <h2>Contar observaciones</h2>
-<p>Al trabajar con datos, a menudo queremos saber el número de
-observaciones encontradas para cada factor o combinación de factores.
-Para esta tarea, <code>dplyr</code> proporciona la función
-<code>count()</code>. Por ejemplo, si quisiéramos contar el número de
-filas de datos para cada sexo, haríamos:</p>
+<p>Al trabajar con datos, a menudo queremos conocer el número de
+observaciones para cada variable o combinación de variables. Para esta
+tarea, <code>dplyr</code> proporciona la función <code>count()</code>.
+Por ejemplo, si quisiéramos contar el número de filas de datos para cada
+sexo, haríamos:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex)</span></code></pre></div>
 <p>La función <code>count()</code> es una abreviación de lo que ya hemos
@@ -766,8 +766,8 @@ su sexo (ej. NA)</p>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrega también el número de observaciones.</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. ¿Cual es el animal más pesado en cada año? </span></span></code></pre></div>
 </div>
-<div id="reordenando-datos" class="section level2">
-<h2>Reordenando datos</h2>
+<div id="reordenar-datos" class="section level2">
+<h2>Reordenar datos</h2>
 <p>Anteriormente discutimos sobre cómo estructurar nuestros datos, lo
 que nos llevó a los cuatro principios que definen un conjunto de datos
 ordenado:</p>
@@ -838,9 +838,9 @@ fila representa dos observaciones en lugar de una.</p>
 <pre><code>## Rows: 9
 ## Columns: 3
 ## Groups: island [3]
-## $ island           &lt;fct&gt; Biscoe, Biscoe, Biscoe, Dream, Dream, Dream, Torgerse…
+## $ island           &lt;fct&gt; Biscoe, Biscoe, Biscoe, Dream, Dream, Dream, Torgersen, Torgersen, T…
 ## $ sex              &lt;fct&gt; female, male, NA, female, male, NA, female, male, NA
-## $ mean_body_mass_g &lt;dbl&gt; 4319.375, 5104.518, 4587.500, 3446.311, 3987.097, 297…</code></pre>
+## $ mean_body_mass_g &lt;dbl&gt; 4319.375, 5104.518, 4587.500, 3446.311, 3987.097, 2975.000, 3395.833…</code></pre>
 </div>
 </div>
 <div id="exportando-datos" class="section level2">

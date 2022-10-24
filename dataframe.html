@@ -496,15 +496,14 @@ pantalla. Si quieres las primeras 50 filas, puedes escribir
 la función <code>head()</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
-##   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
-##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
-## 1 Adelie  Torgersen           39.1          18.7         181    3750 male   2007
-## 2 Adelie  Torgersen           39.5          17.4         186    3800 fema…  2007
-## 3 Adelie  Torgersen           40.3          18           195    3250 fema…  2007
-## 4 Adelie  Torgersen           NA            NA            NA      NA &lt;NA&gt;   2007
-## 5 Adelie  Torgersen           36.7          19.3         193    3450 fema…  2007
-## 6 Adelie  Torgersen           39.3          20.6         190    3650 male   2007
-## # … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g</code></pre>
+##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
+##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+## 1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007
+## 2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007
+## 3 Adelie  Torgersen           40.3          18                 195        3250 female  2007
+## 4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007
+## 5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007
+## 6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007</code></pre>
 <blockquote>
 <p><strong>NOTA</strong>: <code>read_csv</code> asume que los campos
 estan delimitados por comas. Sin embargo, en varios países se utiliza la
@@ -818,7 +817,7 @@ formateado como “AAAA-MM-DD”.</p>
 datos <code>penguins_raw</code> e inspeccionaremos su estructura.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>egg_dates <span class="ot">&lt;-</span> penguins_raw<span class="sc">$</span><span class="st">`</span><span class="at">Date Egg</span><span class="st">`</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(egg_dates)</span></code></pre></div>
-<pre><code>##  Date[1:344], format: &quot;2007-11-11&quot; &quot;2007-11-11&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; ...</code></pre>
+<pre><code>##  Date[1:344], format: &quot;2007-11-11&quot; &quot;2007-11-11&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; ...</code></pre>
 <p>Podemos extraer el año, el mes y el día de los valores de la
 fecha:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>egg_yr <span class="ot">&lt;-</span> <span class="fu">year</span>(egg_dates)</span>
