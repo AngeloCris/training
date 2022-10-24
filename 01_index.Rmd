@@ -9,7 +9,7 @@ Este es un curso que forma parte del programa de capacitaciones y entrenamiento 
 
 El curso esta diseñado para un entrenamiento intensivo de corta duración (1 semana) en el cual se dará una **introducción** a los **principios de la ciencia de datos** y cómo extraer información de los datos para entender comportamientos complejos, tendencias e inferencias con un enfoque a temas marinos. Se enseñarán habilidades en tres principales áreas: **Programación computacional**, **Exploración de datos** y **Visualización**)
 
-Los materiales del curso se iran añadiendo al final de cada sesión. Asi mismo, consultar el menu [**Setup**](./setup.html) para asegurarse de tener todos los requerimientos necesarios.
+Los materiales del curso se iran añadiendo al final de cada sesión. Asi mismo, consultar el menu [**Setup**](./setup.html) para asegurarse de tener todos los requerimientos necesarios antes de iniciar el curso.
 
 <img src="docs/imagen/Data_science_frame.png" alt="Tidyverse packages" style="float:left;clear:left;width:650px;border:0;padding:0% 4% 0% 0%;"/>
 
