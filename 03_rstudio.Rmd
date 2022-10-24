@@ -1,12 +1,11 @@
 ---
-title: "Introducción a R-studio"
+title: "Introducción a R"
 output:
   html_document:
     toc: true
     # toc_depth: 3
     toc_float: true
-    code_folding: "show"
-date: "2022-10-07"
+    # code_folding: "show"
 ---
 
 ```{r setup, include=FALSE}
@@ -18,32 +17,50 @@ library(tidyverse)
 library(kableExtra)
 ```
 
+<br>
 
-## Objetivo {.unnumbered .objectives}
+## Objetivos {.unnumbered .objectives}
+
+- Definir los términos relacionados a R: Objetos, asignación, funciones, argumentos, opciones.
+
+- Crear objetos y asignarles valores en R
+
+- Aprender como nombrar objetos
+
+- Guardar un archivo de script para su uso posterior.
+
+- Usar comentarios para detallar un script
+
+- Resolver operaciones aritméticas simples en R
+
+- Llamar funciones y usar argumentos para cambiar el comportamiento por "default"
+
+- Inspeccionar y manipular el contenido de vectores 
+
+- Extraer datos de interés desde un vector
+
+- Analizar vectores con valores NAs
+
 
 <br>
 
-- Instalación de R-studio
-
-- Conceptos básicos de R-studio
-
 ## Conceptos generales
-
-### ¿Qué es R y Rstudio?
 
 1. R es un lenguaje de programación científica.
 
 2. R-studio es un entorno de desarrollo integrado (IDE) que proporciona un entorno de codificación robusta para escribir y ejecutar código en R. Se recomienda revisar el Cheat Sheets de Rstudio a través del menú **Help -> Cheat Sheet -> Rstudio IDE Cheat Sheet** para comprender rápidamente los paneles y atajos de los comandos.
 
-```{r out.width = "700px", fig.align='center'}
+```{r out.width = "700px", fig.align='center', echo=FALSE}
 knitr::include_graphics("docs/imagen/cheatSheet.PNG")
 ```
 
-### ¿Porqué usar R?
+<br>
+
+## Ventajas de R
 
 1. !Es gratis y trabaja en múltiples plataformas!
 
-```{r out.width = "700px", fig.align='center'}
+```{r out.width = "700px", fig.align='center', echo=FALSE}
 knitr::include_graphics("docs/imagen/Rmultiplataforma.png")
 ```
 
@@ -51,7 +68,7 @@ knitr::include_graphics("docs/imagen/Rmultiplataforma.png")
 
 3. Gráficos y visualización a nivel profesional.
 
-```{r out.width = "700px", fig.align='center'}
+```{r out.width = "700px", fig.align='center', echo=FALSE}
 knitr::include_graphics("docs/imagen/Rgraficos.png")
 ```
 
@@ -64,158 +81,123 @@ knitr::include_graphics("docs/imagen/Rgraficos.png")
 7. No hay límites. Si no se encuentra lo que se busca, uno mismo puede construirlo.
 
 
-### Instalación de R-studio
-
-Para la instalación del software se debe ingresar al sitio web de [R-project](https://cran.r-project.org/bin/windows/base/) y descargar el archivo adecuado según tu sistema operativo de elección (Linux, Mac OS, Windows). Se recomienda descagar el archivo `apk` más reciente. Sigue las instrucciones para completar el proceso de instalación.
-
-Despues de instalar R, se recomienda instalar un editor de texto. El editor de texto por excelencia es [R-studio](https://www.rstudio.com/products/rstudio/download/) razón por la cual en el presente curso se usará esta interfaz de trabajo.
-
-<br>
-
-R-studio es lo que se conoce como un entorno de desarrollo integrado (IDE) para el lenguaje de programación R. Proporciona una única interfaz para que un usuario de R pueda gestionar todos los aspectos de un análisis (escribir código, gestionar y trazar datos. ver resultados, obtener ayuda, etc.). Esta interfaz esta conformado por cuatro paneles:
-
-
-```{r out.width = "700px", fig.align='center'}
-knitr::include_graphics("docs/imagen/ventanasRstudio.png")
-```
-
-1. **Editor de código**. Aquí es donde se escribe el código de los análisis. Cada pestaña representa un un script diferente.
-
-2. **La consola**. Aquí es donde R muestra los resultados de tu código cuando este se ejecuta. Se puede escribir código directamente en la cónsola despues del símbolo `>`.
-
-3. **Espacio de trabajo e historial**. Este panel generalmente tiene dos pestañas:
-
-    - **Environment**, muestra todos los datos, variables y funciones definidas por el usuario. Estos son creados por el usuario en la consola o editor de código.
-  
-    - **History**, muestra una lista de todos los comandos ejecutados previamente.
-
-4. **Ficheros, visualizaciones, ayuda y paquetes**. Este panel contiene cinco pestañas útiles:
-
-    - *Files*, permite visualizar y explorar todos los archivos contenidos en el directorio actual. Aquí puede hacer clic en diferentes scripts de R para abrirlos en el editor de código.
-    
-    - *Plots*, cuando produzca gráficos con su código, se mostrarán aquí.
-    
-    - *Package*, muestra una lista de paqueterías instaladas en el computador. Se pueden instalar nuevas paqueterías o actualizar las existentes dando click a `install` o `update`.
-    
-    - *Help* da acceso a varias páginas de ayuda o consulta.
-    
-    - *Viewer* puede ser usada para visualizar documentos en formato HTML realizados en R.
-
-
-**Configuraciones adicionales**
-
-Como preferencia personal, se recomienda configurar algunos ajustes: 
-
-`R-studio -> tools -> global options -> general`,
-
-  - Asegúrese de que la opción *Restore .RData into workspace at startup* este deshabilitado.
-    
-  - Asegúrese de que la opción *Save workspace to .RData on exit este configurado como *Never*
-    
-  - Asegúrese de que la opción *Always save history (even when not saving .RData) no esté marcada.
-    
-Estos ajustes evitarán que se generen diferentes cuadros de diálogos y archivos inútiles cada vez que abra y cierre R.
-
-    
-```{r out.width="50%", fig.align='center'}
-knitr::include_graphics("docs/imagen/optionalConfiguration_1.PNG")
-```
-
-<br>  
-    
-`R-studio -> tools -> global options -> code`,
-
-  - Asegúrese de tener deshabilitado la opción *Soft-wrap R source files*. Esto le permitirá que las líneas de código se ajusten al tamaño de la ventana del editor de código.
-    
-```{r out.width="50%", fig.align='center'}
-knitr::include_graphics("docs/imagen/optionalConfiguration_2.PNG")
-```
-
-<br>
-
-`R-studio -> tools -> global options -> Appearence`,
-
-  - Aquí podrá ajustar el tamaño, letra, fondo de la consola de acuerdo a sus preferencias.
-
-
-```{r out.width="50%", fig.align='center'}
-knitr::include_graphics("docs/imagen/optionalConfiguration_3.PNG")
-```
-
-<br>
-
-
-### Directorio de trabajo
-
-Mantener las cosas organizadas es esencial para un uso eficiente de R. Es de vital importancia asegurarse de que todos los archivos se encuentren en un mismo directorio. Para lograr esto, se recomienda crear un proyecto en R. Básicamente, un proyecto de R es un entorno creado para almacenar todos los archivos (script, imagenes, reportes) que serán creados durante la codificación. Algunas de las ventajas de crear un proyecto son:
-
-  - Los archivos se leen y se escriben dentro del proyecto.
-  
-  - Todos lo necesario para los análisis se encuentran organizados en un solo lugar.
-  
-  - No tienes que escribir continuamente la ruta de los archivos de trabajo. Estos serán reconocidos inmediatamente.
-
-Para crear un proyecto en R ir a `file -> New Project`
-
-
-```{r out.width="50%", fig.align='center'}
-knitr::include_graphics("docs/imagen/createProject_1.PNG")
-```
-
-```{r out.width="50%", fig.align='center'}
-knitr::include_graphics("docs/imagen/createProject_2.PNG")
-```
-
-```{r out.width="50%", fig.align='center'}
-knitr::include_graphics("docs/imagen/createProject_3.PNG")
-```
-
-
-```{r out.width="50%", fig.align='center'}
-knitr::include_graphics("docs/imagen/createProject_4.PNG")
-```
-
-
 <!-- agregar como crear un script en blanco -->
 
-## Primeras aproximaciones
+<br>
 
-### Tipos de datos en R
+## Objetos de R
 
-Los datos son registros, observaciones o mediciones de cosas (personas, animales, localidad, clima) que ocurren en el tiempo y el espacio. Estos pueden ser cuantitativos o cualitativos. En R los datos pueden ser de diferentes tipos. Cada tipo tiene características particulares que los distinguen de los demás. Algunas operaciones sólo pueden realizarse con tipos de datos específicos.
+Nosotros podemos realizar múltiples cálculos en R simplemente escribiendo alguna operación matemática en la consola.
 
-Algunos de los tipos más básicos de datos en R son:
+```{r results='hide'}
+10 + 20
+12/4
+4*20
+log(10)
+```
 
-  - Valores decimales `4.5` son llamados **doubles**. Pueden ser usados en operaciones matemáticas.
-  
-  - Números enteros como 2 son llamados **integers**. Los números enteros y decimales son llamados también como **numerics**.
-  
-  - Valores booleanos (`TRUE` o `FALSE`) son denominados **logical**. Representan una condición.
-  
-  - Los cadenas de textos (ej. "concha negra") son llamados **characters**. Estos son reconocimos porque inician y terminan con comillas(`"`).
-  
-  - Valores perdidos y vacíos, representa la ausencia de datos (`NA, NA_integer_, NA_real_, NA_character`).
-  
-```{r results='hide', echo=TRUE}
+Sin embargo, para hacer útil e interesante este proceso, en R se pueden asignar *valores* a un *objeto*. Un objeto en R básicamente es un contenedor de datos al cual se le asigna un nombre en particular. En R para crear un objeto es obligatorio asignarle un nombre seguido de un operador de asignación `<-` y un dato de interés. Por ejemplo:
+
+```{r}
+# Formato:
+# nombre objeto + operador asignación (<-) + dato
+
 dato_double <- 17.5
 dato_integers <- 19
 dato_booleano <- TRUE
-dato_character <- "sarda chiliensis"
+dato_character <- "sarda chiliensis" 
 ```
+
+El símbolo `<-` asigna valores de la derecha a los objetos de la izquierda. Por ejemplo, después de ejecutar `x <- 50`, el valor de `x` es `50`. Por razones históricas, se puede usar también el símbolo `=` como operador de asignación pero este no funciona en cierto contextos dado que existen [ligeras diferencias](https://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html) en su sintaxis. Un buena práctica con este lenguaje de programación es acostumbrarse a emplear siempre el operador `<-` para la asignación de objetos. En Rstudio, el operador `<-` se puede obtener rápidamente presionando a la vez la tecla `alt` y `-`.
+
+Los objetos pueden tener cualquier nombre como `x`, `temperatura`, `desembarques` o `especie_genero` (existen ciertas excepciones). Es conveniente que los nombres de los objetos sean explícitos y no demasiado largos. Ellos no pueden iniciar con números (`5x` no es válido pero si `x5`). Otro aspecto importante a considerar es que R distingue entre minúsculas y mayúsculas (Ej, el objeto `desembarque` será diferente a otro denominado `Desembarque`). Así mismo, existen algunos nombres que si bien son permitidos no son recomendables utilizarlos dado a que son objetos o funciones fundamentales de R (Ej. `mean`, `if`, `else`, `df`, [otro](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)).Se recomienda usar sustantivos para nombres de objetos y verbos para las funciones. En R es muy importante mantener la consistencia en la codificación (mayusculas, minusculas, guiones) ya que esto hace que ti código sea más fácil de leer para ti y tus futuros colaboradores. Los estilos de codificación más populares en R es la de [Google](https://google.github.io/styleguide/Rguide.html), [Jean Fan](http://jef.works/R-style-guide/) y [tidyverse](https://style.tidyverse.org/). El estilo de codificación `tidyverse` es muy completa y puede parecer abrumadora al principio pero resultará muy útil una vez que lo domines.
+
+<br>
+
+En Rstudio, cuando asignamos un valor a un objeto es necesario ejecutar este proceso. Para ello debemos presionar el boton `run` ubicada en la esquina superior derecha del editor de código o usar la combinación de teclas `ctrl + enter`. Para acceder a los resultados es necesario escribir el nombre del objeto en la consola.
+
+```{r results='hide'}
+# Acceso a los resultados
+talla_cm <- 10
+talla_cm
+
+# Otra forma de acceder a los resultados 
+(talla_cm <- 10) # los resultados se muestran usando paréntesis
+```
+
+Ahora que creamos el objeto `talla_cm`, este se encontrará en almacenada en la memoria de R (ver la pestaña de environment). Esto resulta útil porque podremos realizar rápidamente operaciones aritmeticas. Por ejemplo, si deseamos convertir las tallas de centímetros a milímetos (1 centímetro equivale a 10 milímetros) hacemos lo siguiente:
+
+```{r results='hide'}
+talla_cm * 10
+```
+
+## Comentando un script
+
+Todos los lenguajes de programación pueden incluir comentarios en sus códigos. Esto es muy útil porque nos permite recordar las decisiones o procesos ejecutados en un momento en particular. Para comentar un script en R debemos emplear el operador `#`. Todo lo que se encuentre a la derecha de `#` y hasta el final de la línea será reconocido por el software como  un comentario. 
+
+```{r}
+talla_cm <- 10              # talla en centimetros
+talla_mm <- talla_cm * 10   # talla en milímetros
+```
+
+En Rstudio comentar o descomentar un párrafo es muy sencillo: después de seleccionar las líneas que desea comentar, pulse al mismo tiempo la combinación de teclas `ctrl + shift + c`.
+
+<!-- poner ejercicios -->
+
+## Funciones y argumentos
+
+Las funciones son "scripts enlatados" que ejecutan un conjuntos de comandos más elaborados. Muchas funciones están predefinidas, o pueden estar disponibles importando paquetes de R (más adelante). Una función puede requerir una o más entradas llamadas argumentos. Las funciones a menudo (pero no siempre) devuelven un valor. Un ejemplo típico sería la función `sqrt()`. El "input" debe ser un número, y el valor de retorno ("output") es la raíz cuadrada de ese número. 
+
+```{r results='hide'}
+a <- 145
+b <- sqrt(a)
+```
+
+Aquí, el valor del objeto `b` esta dado por la raíz cuadrada del valor de `a`. La función `sqrt()` calcula la raíz cuadrada y el resultado se almacena en el objeto `b`. Esta es una función simple dado que sólo se ingresa un argumento.
+
+El "valor" de retorno de una función no tiene por qué ser numérico, y tampoco tiene por qué ser un único elemento: puede ser un conjunto de cosas, o incluso un conjunto de datos. Lo veremos cuando leamos archivos de datos en R.
+
+Los argumentos pueden ser cualquier cosa, no sólo números o nombres de archivos, sino también otros objetos. El significado exacto de cada argumento difiere según la función, y debe buscarse previamente en la documentación. Algunas funciones presentan argumentos que son especificados por el usuario o, si se omiten, toman un valor por defecto. Los argumentos se emplean usualmente para modificar el comportamiento de una función, como por ejemplo: ignorar valores perdidos (`NA`). Probemos una función que contenga múltiples argumentos: round().
+
+```{r results='hide'}
+round(3.14159)
+```
+
+Aquí, hemos llamado a la función `round()` con un solo argumento, 3.14159, y ha devuelto el valor 3. Eso es porque el valor por defecto es redondear al número entero más cercano. Si queremos más dígitos debemos especificarlo en uno de sus argumentos. Si no conocemos los argumentos que requiere una función podemos consultarlo en el documento de ayuda o escribir directamente en la consola el signo "?" junto con la función deseada (`?round()`)
+
+```{r results='hide'}
+# Nombre del argumento
+round(3.14159, digits = 2)
+
+# No requiere nombrar el argumento si este encuentra en el mismo orden definido
+round(3.14156, 2)
+
+# Si nombras los argumentos, puedes cambiar el orden
+round(digits = 2, 3.14159)
+```
+
+Es una buena práctica especificar los nombres de todos los argumentos de una función. Si no lo haces, alguien que lea tu código podría tener que buscar la definición de cada función y sus argumentos para entender lo que estás haciendo.
+
+
+## Estructura de datos
+
+Cuando utilizamos R, estamos manipulando objetos que contienen datos. Estos pueden ser de diferentes tipos. Algunos de los más básicos son:
+
+  - Valores decimales `4.5` son llamados **doubles**. Pueden ser usados en operaciones matemáticas.
   
-Observemos que previo a cada tipo de dato le anteponemos un nombre relacionado al dato (llamado comúnmente como objeto) seguido de un operador de asignación `<-`. Para ejecutar un proceso se debe clickear en el boton `Run` de la esquina superior derecha del panel editor de código o usar la combinación de teclas `ctrl + enter`. 
+  - Números enteros como 10 son llamados **integers**. Los números enteros y decimales son llamados también como **numerics**.
+  
+  - Valores booleanos (`TRUE` o `FALSE`) son denominados **logical**. Representan una condición.
+  
+  - Los cadenas de textos (ej. "concha negra") son llamados **characters**. Estos son reconocidos porque inician y terminan con comillas(`"`).
+  
+  - Valores perdidos y vacíos, representa la ausencia de datos (`NA, NA_integer_, NA_real_, NA_character`).
+  
+<!-- otros tipos de datos son números complejos (complex) o crudos (raw) -->
+  
+La forma en cómo estructuramos estos datos les confiere ciertas características o propiedades que las distinguen entre sí. Por ejemplo, el número de dimensiones (1d, 2d) o por el tipo de dato que almacenan (homogéneo o heterogéneo). En general, cinco son las estructuras de datos más utilizadas en los análisis.
 
-Se puede verificar el tipo de un dato con la función class(). Esto es de utilidad para asegurar las operaciones que deseamos realizar se puedan llevar a cabo con éxito. La función `class()` recibe como argumento un dato o vector y devuelve el nombre del tipo al que pertenece.
-
-```{r}
-class(dato_booleano)
-```
-
-### Estructura de datos
-
-Son objetos que contienen datos. Cuando utilizamos R, estamos manipulando estas estructuras. Una estructura de datos puede tener diferentes características que las distinguen unas de otra como por ejemplo el número de dimensiones (1d, 2d), o si son datos homogéneos (todos los datos deben ser del mismo tipo) o heterogéneos (los datos pueden ser de diferentes tipos). Esto da lugar a los cinco tipos de datos más utilizados en el análisis de datos:
-
-```{r}
+```{r echo=FALSE}
 tibble::tibble(
   Dimensiones = c("1",
            "2",
@@ -228,89 +210,415 @@ tibble::tibble(
                 position = "center")
 ```
 
-#### Vector
 
-Es la estructura más simple en R. Un vector es una colección de uno o más datos del mismo tipo. Son usualmente creados con las funciones `c()`, `seq`, `rep`:
+### Vector
+
+Es la estructura de dato más común en R. Un vector esta compuesto por una serie de valores que pueden ser numericos o caracteres. 
+
+Una importante características de esta estructura de dato es que todos sus elementos deben ser del mismo tipo. Un vector es usualmente creado con la funcione `c()`. 
 
 ```{r results='hide'}
-# Con la función concatenar c()
-var_dob <- c(1, 4, 6)
-var_log <- c(TRUE, FALSE, T, F)
-var_char <- c("desembarque", "pesca", "sostenible") 
+# Función concatenar c()
+zonas_pesca <- c("paita", "pisco", "ilo")
 ```
+
+Existen varias funciones que te permiten explorar el contenido de un vector. Por ejemplo, la función `length()` te permite conocer el número de elementos dentro de un vector, `class()` te permite identificar la clase (tipo de elemento) de un objeto, `str()` te permite identificar la estructura de un objeto y sus elementos (esta función resulta de mucha utilidad cuando trabajas con bases de datos).
+
+
+```{r results='hide'}
+length(zonas_pesca) # tamaño del vector
+class(zonas_pesca)  # clase del vector
+str(zonas_pesca)    # Estructura del vector
+```
+
+También puedes usar la función `c` para adicionar otros elementos a un vector
 
 ```{r}
-# Con la función secuencia seq()
-seq(from = 100, to = 1000, by = 100)
+peces <- c("bonito","perico", "atun")
+peces <- c (peces, "caballa")       # adiciona un elemento al final del vector.
+peces <- c("mero", peces)           # adiciona un elemento al inicio del vector.
 ```
+
+En la primera línea  creamos el vector original denominado *peces*. Luego añadimos - al final del vector - el elemento "caballa" y guardamos el resultado de nuevo en el objeto *peces*. Finalmente, añadimos - al principio del vector - el elemento "mero" y guardamos el resultado en el objeto *peces*. Este procedimiento se puede hacer varias veces para hacer crecer un vector o crear un conjunto de datos. Cuando programamos esto puede ser de utilidad para añadir los resultados que vamos calculando.
+
+**Consideración importantes para trabajar con vectores**
+
+*1. ¿Cómo se pasa de un tipo de vector a otro y cuándo se hace automáticamente?*
+
+**Coerción**. Como mencionamos anteriormente un vector debe contener elementos de la misma clase (numérica, logica, entre otros). Sin embargo, cuando esto no ocurre el software automáticamente optará por la clase más flexible. Las clases de datos de menor a mayor flexibilidad son: `logical < integer < double < character`. Por ejemplo, el resultado de combinar un dato del tipo caracter con otro entero será un vector del tipo caracter.
+
+```{r results='hide'}
+# Vector numérico
+entero <- seq(from = 1, to = 10, by= 2)
+
+# Vector caracter
+caracter <- sample(letters, 5)
+
+# Uniendo vectores
+nuevo <- c(entero, caracter)
+```
+
+Otro punto a tener en cuenta es que cuando un vector lógico es coercionado a una clase `integer` o `double`, los `TRUE` se convierten en 1 y los `FALSE` en 0. Esto resulta muy útil en operaciones como suma (`sum()`) y/o promedio (`mean`).
+
+```{r results='hide'}
+# Transformación a un vector del tipo numérico
+logico <- c(FALSE, FALSE, TRUE, TRUE, TRUE)
+as.numeric(logico)
+
+# Número total de valores TRUE
+sum(logico)
+```
+
+<br>
+
+*2. ¿Qué pasa cuando trabajas con vectores de diferentes tamaños?*
+
+**Normas de reciclaje**. Además de coercionar implícitamente los tipos de vectores para que sean compatibles, R también coerciona implícitamente la longitud de los vectores. Esto se llama reciclaje de vectores, porque el vector más corto se repite, o se recicla, hasta alcanzar el tamaño del vector más largo.
+
 ```{r}
-# Con la función repetir rep()
-rep("pesca", times = 3)
+1:10 + 100
 ```
 
-Tambien podemos crear vectores que son combinaciones de vectores:
+```{r results='hide'}
+# ¿Que pasa con esta suma?
+1:10 + 1:2
+```
+
+<br>
+
+*3. ¿Cómo nominar los elementos de un vector?*
+
+Todos los vectores pueden ser nominados. Esto puede realizarse durante su creación con la función concatenar `c()` o usando la función `names()`.
 
 ```{r}
-comb_vector1 <- c(12,24,36)
-comb_vector2 <- c(10, 20, 30)
-c(comb_vector1, comb_vector2)
+# Nominando vectores con c()
+x <- c(a = 1, b = 2, c = 4)
+
+# Nominando vectores con names()
+y <- 1:3
+names(y) <- c("a", "b", "c")
 ```
 
-##### Propiedades de los vectores
+<br>
 
-1. El tipo de vector puede determinarse con la función `typeof`.
+*4. ¿Cómo manipular los elementos de interés de un vector?*
 
-2. La longitud del vector puede determinarse con la función `length`.
+Si queremos extraer uno o varios valores de un vector, debemos proporcionar uno o varios índices entre corchetes (`[]`) y se usa mediante `x[a]`. Por ejemplo:
 
-```{r}
-typeof(1:10)
+
+```{r results='hide'}
+bitacora <- c("desembarque", "especie", "zona")
+
+# Los números enteros corresponden a las posiciones de los elementos 
+# que se quieren extraer teniendo en cuenta la posición de la fila y 
+# columna (en ese orden).
+bitacora[1]
+bitacora[c(1,3)]
+
+# Valores negativos remueven elementos
+bitacora[-1]
 ```
 
-```{r}
-x <- c(200, 400, 600, 800)
-length(x)
+Otra manera de extraer datos es usando vectores lógicos. `TRUE` seleccionará el elemento con el mismo indice, mientra que `FALSE` no será seleccionado.
+
+```{r results='hide'}
+desembarque <- c(120, 165, 220, 135)
+desembarque[c(TRUE, FALSE, TRUE, FALSE)]
 ```
 
-##### Aspectos importantes
+Usualmente, estos vectores lógicos no se escriben a mano si no que son salidas de otras funciones o pruebas lógicas. Por ejemplo, si quieres seleccionar los desembarques superiores a 200 hacemos lo siguiente:
 
-  - ¿Cómo convertir un tipo de vector a otro y cuando ocurre automaticamente?
+```{r results='hide'}
+# Retorna un vector lógico. El valor TRUE es el elemento 
+# que cumple la condición.
+desembarque > 200
+
+# Retorna el valor de la posición del vector desembarque 
+# que cumple la condición.
+desembarque[desembarque > 200] 
+```
+
+
+```{r results='hide'}
+# Creando un vector
+x <- c(10, 3, NA, 5, 8, 20, NA)
+
+# Todos los valores NA del objeto x
+x_na <- is.na(x)
+
+# El símbolo ! invierte los valores verdadero/falso
+# Obtenemos todos los valores que no son NA
+x[!x_na]
+```
+
+También se puede combinar múltiple operaciones usando `&` (ambas condiciones son verdades, AND) o `|` (al menos un elemento es verdadero, OR).
+
+```{r results='hide'}
+desembarque[desembarque < 130 | desembarque > 160]
+desembarque[desembarque >= 130 & desembarque <= 170]
+
+```
+
+En este ejemplo, los símbolos `<` significa "menor que", `>` "mayor que", `>=` "mayor o igual que" y `==` "igual a". El doble signo de igualdad (==) es una prueba de igualdad numérica entre el lado izquierdo y derecho, y no debe confundirse con el operador de asignación simple (`=`). Otro operador de mucha utilidad es `%in%` el cual permite evaluar si un elemento de un vector "x" se encuentra en el vector "y".
+
+
+```{r results='hide'}
+peces
+peces %in% c("bonito")
+
+```
+
+Tenga en cuenta que el vector resultante tiene la misma longitud que el vector de búsqueda de la izquierda, porque el operador `%in%` comprueba si cada elemento del vector de búsqueda se encuentra en algun lugar del vector destino. Por lo tanto, se puede utilizar `%in%` para seleccionar los elementos del vector de búsqueda que aparecen en el vector de destino.
+
+```{r results='hide'}
+peces <- c(peces, "pintadilla", "cabrilla", "chita", "lorna", "pejerrey")
+peces %in% c("chita", "pejerrey", "atun")
+peces[peces %in% c("chita", "pejerrey", "atun")]
+
+```
+
+**Atributos**
+
+Todos los objetos en R pueden tener atributos adicionales utilizados para almacenar metadatos. Los atributos se pueden establecer y acceder individualmente con la función `attr()` o todos a la vez con `attribute` por ejemplo: 
+
+```{r results='hide'}
+temp <- c(17.4, 18.3, 16.5, 28.1, 18.4)
+
+# El metadato es usualmente escrito en el
+# encabezado de un documento excel o 
+# en otra hoja, pero puede ser colocado
+# como atributo en R
+
+attr(temp, "unit") <- "°C"
+attr(temp, "infomuestreo") <- "Temperatura superficial (10m prof), medidos con CTD"
+attributes(temp)
+
+```
+
+Los tres atributos más importantes son:
+
+  - **Nombre**, un vector de caracteres que da un nombre a cada elemento.
   
-  - ¿Qué pasa cuando trabajas con vectores de **diferentes tamaños**?
+  - **Dimensión**, utilizado para convertir vectores en matrices o arrays.
   
-  - ¿Cómo nominar los elementos de un vector?
+  - **Clase**, utilizado para implementar el sistema de objetos S3.
   
-  - ¿Cómo sacar los elementos de interés?
+Cada uno de estos atributos tiene una función específica para obtener y establecer valores (`names(), length(), class`).
 
+```{r results='hide'}
+names(temp) <- c("st_03", "st_11", "st_17", "st_21", "st_25")
+temp
+```
 
-1. **Coerción**
-  
-    - Todos los elementos de un vector deben ser del **mismo tipo**
+```{r results='hide'}
+length(temp)
+```
+
+```{r results='hide'}
+class(temp)
+```
+
+Un importante uso de los **atributos** es para **definir factores**. Los factores son vectores que pueden contener **valores predefinidos**. Frecuentemente son usados para almacenar **datos categóricos**. Estos tiene dos atributos:
+
+    - la clase, "factor", lo cual lo hace que tenga un comportamiento diferente a otros vectores.
     
-    - **Diferentes tipos** de vector serán coaccionados al tipo más flexible.
-    
-    - Los tipos de datos de menor a mayor flexibilidad son:
-    
-        - logical < integer < double < character
+    - y los **niveles**, lo cual define el conjunto de valores permitidos.
 
-Por ejemplo, el resultado de combinar un dato del tipo caracter con otro entero es un vector del tipo caracter.
+```{r results='hide'}
+biomasa <- factor(c("baja", "media", "baja", "alta", "baja", "media", "media"))
+biomasa
+```
+
+```{r results='hide'}
+class(biomasa)
+```
+
+```{r results='hide'}
+# Los niveles se muestran en orden alfabetico si no es especificado.
+levels(biomasa)
+```
+
+**Operaciones vectoriales**
+
+Las operaciones aritméticas y relacionales pueden vectorizarse, es decir, si aplicamos a un vector ciertas operaciones, éstas se realizarán para cada uno de los elementos que contiene dicho vector.
+
+```{r results='hide'}
+a <- c(1, 2, 3, 4)
+c <- (a + sqrt(a))/exp(2) + 1
+c
+```
+
+```{r results='hide'}
+a <- c(1, 2, 3, 4)
+b <- 10 # b se recicla a la longitud de a
+```
+
+```{r results='hide'}
+a + b
+a * b
+```
+
+### Arrays y Matrices
+
+Si un vector contiene múltiples dimensiones es conocido como **arrays**. Un caso especial de arrays es la **matriz**. Las matrices pueden ser descritas como vectores de **dos dimensiones** y son usadas comúnmente como parte de la estadística matemática. Los arrays son mucho más raras. pero vale la pena tenerlas en cuenta.
+
+
+```{r echo=FALSE, message=FALSE,warning=FALSE, fig.align='center'}
+knitr::include_graphics("docs/imagen/matriz_arrays.PNG")
+```
+
+Las matrices pueden ser creadas con la función `matrix()` - la cual acepta dos argumentos `nrow` y `ncol` en donde se especifica el número de filas y columnas respectivamente - o **combinando vectores** (de igual **longitud**) a una matriz usando `cbind()`.
+
+```{r message=TRUE}
+# Especificando filas y columnas
+matrix(1:18, ncol = 3, nrow = 6)
+```
+
+```{r results='hide'}
+# Uniendo vectores a una matrix con cbind
+v1 <- 1:3
+v2 <- 4:6
+a <- cbind(v1, v2)
+```
+Algunas funciones útiles cuando se trabaja con matrices son `length()`, `names()`, `nrow()`, `ncol()`, `rownames()`, `colnames()` y `dim()`, `dimnames()` para arrays.
+
+```{r results='hide'}
+length(a)
+```
+
+```{r results='hide'}
+nrow(a)
+```
+
+```{r results='hide'}
+ncol(a)
+```
+
+```{r results='hide'}
+colnames(a) <- c("A", "B")
+rownames(a) <- c("a", "b", "c")
+```
+
+**Extracción de datos en matrices y arrays**
+
+La forma más común de extraer datos de una matriz es una simple generalización de cómo lo hicimos con los vectores. La única diferencia será que ahora tendremos dos dimensiones: filas y columnas. Por lo que al momento de querer extraer un dato debemos indicarle al objeto la posición de la fila y columna deseada. Por ejemplo:
+
   
-```{r}
-str(c("a", 3))
+```{r results='hide'}
+# Creamos el objeto a
+a <- matrix(1:9, nrow = 3)
+
+# Asignamos un nombre 
+colnames(a) <- c("A", "B", "C")
+
+# Extraemos datos
+# objeto[Nro fila, Nro columna]
+a[1:2,2]
+
+# ¿Que valor obtienes?
+a[, c("A","B")]
+
 ```
 
-Cuando un vector lógico es coaccionado con un vector double, `TRUE` se convierte en 1 y `FALSO` en 0. Esto es particularmente útil en operaciones con las funciones `sum()` y `mean()`.
+### Dataframe
 
-```{r}
-x <- c(FALSE, FALSE, TRUE)
+Son estructuras de datos de dos dimensiones que pueden almacenar datos de diferentes tipos (clases), por tanto son heterogéneas. Es la más usada para los análisis de datos.
 
-# Transforma a un vector del tipo numérico
-as.numeric(x)
+```{r echo=FALSE}
+knitr::include_graphics("docs/imagen/estructuraDataframe.PNG")
+```
+
+Para crear un estructura de datos del tipo dataframe empleamos la función `data.frame()`. Recordemos que un dataframe esta compuesto por vectores.
+
+```{r results='hide'}
+# Creamos el dataframe
+df <- data.frame(x = 1:3, y = c("a", "b", "c"))
+
+# Observamos la estructura del dataframe
+str(df)
+```
+
+Al igual que una matriz, los datos pueden ser seleccionados de la siguiente manera:
+
+```{r results='hide'}
+df[1:2, 1] # filas 1-2, columna 1
+df$x # muestra todos los elementos de la columna x
+df$y[2] # muestra el 2do elemento de la columna y
 ```
 
 ```{r}
-# Número total de valores TRUEs
-sum(x)
+# EJERCICIO
+# Generar un dataframe
+# 4 variables con diferentes tipos de datos (logicos, caracter, double, entero)
+# El tamaño del dataframe será de 20
+# Asignar un nombre a cada variable
 ```
+
+```{r}
+# Explora la base de datos iris de R
+# 1. ¿Qué tipo de estructura de dato tiene?
+# 2. ¿Cuál es la dimensión de la base de datos iris?
+# 3. ¿Qué tipos de datos básicos contiene el conjunto de datos iris?
+# 4. Calcula la suma de todas las observaciones del dataframe usando la función sum()
+```
+
+Comparten las mismas propiedades que una matriz y lista. Algunas funciones útiles son `names()`, `colnames()`, `rownames()`, `length()` (representa el número de columnas), `nrow()` para obtener el número de filas.
+
+Los datos se acomodaran en el orden de arriba - abajo y de izquierda a derecha. Es importante mencionar que si el número de elementos es mayor a las celdas de la matriz, se acomodarán todos los datos posibles y los demás serán omitidos.
+
+```{r warning=FALSE, message=FALSE, results='hide'}
+# Elvector contiene 12 elementos pero la matriz solo 9 celdas
+matrix(1:12, nrow = 3, ncol = 3)
+```
+
+Si por el contrario, el número de celdas es mayor al número de elementos, estos se reciclaran sin antes advertirnos. Luego R empezará a usar los elementos a partir del primero de ellos.
+
+```{r warning=FALSE, message=FALSE, results='hide'}
+matrix(1:18, nrow = 6, ncol = 4)
+```
+
+
+
+
+
+
+## Valores pedidos
+
+Dado que R fue diseñado para analizar conjuntos de datos, incluye el concepto de datos perdidos (algo poco común en otros lenguajes de programación). Los datos perdidos se representan en los vectores como `NA`.
+
+Al realizar operaciones con números, la mayoría de las funciones devolverán NA si los datos con los que se trabaja incluyen valores perdidos. Esta característica hace que sea más difícil hacer caso omiso a los valores NAs. Puede añadir el argumento na.rm=TRUE para calcular el resultado ignorando los valores perdidos.
+
+
+```{r}
+rooms <- c(2, 1, 1, NA, 7)
+mean(rooms)
+max(rooms)
+mean(rooms, na.rm = TRUE)
+max(rooms, na.rm = TRUE)
+```
+Si sus datos incluyen valores perdidos, es posible que quiera familiarizarse con las funciones is.na(), na.omit() y complete.cases(). A continuación encontrará ejemplos.
+
+
+```{r}
+## Extrae los elementos que no son NA
+rooms[!is.na(rooms)]
+
+## Cuenta el número de valores NAs
+## El resultado de is.na() es un vector lógico (TRUE/FALSE equivalente a 1/0) por lo que la función sum() cuenta el total de valores NAs del vector.
+sum(is.na(rooms))
+
+## Devuelve el objeto sin los elementos NAs
+na.omit(rooms)
+
+## Extrae todos los elementos de un vector que tienen asignado un valor. 
+rooms[complete.cases(rooms)]
+```
+
+
+
+
+<!-- Los datos son registros, observaciones o mediciones de cosas (personas, animales, localidad, clima) que ocurren en el tiempo y el espacio. Estos pueden ser cuantitativos o cualitativos. En R los datos pueden ser de diferentes tipos. Cada tipo tiene características particulares que los distinguen de los demás. Algunas operaciones sólo pueden realizarse con tipos de datos específicos. -->
+
 <!-- Cuestionario 1: Cuál es el resultado de usar las siguientes funciones c()-->
 
 <!-- c(1, FALSE) .. DOUBLE-->
@@ -335,128 +643,3 @@ sum(x)
 
 # How many NAs are in x?
 ```
-
-
-```{r}
-knitr::knit_exit()
-```
-
-
-
-
-<!-- ### Mi primer comando -->
-
-<!-- Para iniciar: Abrir Rstudio, luego en la consola escribir ` 1 + 3` debería aparecer en el indicador `>`. Luego presione enter. -->
-
-<!-- ```{r out.width="80%", fig.align='center'} -->
-<!-- knitr::include_graphics("docs/imagen/firstCommand.PNG") -->
-<!-- ``` -->
-
-<!-- Trata de realizar operaciones aritméticas simples (suma, resta, división, multiplicación). -->
-
-<!-- ```{r} -->
-<!-- # suma -->
-<!-- 2 + 5 -->
-
-<!-- # resta -->
-<!-- 45 - 12 -->
-
-<!-- # multiplicación -->
-<!-- 2 * 10 -->
-
-<!-- # división -->
-<!-- 2 / 10 -->
-
-<!-- # potencia -->
-<!-- 3 ^ 2 -->
-
-<!-- # log natural -->
-<!-- log(10) -->
-
-<!-- # log base 10 -->
-<!-- log(10, 10) -->
-<!-- ``` -->
-
-<!-- ### Almacenar y reusar resultados -->
-
-<!-- Para asignar valores a un objeto se debe emplear los llamados *operadores de asignación* `<-` o `=`. -->
-
-<!-- ```{r} -->
-<!-- library(kableExtra) -->
-<!-- tibble::tibble( -->
-<!--   operador = c("<-", "="), -->
-<!--   `Operación` = c("Asigna un valor a una variable", -->
-<!--                 "Asigna un valor a una variable") -->
-<!-- ) %>%  -->
-<!--   kbl(booktabs = T) %>%  -->
-<!--   kable_styling(bootstrap_options = "striped", -->
-<!--                 full_width = F, -->
-<!--                 position = "center") -->
-<!-- ``` -->
-
-<!-- Aunque se puede usar el símbolo `<-` o `=` se recomienda emplear el primero debido a que es más fácil de reconocerlo visualmente. Además, no genera problemas en procesos más complejos de programación. -->
-
-<!-- Para correr un proceso señalar con el cursor del mouse la línea del script a ejecutar. Luego hacer click en el boton `Run` ubicado en la parte superior derecha del panel del script o usar la combinación de teclas `ctrl + enter`. -->
-
-<!-- ```{r} -->
-<!-- # asignamos un nombre a la operación -->
-<!-- a <- 2 + 5 -->
-
-<!-- # Obtenemos los resultados de la operación -->
-<!-- a -->
-
-<!-- # Podemos realizar operaciones -->
-<!-- a * 5 -->
-<!-- ``` -->
-
-<!-- **¿Que nombres emplear?** -->
-
-<!-- Se pueden emplear letras, números o caracteres especiales como `.`; `_`. Algunos ejemplos son: `var_1`, `var.1`, `VAR1`, `myVar1`. Recordemos que R es muy sensible a las mayúsculas y minúsculas, `Mi_var` y `mi_var` son diferentes. Evitar espacios en los nombres de los objetos ya que será mas fácil de trabajar con ellos. -->
-
-<!-- ### Crear un script -->
-
-<!-- Para crear un script ir a `file -> New file -> Rscript`.  -->
-
-<!-- ```{r out.width="80%", fig.align='center'} -->
-<!-- knitr::include_graphics("docs/imagen/firstScript.png") -->
-<!-- ``` -->
-
-<!-- Repetir todas las operaciones realizadas anteriormente pero ahora escribiéndolas en el nuevo script. ¿Qué observa? -->
-
-<!-- ### Importante {.unnumbered .keypoints} -->
-
-<!-- Cuando escribas instrucciones en el script de R, debemos asegurarnos que todas las instrucciones se encuentren allí y no tipear directamente en la consola. Si tipeamos unos comandos en el script y otros en la consola, pronto tendremos un desorden en los procedimientos y dificultades al momento de intentar reproducirlo generando una gran frustación. -->
-
-<!-- ### Comentando tu script -->
-
-<!-- Tomar apuntes respecto a lo que hace cada línea de código es de vital importancia para uno mismo o para otra persona con la que compartas tu código. -->
-
-<!-- En R podemos realizar comentarios empezando una línea con el caracter `#`. Todo lo que se escriba después del `#` será ignorado por R.  -->
-
-<!-- ```{r out.width="80%", fig.align='center'} -->
-<!-- knitr::include_graphics("docs/imagen/firstComment.PNG") -->
-<!-- ``` -->
-
-<!-- ### Guardar y mantener seguro tu script -->
-
-<!-- Nuestro script contiene todo las instrucciones y detalles de un trabajo especifico por tanto será importante guardarlo y mantener seguro generando respaldos si es necesario. Para realizar este proceso ir a `file -> Save us .. ` o usa la combinación de teclas `ctrl + s`. Asigna al script un nombre fácil de ubicar pero que signifique algo para nosotros (idealmente un nombre conciso sobre lo que hace el script o los datos que contiene). -->
-
-<!-- ### Errores comunes -->
-
-<!-- Probablemente experimentaras diferentes errores a lo largo de este proceso de aprendizaje. Algunos de los más comunes son los siguientes: -->
-
-<!--  - Objeto no encontrado. R no encontrará un objeto si no ha sido definido previamente.  -->
-
-<!-- ```{r fig.align='center'} -->
-<!-- knitr::include_graphics("docs/imagen/errorMissedObject.PNG") -->
-<!-- ``` -->
-
-<!-- - Advertencias. El código se ejecutará pero se notificará un mensaje de advertencia lo que significa que el código puede que no esté haciendo lo que se pretende o que R ha reconocido algo que solicitaste como riesgoso. **Nunca ignores un mensaje de advertencia** -->
-
-<!-- - El temido `+`. Otro error es un resultado en la consola que luce como:\ -->
-<!-- Esto significa que la sintaxis del código escrito no esta completo. El `+` en la consola es la forma de decir de R "estoy esperando que el proceso se termine". Cuando vea el `+` presione la tecla `esc` y vuelva a ejecutar todo el comando escrito correctamente. -->
-
-<!-- ```{r fig.align='center', out.width="30%"} -->
-
-<!-- knitr::include_graphics("docs/imagen/errorTemido.PNG") -->
-<!-- ``` -->
