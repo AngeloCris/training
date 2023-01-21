@@ -13,7 +13,7 @@
 
 <title>Datos</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
@@ -285,8 +285,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -294,16 +294,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -448,20 +441,18 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Análisis de datos en R</li>
-    <li>
-      <a href="03_rstudio.html">1. Principios básicos</a>
-    </li>
-    <li>
-      <a href="0_manipulate.html">2. Manipulación de datos</a>
-    </li>
-    <li>
-      <a href="0_visualize.html">3. Visualización de datos</a>
-    </li>
-    <li class="dropdown-header">Casos prácticos</li>
-    <li>
-      <a href="04_casoPractico.html">4. Datos Pesqueros</a>
-    </li>
+    <li class="dropdown-header">Generalidades</li>
+    <li class="dropdown-header">1. Software R project y R-studio</li>
+    <li class="dropdown-header">2. Tipos de datos en R: Vectores</li>
+    <li class="dropdown-header">3. Tipos de datos en R: Matrices, listas y dataframes</li>
+    <li class="dropdown-header">4. Operadores</li>
+    <li class="dropdown-header">Análisis de datos</li>
+    <li class="dropdown-header">5. Manipulación de datos: Importación</li>
+    <li class="dropdown-header">6. Manipulación de datos: Tidy data</li>
+    <li class="dropdown-header">7. Manipulación de datos: Transformación</li>
+    <li class="dropdown-header">8. Visualización de datos</li>
+    <li class="dropdown-header">Documentación</li>
+    <li class="dropdown-header">9. Reportes en R</li>
   </ul>
 </li>
       </ul>
@@ -731,8 +722,10 @@ dimensiones</strong>, o si son datos <strong>homogéneos</strong> o
 <strong>heterogéneos</strong>.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;figures/estructuraDatos.PNG&quot;</span>)</span></code></pre></div>
 <div class="figure">
-<img src="figures/estructuraDatos.PNG" alt="" />
-<p class="caption">Principales estructuras de control en R</p>
+<img src="figures/estructuraDatos.PNG" alt="Principales estructuras de control en R" width="1306" />
+<p class="caption">
+Principales estructuras de control en R
+</p>
 </div>
 <div id="vector" class="section level3">
 <h3>Vector</h3>
@@ -834,8 +827,8 @@ mayor a las celdas de la matriz, se acomodarán todos los datos posibles
 y los demás serán omitidos.</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El vector contiene 12 elementos pero la matriz solo 9 celdas</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## Warning in matrix(1:12, nrow = 3, ncol = 3): data length differs from size of matrix: [12 != 3
-## x 3]</code></pre>
+<pre><code>## Warning in matrix(1:12, nrow = 3, ncol = 3): data length differs from size of matrix:
+## [12 != 3 x 3]</code></pre>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
@@ -844,8 +837,8 @@ y los demás serán omitidos.</p>
 elementos, estos se <strong>reciclaran</strong> sin antes advertirnos.
 Luego R empezará a usar los elementos a partir del primero de ellos.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## Warning in matrix(1:18, nrow = 6, ncol = 4): data length [18] is not a sub-multiple or multiple
-## of the number of columns [4]</code></pre>
+<pre><code>## Warning in matrix(1:18, nrow = 6, ncol = 4): data length [18] is not a sub-multiple or
+## multiple of the number of columns [4]</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    7   13    1
 ## [2,]    2    8   14    2
@@ -980,7 +973,7 @@ por elemento.</p>
 datos de diferentes tipos, por tanto son heterogéneas. <strong>Es la más
 usada para realizar análisis de datos</strong>.</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;figures/estructuraDataframe.PNG&quot;</span>)</span></code></pre></div>
-<p><img src="figures/estructuraDataframe.PNG" /><!-- --></p>
+<p><img src="figures/estructuraDataframe.PNG" width="574" /></p>
 <p>Para crear un estructura de datos del tipo dataframe empleamos la
 función <code>data.frame()</code>. Recordemos que <strong>un dataframe
 esta compuesto por vectores</strong>.</p>
@@ -1053,15 +1046,15 @@ de operadores que se utilizó en las clases anteriores. Estas fueron:</p>
 <ul>
 <li>Operadores aritméticos</li>
 </ul>
-<p><img src="figures/operadorAritmetico.PNG" style="display: block; margin: auto;" /></p>
+<p><img src="figures/operadorAritmetico.PNG" width="498" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Operadores relacionales</li>
 </ul>
-<p><img src="figures/operadorRelacional.PNG" style="display: block; margin: auto;" /></p>
+<p><img src="figures/operadorRelacional.PNG" width="502" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Operadores lógicos</li>
 </ul>
-<p><img src="figures/operadorLogico.PNG" style="display: block; margin: auto;" /></p>
+<p><img src="figures/operadorLogico.PNG" width="500" style="display: block; margin: auto;" /></p>
 <p>Con los operadores en mente, procederemos a manipular la base de
 datos <code>crabs</code> que importamos anteriormente.</p>
 <div class="sourceCode" id="cb104"><pre

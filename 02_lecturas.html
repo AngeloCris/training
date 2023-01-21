@@ -14,7 +14,7 @@
 
 <title>Lecturas</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
@@ -170,8 +170,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,16 +179,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -257,20 +250,18 @@ $(document).ready(function () {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Análisis de datos en R</li>
-    <li>
-      <a href="03_rstudio.html">1. Principios básicos</a>
-    </li>
-    <li>
-      <a href="0_manipulate.html">2. Manipulación de datos</a>
-    </li>
-    <li>
-      <a href="0_visualize.html">3. Visualización de datos</a>
-    </li>
-    <li class="dropdown-header">Casos prácticos</li>
-    <li>
-      <a href="04_casoPractico.html">4. Datos Pesqueros</a>
-    </li>
+    <li class="dropdown-header">Generalidades</li>
+    <li class="dropdown-header">1. Software R project y R-studio</li>
+    <li class="dropdown-header">2. Tipos de datos en R: Vectores</li>
+    <li class="dropdown-header">3. Tipos de datos en R: Matrices, listas y dataframes</li>
+    <li class="dropdown-header">4. Operadores</li>
+    <li class="dropdown-header">Análisis de datos</li>
+    <li class="dropdown-header">5. Manipulación de datos: Importación</li>
+    <li class="dropdown-header">6. Manipulación de datos: Tidy data</li>
+    <li class="dropdown-header">7. Manipulación de datos: Transformación</li>
+    <li class="dropdown-header">8. Visualización de datos</li>
+    <li class="dropdown-header">Documentación</li>
+    <li class="dropdown-header">9. Reportes en R</li>
   </ul>
 </li>
       </ul>

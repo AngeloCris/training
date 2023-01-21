@@ -10,16 +10,31 @@ navbar:
       href: 02_lecturas.html
       icon: "fas fa-graduation-cap"
       menu:
-      - text: "Análisis de datos en R" #submenu bar
-      - text: "1. Principios básicos"
-        href: 03_rstudio.html
-      - text: "2. Manipulación de datos"
-        href: 0_manipulate.html
-      - text: "3. Visualización de datos"
-        href: 0_visualize.html
-      - text: "Casos prácticos"
-      - text: "4. Datos Pesqueros"
-        href: 04_casoPractico.html
+      - text: "Generalidades" #submenu bar
+      - text: "1. Software R project y R-studio"
+        # href: 03_rstudio.html
+      - text: "2. Tipos de datos en R: Vectores"
+        # href: 0_manipulate.html
+      - text: "3. Tipos de datos en R: Matrices, listas y dataframes"
+        # href: 0_visualize.html
+      - text: "4. Operadores"
+        # href: 0_visualize.html   
+      - text: "Análisis de datos" #submenu bar
+        # href: 0_visualize.html   
+      - text: "5. Manipulación de datos: Importación"
+        # href: 0_visualize.html   
+      - text: "6. Manipulación de datos: Tidy data" #submenu bar
+        # href: 0_visualize.html  
+      - text: "7. Manipulación de datos: Transformación" #submenu bar
+        # href: 0_visualize.html    
+      - text: "8. Visualización de datos" #submenu bar
+        # href: 0_visualize.html    
+      - text: "Documentación" #submenu bar
+      - text: "9. Reportes en R" #submenu bar
+        # href: 0_visualize.html    
+      # - text: "Casos prácticos"
+      # - text: "4. Datos Pesqueros"
+      #   href: 04_casoPractico.html
       # - text: "3. Programación"
       #   href: condicionales.html
       # - text: "4. Gráficos"

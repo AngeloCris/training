@@ -11,9 +11,9 @@
 
 
 
-<title>Análisis de datos con R</title>
+<title>Entrenamiento: análisis de datos con R</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
@@ -169,8 +169,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -178,16 +178,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -256,20 +249,18 @@ $(document).ready(function () {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Análisis de datos en R</li>
-    <li>
-      <a href="03_rstudio.html">1. Principios básicos</a>
-    </li>
-    <li>
-      <a href="0_manipulate.html">2. Manipulación de datos</a>
-    </li>
-    <li>
-      <a href="0_visualize.html">3. Visualización de datos</a>
-    </li>
-    <li class="dropdown-header">Casos prácticos</li>
-    <li>
-      <a href="04_casoPractico.html">4. Datos Pesqueros</a>
-    </li>
+    <li class="dropdown-header">Generalidades</li>
+    <li class="dropdown-header">1. Software R project y R-studio</li>
+    <li class="dropdown-header">2. Tipos de datos en R: Vectores</li>
+    <li class="dropdown-header">3. Tipos de datos en R: Matrices, listas y dataframes</li>
+    <li class="dropdown-header">4. Operadores</li>
+    <li class="dropdown-header">Análisis de datos</li>
+    <li class="dropdown-header">5. Manipulación de datos: Importación</li>
+    <li class="dropdown-header">6. Manipulación de datos: Tidy data</li>
+    <li class="dropdown-header">7. Manipulación de datos: Transformación</li>
+    <li class="dropdown-header">8. Visualización de datos</li>
+    <li class="dropdown-header">Documentación</li>
+    <li class="dropdown-header">9. Reportes en R</li>
   </ul>
 </li>
       </ul>
@@ -311,7 +302,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Análisis de datos con R</h1>
+<h1 class="title toc-ignore">Entrenamiento: análisis de datos con R</h1>
 
 </div>
 
@@ -321,15 +312,18 @@ $(document).ready(function () {
 entrenamiento de <strong>The Nature Conservancy Perú</strong> en
 Análisis de datos con R.</p>
 <p>El curso esta diseñado para un entrenamiento intensivo de corta
-duración (1 semana) en el cual se dará una <strong>introducción</strong>
-a los <strong>principios de la ciencia de datos</strong> y cómo extraer
-información de los datos para entender comportamientos complejos,
-tendencias e inferencias con un enfoque a temas marinos. Se enseñarán
-habilidades en tres principales áreas: <strong>Programación
-computacional</strong>, <strong>Exploración de datos</strong> y
-<strong>Visualización</strong>)</p>
-<p>Los materiales del curso se iran añadiendo al final de cada sesión.
-Asi mismo, consultar el menu <a
+duración (1 semana) el cual tiene como objetivo brindar una
+<strong>introducción breve</strong> a los <strong>principios de la
+ciencia de datos</strong> desde la recolección de información del
+ambiente hasta reportar los análisis en diferentes formatos (word, html,
+pdf). Los datos empleados estan orientado a temas marinos. Sin embargo,
+la forma lógica de programación del presente curso puede ser empleado en
+diferentes ámbitos. Aqui nos enfocaremos principalmente en las áreas de
+<strong>Programación computacional</strong>, <strong>Exploración de
+datos</strong>, <strong>Visualización</strong> y
+<strong>Documentación</strong>.</p>
+<p>Cada una de las presentaciones del curso se iran añadiendo al final
+de cada sesión. Asi mismo, consiltar el menú <a
 href="./setup.html"><strong>Setup</strong></a> para asegurarse de tener
 todos los requerimientos necesarios antes de iniciar el curso.</p>
 <p><img src="docs/imagen/Data_science_frame.PNG" alt="Tidyverse packages" style="float:left;clear:left;width:650px;border:0;padding:0% 4% 0% 0%;"/></p>
@@ -340,54 +334,93 @@ paqueterías que proporcionan una sintaxis simple en la importación,
 procesamiento y visualización de datos.</p>
 <p><br></p>
 <p><br></p>
-<div id="resultados-del-entrenamiento" class="section level2">
-<h2>Resultados del entrenamiento</h2>
-<p>Al final del curso el participante será capaz de:</p>
-<ul>
-<li><p>Entender los principios de la ciencia de datos</p></li>
-<li><p>Sentirse seguro trabajando con uno de los programas informáticos
-más comunes y populares para el análisis de datos.</p></li>
-<li><p>Estar familiarizado con varios tipos y estructuras de
-datos.</p></li>
-<li><p>Haber aprendido como:</p>
-<ul>
-<li><p>Importar y exportar datos en R.</p></li>
-<li><p>Manipular y transformar datos.</p></li>
-<li><p>Escribir sus propias funciones y aplicar iteraciones.</p></li>
-</ul></li>
-<li><p>Visualizar datos en diferentes formas, incluyendo mapas.</p></li>
-</ul>
-</div>
-<div id="requerimientos" class="section level2">
-<h2>Requerimientos</h2>
-<p>Este curso no requiere de conocimiento previo en programación ni de
-modelación estadística. Sin embargo, será ventajoso tener algunos
-conocimientos de estadística básica. Para un flujo de trabajo eficiente,
-por favor asegúrese de descargar los datos e instalar todo antes de
-trabajar con el material proporcionado.</p>
-</div>
+<!-- ## Resultados del entrenamiento -->
+<!-- Se espera que para el final del curso cada unos de los participantes pueda: -->
+<!-- - Entender los principios de la ciencia de datos -->
+<!-- - Sentirse seguro trabajando en uno de los programas más populares para análisis de datos -->
+<!-- - Estar familiarizado con diferentes tipos y estructura de datos -->
+<!-- - Importar, manipular, visualizar y reportar cada uno de sus análisis. -->
+<!-- ## Requerimientos -->
+<!-- El curso esta diseñado de tal modo que no se requiere de conocimiento previo en programación. Sin embargo, resultará ventajoso tener conocimientos previos de programación y estadística básica. Para un flujo de trabajo eficiente, por favor asegúrate de descargar los datos e instalar todo antes de trabajar con el material proporcionado. -->
 <div id="estructura-del-curso" class="section level2">
 <h2>Estructura del curso</h2>
-<p>El curso consta de 18 clases los cuales cubren los temas de
+<p>El curso consta de 9 clases los cuales cubren los temas de
 <strong>Programación en R</strong>, <strong>Exploración de
-datos</strong> y <strong>Visualización</strong>. Cada clase contiene
-cuestionarios interactivos y ejercicios que deberán ser resueltos por
-cada participante de forma individual. Tener en cuenta que los
-cuestionarios interactivos sólo funcionan en la web y no en el formato
-de documento portable (pdf).</p>
-<p>Durante la presentación de diapositivas, los siguientes atajos de
-teclado le permitirán alternar entre diferentes modos de
-visualización:</p>
-<p><kbd>o</kbd> modo de visión general</p>
-<p><kbd>w</kbd> cambia al modo de pantalla ancha</p>
-<p><kbd>f</kbd> activa el modo de pantalla completa</p>
-<p><kbd>h</kbd> activa el modo de resaltado de código</p>
-<p><kbd>control</kbd> (Windows) o <kbd>command</kbd> (Mac) y
-<kbd>+</kbd> / <kbd>-</kbd> para aumentar o disminuir<br></p>
-<p><kbd>p</kbd> abre una ventana separada para obtener información
-adicional (no funciona en Safari).</p>
-<p>Presionar <kbd>esc</kbd> para salir de todos los modos de
-visualización.</p>
+datos</strong>, <strong>Visualización</strong> y
+<strong>Documentación</strong>. Cada clase contiene ejercicios cortos
+que deberán ser resueltos de forma conjunta.</p>
+<div id="temario" class="section level3">
+<h3>Temario</h3>
+<ol style="list-style-type: decimal">
+<li><p>Software R project y R-studio<br />
+Primeras aproximaciones hacia el entorno de trabajo R-project y
+R-studio.<br />
+<a
+href="https://docs.google.com/presentation/d/18t4PEkoztvN1Nbb2-xFD0tB7jWSDSNaDxj__AEK5Zpk/edit">Clase
+1</a></p></li>
+<li><p>Tipos de datos en R: Vectores<br />
+Familiarizar a los participantes con los diferentes tipos de datos
+existentes en R. Énfasis en el uso de vectores: Crear vectores,
+operaciones y extracción de elementos de interés.<br />
+<a
+href="https://docs.google.com/presentation/d/1X_tnJ4eO7aajQBV7OqiPtZBxVmt5UgBjQstvRXOVTJ8/edit#slide=id.g181d7654eed_0_248">Clase
+2</a></p></li>
+<li><p>Tipos de datos en R: Matrices, listas y dataframes<br />
+Familiarizar a los participantes con los diferentes tipos de datos
+existentes en R. Énfasis en el uso de matrices, listas y dataframes:
+Generalidades y funciones relacionadas a cada tipo de dato.<br />
+<a
+href="https://docs.google.com/presentation/d/1Gwl5ROqqDCbVZsX1OCI5ifciMqwzCf1rO5f0l5YBvhQ/edit#slide=id.g1f682c2948e_0_310">Clase
+3</a></p></li>
+<li><p>Operadores<br />
+Familiarizanos con los operadores aritméticos, relacionales, lógicos y
+de asignación que permitirán manipular y transformar datos de distintos
+tipos.<br />
+<a
+href="https://docs.google.com/presentation/d/1xTdOQDf7LELOEe1XmYUdkHY3YUcq7hm0NWA1OXKg9N0/edit#slide=id.p">Clase
+4</a></p></li>
+<li><p>Manipulación de datos: Importación<br />
+Introducción general a las diferentes librerías del universo tidyverse.
+Importar datos de fuentes externas. Uso de la librería
+<code>readr</code> y sintaxis de sus funciones asociadas. Tipo de datos
+en formato tibble. Guardar y exportar datos.<br />
+<a
+href="https://docs.google.com/presentation/d/1DDRcBjj4oxutC2vHsRqBR9O7VYbiKCzgI134r2YMKQw/edit#slide=id.g1d3c6967d5a_0_160">Clase
+5</a></p></li>
+<li><p>Manipulación de datos: Datos ordenados<br />
+Conceptos generales de una base de datos ordenada (tidy data).
+Reestructurar datos de formato ancho a formalo largo y viceversa. Uso de
+la librería <code>tidyr</code> y sintaxis de sus funciones asociadas.
+Separar y unir columnas; y cómo lidiar con los valores perdidos (NAs) o
+NULL.<br />
+<a
+href="https://docs.google.com/presentation/d/1SLQ3dVqzQhgO1rykYdGOzleDqou6fbOb6mZY79FPc2Q/edit#slide=id.g1f84f03800d_0_19">Clase
+6</a></p></li>
+<li><p>Manipulación de datos: Transformación<br />
+Aprender a manipular fechas con la librería <code>lubridate</code>.
+Conocer los principios básicos de <code>dplyr</code> para manipular,
+crear variables (filtrar, seleccionar, renombrar) y generar estadísticos
+descriptivos a nivel de grupos. Ventajas de usar el operador pipeline
+(%&gt;%).<br />
+<a
+href="https://docs.google.com/presentation/d/1df1qQG5ZLuo_lRNakqnMX_o6pxDs3r8NYRrbOKLTnfI/edit#slide=id.g1d54354e4c8_0_295">Clase
+7</a></p></li>
+<li><p>Visualización de datos<br />
+Introducción a la gramática de gráficos mediante la librería
+<code>ggplot2</code>. Principales gráficos empleados por los usuarios
+(diagrama de barras, histogramas, boxplots, gráfico de dispersión,
+etc).<br />
+<a
+href="https://docs.google.com/presentation/d/1dPCaZuV1LL6AoDX_5wssz2KZnsvlQlqGISGnzN6ulxE/edit#slide=id.g1d81f08e18b_0_40">Clase
+8)</a></p></li>
+<li><p>Documentación<br />
+Uso de Rmarkdown (.Rmd) para generar reportes en diferentes formatos
+(.pdf, .word, .ppt)<br />
+<a
+href="https://docs.google.com/presentation/d/1XNn-AMjTeeHTNERRyuf-xcgt1RDu0GdADWzjFKJ7Geg/edit#slide=id.p">Clase
+9</a></p></li>
+</ol>
+</div>
 </div>
 
 

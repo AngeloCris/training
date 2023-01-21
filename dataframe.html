@@ -14,7 +14,7 @@
 
 <title>Dataframes</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
@@ -271,8 +271,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -280,16 +280,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -358,20 +351,18 @@ $(document).ready(function () {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Análisis de datos en R</li>
-    <li>
-      <a href="03_rstudio.html">1. Principios básicos</a>
-    </li>
-    <li>
-      <a href="0_manipulate.html">2. Manipulación de datos</a>
-    </li>
-    <li>
-      <a href="0_visualize.html">3. Visualización de datos</a>
-    </li>
-    <li class="dropdown-header">Casos prácticos</li>
-    <li>
-      <a href="04_casoPractico.html">4. Datos Pesqueros</a>
-    </li>
+    <li class="dropdown-header">Generalidades</li>
+    <li class="dropdown-header">1. Software R project y R-studio</li>
+    <li class="dropdown-header">2. Tipos de datos en R: Vectores</li>
+    <li class="dropdown-header">3. Tipos de datos en R: Matrices, listas y dataframes</li>
+    <li class="dropdown-header">4. Operadores</li>
+    <li class="dropdown-header">Análisis de datos</li>
+    <li class="dropdown-header">5. Manipulación de datos: Importación</li>
+    <li class="dropdown-header">6. Manipulación de datos: Tidy data</li>
+    <li class="dropdown-header">7. Manipulación de datos: Transformación</li>
+    <li class="dropdown-header">8. Visualización de datos</li>
+    <li class="dropdown-header">Documentación</li>
+    <li class="dropdown-header">9. Reportes en R</li>
   </ul>
 </li>
       </ul>
@@ -434,7 +425,7 @@ la metodología de este conjunto de datos en el articulo <a
 href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081">Ecological
 sexual dimorphism and environmental variability within a community of
 Antarctic penguins (genus Pygoscelis)</a>.</p>
-<p><img src="docs/imagen/pinguinos.PNG" /><!-- --></p>
+<p><img src="docs/imagen/pinguinos.PNG" width="582" /></p>
 <p>Créditos de la imagen <a
 href="https://allisonhorst.github.io/palmerpenguins/">Allison
 Horst</a></p>
@@ -443,7 +434,7 @@ Horst</a></p>
 información de los atributos se puede encontrar en la ayuda:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>?penguins</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>?penguins_raw</span></code></pre></div>
-<p><img src="docs/imagen/pinguino_raw.PNG" /><!-- --></p>
+<p><img src="docs/imagen/pinguino_raw.PNG" width="576" /></p>
 <p>Créditos de la imagen <a
 href="https://allisonhorst.github.io/palmerpenguins/">Allison
 Horst</a></p>
@@ -496,14 +487,15 @@ pantalla. Si quieres las primeras 50 filas, puedes escribir
 la función <code>head()</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
-##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
-##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
-## 1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007
-## 2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007
-## 3 Adelie  Torgersen           40.3          18                 195        3250 female  2007
-## 4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007
-## 5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007
-## 6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007</code></pre>
+##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_…¹ sex    year
+##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+## 1 Adelie  Torgersen           39.1          18.7               181    3750 male   2007
+## 2 Adelie  Torgersen           39.5          17.4               186    3800 fema…  2007
+## 3 Adelie  Torgersen           40.3          18                 195    3250 fema…  2007
+## 4 Adelie  Torgersen           NA            NA                  NA      NA &lt;NA&gt;   2007
+## 5 Adelie  Torgersen           36.7          19.3               193    3450 fema…  2007
+## 6 Adelie  Torgersen           39.3          20.6               190    3650 male   2007
+## # … with abbreviated variable name ¹​body_mass_g</code></pre>
 <blockquote>
 <p><strong>NOTA</strong>: <code>read_csv</code> asume que los campos
 estan delimitados por comas. Sin embargo, en varios países se utiliza la
@@ -529,7 +521,7 @@ vectores y cada una debe contener un único tipo de dato (por ejemplo,
 caracteres, enteros o factores). Por ejemplo, a continuación se muestra
 una figura que representa un marco de datos que comprende un vector
 numérico, uno de caracteres y uno lógico.</p>
-<p><img src="docs/imagen/data_frame.PNG" /><!-- --></p>
+<p><img src="docs/imagen/data_frame.PNG" width="305" /></p>
 <p>Se puede inspeccionar la estructura de la base de datos con la
 función <code>str()</code></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(penguins)</span></code></pre></div>
@@ -817,7 +809,7 @@ formateado como “AAAA-MM-DD”.</p>
 datos <code>penguins_raw</code> e inspeccionaremos su estructura.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>egg_dates <span class="ot">&lt;-</span> penguins_raw<span class="sc">$</span><span class="st">`</span><span class="at">Date Egg</span><span class="st">`</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(egg_dates)</span></code></pre></div>
-<pre><code>##  Date[1:344], format: &quot;2007-11-11&quot; &quot;2007-11-11&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; ...</code></pre>
+<pre><code>##  Date[1:344], format: &quot;2007-11-11&quot; &quot;2007-11-11&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; ...</code></pre>
 <p>Podemos extraer el año, el mes y el día de los valores de la
 fecha:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>egg_yr <span class="ot">&lt;-</span> <span class="fu">year</span>(egg_dates)</span>
@@ -864,6 +856,7 @@ incorrectos.</p>
 <code>"%d/%m/%Y"</code>. Dado que no hay meses que sean mayor a 12, el
 primer y tercer elemento no pueden ser analizados.</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_date</span>(char_dates, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: 2 failed to parse.</code></pre>
 <pre><code>## [1] NA           &quot;2020-05-02&quot; NA</code></pre>
 </div>
 

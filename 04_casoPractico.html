@@ -13,7 +13,7 @@
 
 <title>Empezando por los datos</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
@@ -283,8 +283,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -292,16 +292,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -446,20 +439,18 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Análisis de datos en R</li>
-    <li>
-      <a href="03_rstudio.html">1. Principios básicos</a>
-    </li>
-    <li>
-      <a href="0_manipulate.html">2. Manipulación de datos</a>
-    </li>
-    <li>
-      <a href="0_visualize.html">3. Visualización de datos</a>
-    </li>
-    <li class="dropdown-header">Casos prácticos</li>
-    <li>
-      <a href="04_casoPractico.html">4. Datos Pesqueros</a>
-    </li>
+    <li class="dropdown-header">Generalidades</li>
+    <li class="dropdown-header">1. Software R project y R-studio</li>
+    <li class="dropdown-header">2. Tipos de datos en R: Vectores</li>
+    <li class="dropdown-header">3. Tipos de datos en R: Matrices, listas y dataframes</li>
+    <li class="dropdown-header">4. Operadores</li>
+    <li class="dropdown-header">Análisis de datos</li>
+    <li class="dropdown-header">5. Manipulación de datos: Importación</li>
+    <li class="dropdown-header">6. Manipulación de datos: Tidy data</li>
+    <li class="dropdown-header">7. Manipulación de datos: Transformación</li>
+    <li class="dropdown-header">8. Visualización de datos</li>
+    <li class="dropdown-header">Documentación</li>
+    <li class="dropdown-header">9. Reportes en R</li>
   </ul>
 </li>
       </ul>
@@ -525,7 +516,7 @@ caracteres, enteros o factores). Por ejemplo, a continuación se muestra
 una figura que representa un marco de datos que comprende un vector
 numérico, uno de caracteres y uno lógico.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/data_frame.PNG&quot;</span>)</span></code></pre></div>
-<p><img src="docs/imagen/data_frame.PNG" /><!-- --></p>
+<p><img src="docs/imagen/data_frame.PNG" width="305" /></p>
 <p>Los dataframe son utilizados para el procesamiento de datos, aplicar
 técnicas estadísticas y visualización. Estos pueden ser creados a mano
 pero usualmente son importados desde la web o disco duro mediante la
@@ -574,23 +565,19 @@ estructura de tallas de la población, así como las tendencias de las
 capturas y la CPUE.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando paqueterías</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;lubridate&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     date, intersect, setdiff, union</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando datos</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/sample_landings_data_raw.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 7214 Columns: 8</code></pre>
-<pre><code>## ── Column specification ───────────────────────────────────────────────────────────────────────
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando datos</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/sample_landings_data_raw.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 7214 Columns: 8
+## ── Column specification ──────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (3): dat, gr, sp
 ## dbl (5): yy, trip, effort, l_cm, w_cm
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>landing_data</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>landing_data</span></code></pre></div>
 <pre><code>## # A tibble: 7,214 × 8
 ##       yy dat      trip effort gr    sp              l_cm  w_cm
 ##    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;
@@ -654,18 +641,18 @@ descriptivos. Podemos renombrar las columnas utilizando la función
 <code>rename</code> del paquete dplyr. También vamos a convertir la
 variable <code>Date</code> a un formato de fecha utilizando la función
 <code>mdy</code> del paquete lubridate.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Renombrando variables</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Year =</span> yy,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Date =</span> dat,</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Trip_ID =</span> trip,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">Gear =</span> gr,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">Species =</span> sp,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">Length_cm =</span> l_cm,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Weight_g =</span> w_cm) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Transformando la columna Date a formato fecha</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">mdy</span>(Date))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Renombrando variables</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Year =</span> yy,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Date =</span> dat,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Trip_ID =</span> trip,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">Gear =</span> gr,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">Species =</span> sp,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">Length_cm =</span> l_cm,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Weight_g =</span> w_cm) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Transformando la columna Date a formato fecha</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">mdy</span>(Date))</span></code></pre></div>
 </div>
 <div id="valores-nas" class="section level3">
 <h3>Valores NAs</h3>
@@ -675,7 +662,7 @@ Por lo que resulta fundamental identificarlos. A continuación vamos a
 corroborar si en nuestra base de datos existen valores NA utilizando la
 función <code>complete_cases</code> y el operador lógico de negación
 <code>!</code>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>landing_data[<span class="sc">!</span><span class="fu">complete.cases</span>(landing_data),]</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>landing_data[<span class="sc">!</span><span class="fu">complete.cases</span>(landing_data),]</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 8
 ##    Year Date       Trip_ID effort Gear     Species       Length_cm Weight_g
 ##   &lt;dbl&gt; &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;
@@ -686,8 +673,8 @@ función <code>complete_cases</code> y el operador lógico de negación
 <strong>NA</strong>. Si deseamos eliminar estas observaciones se puede
 utilizar la función <code>na.omit()</code> que eliminará cualquier fila
 que tenga presencia de NA.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(landing_data)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>landing_data</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(landing_data)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>landing_data</span></code></pre></div>
 <pre><code>## # A tibble: 7,211 × 8
 ##     Year Date       Trip_ID effort Gear  Species        Length_cm Weight_g
 ##    &lt;dbl&gt; &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;
@@ -715,7 +702,7 @@ asegurarse de que no crean problemas durante los análisis.</p>
 <p>Podemos comprobar si existen errores tipográficos utilizando la
 función <code>unique</code>, que nos muestra todos los valores únicos de
 una variable. Como ejemplo veamos la variable <code>Gear</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Gear)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Gear)</span></code></pre></div>
 <pre><code>## [1] &quot;Trap&quot;     &quot;trap&quot;     &quot;Muroami&quot;  &quot;Handline&quot; &quot;Gillnet&quot;  &quot;Trolling&quot; &quot;Speargun&quot;</code></pre>
 <p>La variable <code>Gear</code> reporta 7 aparejos de pesca. Sin
 embargo, sabemos que en el conjunto de datos sólo debería haber 6 dado
@@ -727,16 +714,16 @@ facilmente si nos aseguramos que todos nuestros valores en la variable
 los elementos de la variable <code>Gear</code> sean escritas en
 minúsculas o mayúsculas. Para tal fin podemos usar la función
 <code>tolower()</code> o <code>toupper</code> respectivamente.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gear =</span> <span class="fu">tolower</span>(Gear))</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Gear)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gear =</span> <span class="fu">tolower</span>(Gear))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Gear)</span></code></pre></div>
 <pre><code>## [1] &quot;trap&quot;     &quot;muroami&quot;  &quot;handline&quot; &quot;gillnet&quot;  &quot;trolling&quot; &quot;speargun&quot;</code></pre>
 <p>Es recomendable explorar todas las variables categóricas de una base
 de datos con la función <code>unique()</code>. Veamos otro ejemplo con
 la variable <code>Species</code>:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Species)</span></code></pre></div>
 <pre><code>## [1] &quot;Caesoi cunning&quot; &quot;Caesio cuning&quot;</code></pre>
 <p>La variable <code>Specie</code> muestra 2 valores unicos pero sabemos
 que en nuestra base de datos debería reportarse sólo a una especie. Aquí
@@ -745,7 +732,7 @@ embargo debemos corroborarlos. Lo que podemos hacer inicialmente es
 identificar cuantas veces aparecen cada uno de esto dos elementos en la
 base de datos utilizando la función <code>table()</code> a la variable
 <code>Species</code>.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(landing_data<span class="sc">$</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(landing_data<span class="sc">$</span>Species)</span></code></pre></div>
 <pre><code>## 
 ##  Caesio cuning Caesoi cunning 
 ##           7209              2</code></pre>
@@ -755,12 +742,12 @@ digitación frente a la especie <em>Caesio cuning</em> que aparece 7209
 veces. Este problema se corrige rapidament reemplazando el elemento
 correcto mediante las funciones <code>mutate()</code> y
 <code>replace</code></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="fu">replace</span>(Species,</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                           Species <span class="sc">==</span> <span class="st">&quot;Caesoi cunning&quot;</span>, <span class="st">&quot;Caesio cuning&quot;</span>))</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Species)  </span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="fu">replace</span>(Species,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                           Species <span class="sc">==</span> <span class="st">&quot;Caesoi cunning&quot;</span>, <span class="st">&quot;Caesio cuning&quot;</span>))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Species)  </span></code></pre></div>
 <pre><code>## [1] &quot;Caesio cuning&quot;</code></pre>
 <p>Ahora sólo tenemos un valor de especie en nuestra variable
 <code>Species</code>, lo cual es correcto. Los valores únicos de todas
@@ -776,7 +763,7 @@ proceso de colección de datos (por ejemplo, puede que la balanza se haya
 roto o no se haya puesto a cero antes del pesaje). Para ver el rango y
 la distribución de una variable numérica, se puede utilizar la función
 <code>summary</code>.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(landing_data<span class="sc">$</span>Length_cm)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(landing_data<span class="sc">$</span>Length_cm)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    2.00   23.00   25.00   25.81   27.00 2400.00</code></pre>
 <p>Parece que tenemos un valor máximo de longitud que es de un orden de
@@ -784,7 +771,7 @@ magnitud superior a los valores de la media y la mediana. La
 visualización de los datos numéricos es otra gran manera de examinar los
 datos continuos e identificar los contornos de los datos que pueden ser
 causados por errores en el conjunto de datos:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(landing_data<span class="sc">$</span>Length_cm)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(landing_data<span class="sc">$</span>Length_cm)</span></code></pre></div>
 <p><img src="04_casoPractico_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Vemos claramente que hay un valor atípico en nuestros datos (esquina
 superior izquierda del gráfico). No estamos seguros de cómo se ha
@@ -795,11 +782,11 @@ de <code>Length_cm</code> que superan los 100 cm. Podemos eliminar estos
 datos erróneos incluyendo únicamente las observaciones en nuestro
 conjunto de datos con valores superiores a 100 cm (tamaño máximo de la
 especie) utilizando la función de filtro:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Length_cm <span class="sc">&lt;</span> <span class="dv">100</span>)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(landing_data<span class="sc">$</span>Length_cm)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Length_cm <span class="sc">&lt;</span> <span class="dv">100</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(landing_data<span class="sc">$</span>Length_cm)</span></code></pre></div>
 <p><img src="04_casoPractico_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Ahora nuestros datos contienen observaciones de longitudes que se
 encuentran en el rango de tallas de nuestra especie. Este proceso debe
@@ -813,7 +800,7 @@ para la columna <code>Peso_g</code> y <code>Esfuerzo_horas</code>.</p>
 <p>Ahora que hemos completado la depuración de los datos procedemos a
 guardarlos en otro archivo. Para este proceso realizamos lo
 siguiente:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(landing_data, <span class="st">&quot;data/sample_landings_data_clean.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(landing_data, <span class="st">&quot;data/sample_landings_data_clean.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="directorio-de-trabajo" class="section level3">
 <h3>Directorio de trabajo</h3>
@@ -834,24 +821,24 @@ absolute filepaths, while the other leads to a sunny, green meadow, and
 a city below a rainbow and a world free of absolute filepaths. Art by
 Allison Horst</p>
 </blockquote>
-<p><img src="docs/imagen/here_graph.PNG" /><!-- --></p>
+<p><img src="docs/imagen/here_graph.PNG" width="466" /></p>
 <p>Créditos de la imagen <a
 href="https://github.com/allisonhorst/stats-illustrations">Allison
 Horst</a></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando paqueterías</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando datos</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/sample_landings_data_raw.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando paqueterías</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando datos</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/sample_landings_data_raw.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 7214 Columns: 8
-## ── Column specification ───────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (3): dat, gr, sp
 ## dbl (5): yy, trip, effort, l_cm, w_cm
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>landing_data</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>landing_data</span></code></pre></div>
 <pre><code>## # A tibble: 7,214 × 8
 ##       yy dat      trip effort gr    sp              l_cm  w_cm
 ##    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;
@@ -877,18 +864,18 @@ fuente asociado dentro de su proyecto, como los proyectos de análisis
 con datos e informes en diferentes subdirectorios. Esto es un contrate
 importante con el uso de <code>setwd()</code> que depende de la forma en
 que ordene sus archivos en su computador.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
-<pre><code>## here() starts at C:/Users/angelo.aguilar/Desktop/projectsR/training</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>landing_data_2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;sample_landings_data_raw.csv&quot;</span>),</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">na =</span> <span class="st">&quot;NULL&quot;</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>landing_data_2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;sample_landings_data_raw.csv&quot;</span>),</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">na =</span> <span class="st">&quot;NULL&quot;</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## Warning: One or more parsing issues, call `problems()` on your data frame for details, e.g.:
 ##   dat &lt;- vroom(...)
 ##   problems(dat)</code></pre>
-<pre><code>## Rows: 7214 Columns: 8</code></pre>
-<pre><code>## ── Column specification ───────────────────────────────────────────────────────────────────────
+<pre><code>## Rows: 7214 Columns: 8
+## ── Column specification ──────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (3): dat, gr, sp
 ## dbl (5): yy, trip, effort, l_cm, w_cm
@@ -915,7 +902,7 @@ absolute filepaths, while the other leads to a sunny, green meadow, and
 a city below a rainbow and a world free of absolute filepaths. Art by
 Allison Horst</p>
 </blockquote>
-<p><img src="docs/imagen/here_graph.PNG" /><!-- --></p>
+<p><img src="docs/imagen/here_graph.PNG" width="466" /></p>
 <p>Créditos de la imagen <a
 href="https://github.com/allisonhorst/stats-illustrations">Allison
 Horst</a></p>
