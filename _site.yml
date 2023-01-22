@@ -59,7 +59,7 @@ navbar:
       href: 00_setup.html
     - text: "Bibliografia"
       icon: "fas fa-search"
-      href: bibliografia.html
+      href: 05_bibliografia.html
     - text: "Repo"
       icon: "fab fa-github"
       href: https://github.com/AngeloCris/training

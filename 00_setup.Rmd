@@ -10,7 +10,7 @@ Después de instalar R, se recomienda instalar un editor de texto. Existen difer
 <br>
 
 ```{r out.width = "700px", fig.align='center', echo=FALSE}
-knitr::include_graphics("docs/imagen/ventanasRstudio.png")
+knitr::include_graphics("docs/imagen/03_Rstudio.png")
 ```
 
 <br> 
@@ -53,19 +53,19 @@ Para crear un proyecto en R debemos de ir a `file -> New Project`
 
 
 ```{r out.width="50%", fig.align='center', echo=FALSE, fig.cap= "Paso 1. Seleccionar file - New project"}
-knitr::include_graphics("docs/imagen/createProject_1.PNG")
+knitr::include_graphics("docs/imagen/04_createProject_1.PNG")
 ```
 
 ```{r out.width="50%", fig.align='center', echo=FALSE, fig.cap="Paso 2. En la ventana emergente seleccionar New Project"}
-knitr::include_graphics("docs/imagen/createProject_2.PNG")
+knitr::include_graphics("docs/imagen/05_createProject_2.PNG")
 ```
 
 ```{r out.width="50%", fig.align='center', echo=FALSE, fig.cap="Paso 3. Establecer el directorio de trabajo donde se creará el proyecto"}
-knitr::include_graphics("docs/imagen/createProject_3.PNG")
+knitr::include_graphics("docs/imagen/06_createProject_3.PNG")
 ```
 
 ```{r out.width="50%", fig.align='center', echo=FALSE, fig.cap="Paso 4. Se abre un entorno nuevo de R con el nombre de tu proyecto (cuadrante rojo)"}
-knitr::include_graphics("docs/imagen/createProject_4.PNG")
+knitr::include_graphics("docs/imagen/07_createProject_4.PNG")
 ```
 
 ## Configuraciones (opcional)
@@ -85,7 +85,7 @@ Estos ajustes evitarán que se generen diferentes cuadros de diálogos y archivo
 <br>
 
 ```{r out.width="50%", fig.align='center', echo=FALSE}
-knitr::include_graphics("docs/imagen/optionalConfiguration_1.PNG")
+knitr::include_graphics("docs/imagen/08_optionalConfiguration1.PNG")
 ```
 
 <br>  
@@ -95,7 +95,7 @@ knitr::include_graphics("docs/imagen/optionalConfiguration_1.PNG")
   - Asegúrese de tener deshabilitado la opción *Soft-wrap R source files*. Esto le permitirá que las líneas de código se ajusten al tamaño de la ventana del editor de código.
     
 ```{r out.width="50%", fig.align='center', echo=FALSE}
-knitr::include_graphics("docs/imagen/optionalConfiguration_2.PNG")
+knitr::include_graphics("docs/imagen/09_optionalConfiguration2.PNG")
 ```
 
 <br>
@@ -106,7 +106,7 @@ knitr::include_graphics("docs/imagen/optionalConfiguration_2.PNG")
 
 
 ```{r out.width="50%", fig.align='center', echo=FALSE}
-knitr::include_graphics("docs/imagen/optionalConfiguration_3.PNG")
+knitr::include_graphics("docs/imagen/10_optionalConfiguration3.PNG")
 ```
 
 <br>
