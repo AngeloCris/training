@@ -6,7 +6,7 @@ title: "ANÁLISIS DE DATOS CON R"
 <!-- <img src="docs/imagen/Data_science_1.png" alt="Dat Science principles" style="float:right;clear:left;width:250px;border:0;padding:0% 3%;"/> -->
 
 ```{r echo=FALSE, fig.align='center'}
-knitr::include_graphics("data_analisis.png")
+knitr::include_graphics("docs/imagen/01_data_analisis.png")
 ```
 
 
@@ -17,7 +17,7 @@ El curso esta diseñado para un entrenamiento intensivo de corta duración (1 se
 Cada una de las presentaciones del curso se iran añadiendo al final de cada sesión. Asi mismo, consultar el menú [**Setup**](./00_setup.html) para asegurarse de tener todos los requerimientos necesarios antes de iniciar el curso.
 
 
-<img src="docs/imagen/1554475341007.png" alt="Tidyverse packages" style="float:left;clear:right;width:650px;border:0;padding:0% 30% 0% 0%;"/>
+<img src="docs/imagen/02_tidyverse_Package.png" alt="Tidyverse packages" style="float:left;clear:right;width:650px;border:0;padding:0% 30% 0% 0%;"/>
 
 <!-- <img src="docs/imagen/Data_science_frame.png" alt="Tidyverse packages" style="float:left;clear:left;width:650px;border:0;padding:0% 4% 0% 0%;"/> -->
 
