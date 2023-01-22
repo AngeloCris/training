@@ -419,7 +419,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">R Training</a>
+      <a class="navbar-brand" href="index.html"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -440,17 +440,49 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Generalidades</li>
-    <li class="dropdown-header">1. Software R project y R-studio</li>
-    <li class="dropdown-header">2. Tipos de datos en R: Vectores</li>
-    <li class="dropdown-header">3. Tipos de datos en R: Matrices, listas y dataframes</li>
-    <li class="dropdown-header">4. Operadores</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/18t4PEkoztvN1Nbb2-xFD0tB7jWSDSNaDxj__AEK5Zpk/edit#slide=id.g1cbe8ff695a_0_10">1. Software R project y R-studio</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1X_tnJ4eO7aajQBV7OqiPtZBxVmt5UgBjQstvRXOVTJ8/edit">2. Tipos de datos en R: Vectores</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1Gwl5ROqqDCbVZsX1OCI5ifciMqwzCf1rO5f0l5YBvhQ/edit#slide=id.p">3. Tipos de datos en R: Matrices, listas y dataframes</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1xTdOQDf7LELOEe1XmYUdkHY3YUcq7hm0NWA1OXKg9N0/edit">4. Operadores</a>
+    </li>
     <li class="dropdown-header">Análisis de datos</li>
-    <li class="dropdown-header">5. Manipulación de datos: Importación</li>
-    <li class="dropdown-header">6. Manipulación de datos: Tidy data</li>
-    <li class="dropdown-header">7. Manipulación de datos: Transformación</li>
-    <li class="dropdown-header">8. Visualización de datos</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1DDRcBjj4oxutC2vHsRqBR9O7VYbiKCzgI134r2YMKQw/edit#slide=id.p">5. Manipulación de datos: Importación</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1SLQ3dVqzQhgO1rykYdGOzleDqou6fbOb6mZY79FPc2Q/edit#slide=id.p">6. Manipulación de datos: Tidy data</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1df1qQG5ZLuo_lRNakqnMX_o6pxDs3r8NYRrbOKLTnfI/edit#slide=id.p">7. Manipulación de datos: Transformación</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1dPCaZuV1LL6AoDX_5wssz2KZnsvlQlqGISGnzN6ulxE/edit#slide=id.p">8. Visualización de datos</a>
+    </li>
     <li class="dropdown-header">Documentación</li>
-    <li class="dropdown-header">9. Reportes en R</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1XNn-AMjTeeHTNERRyuf-xcgt1RDu0GdADWzjFKJ7Geg/edit#slide=id.p">9. Reportes en R</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fas fa-graduation-cap"></span>
+     
+    Caso Estudio
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="04_casoPractico01.html">1. Casos de estudio I</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -469,21 +501,14 @@ div.tocify {
     Repo
   </a>
 </li>
-<li>
-  <a href="bibliografia.html">
-    <span class="fas fa-search"></span>
-     
-    Bibliografia
-  </a>
-</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 <body>
-    <p style="height: 200px;">
+    <p style="height: 50px;">
         <img src="tnc_logo-removebg-preview.png" alt="Right Logo"
-          title="Right Logo" style="height: 150px;  margin-top: 10px; float: right; margin-right: 0.5%;">
+          title="Right Logo" style="height: 50px;  margin-top: 10px; float: right; margin-right: 0.5%;">
     </p>
 </body>
 
@@ -570,7 +595,7 @@ capturas y la CPUE.</p>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando datos</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/sample_landings_data_raw.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 7214 Columns: 8
-## ── Column specification ──────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (3): dat, gr, sp
 ## dbl (5): yy, trip, effort, l_cm, w_cm
@@ -664,11 +689,12 @@ función <code>complete_cases</code> y el operador lógico de negación
 <code>!</code>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>landing_data[<span class="sc">!</span><span class="fu">complete.cases</span>(landing_data),]</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 8
-##    Year Date       Trip_ID effort Gear     Species       Length_cm Weight_g
-##   &lt;dbl&gt; &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;
-## 1  2003 2003-05-01      10     10 &lt;NA&gt;     Caesio cuning      19       157.
-## 2  2003 2003-05-01      10     10 Handline Caesio cuning      19        NA 
-## 3  2004 2004-12-18      NA      9 Trap     Caesio cuning      20.1     186.</code></pre>
+##    Year Date       Trip_ID effort Gear     Species      Lengt…¹ Weigh…²
+##   &lt;dbl&gt; &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;
+## 1  2003 2003-05-01      10     10 &lt;NA&gt;     Caesio cuni…    19      157.
+## 2  2003 2003-05-01      10     10 Handline Caesio cuni…    19       NA 
+## 3  2004 2004-12-18      NA      9 Trap     Caesio cuni…    20.1    186.
+## # … with abbreviated variable names ¹​Length_cm, ²​Weight_g</code></pre>
 <p>Nuestra base de datos tiene 3 filas que reportan valores
 <strong>NA</strong>. Si deseamos eliminar estas observaciones se puede
 utilizar la función <code>na.omit()</code> que eliminará cualquier fila
@@ -676,19 +702,20 @@ que tenga presencia de NA.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(landing_data)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>landing_data</span></code></pre></div>
 <pre><code>## # A tibble: 7,211 × 8
-##     Year Date       Trip_ID effort Gear  Species        Length_cm Weight_g
-##    &lt;dbl&gt; &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;
-##  1  2003 2003-04-30       1     10 Trap  Caesoi cunning        36    1089.
-##  2  2003 2003-04-30       1     10 trap  Caesio cuning         29     565.
-##  3  2003 2003-04-30       1     10 Trap  Caesio cuning         34     916.
-##  4  2003 2003-04-30       1     10 Trap  Caesio cuning         36    1089.
-##  5  2003 2003-04-30       1     10 Trap  Caesio cuning         34     916.
-##  6  2003 2003-04-30       1     10 Trap  Caesoi cunning        28     508.
-##  7  2003 2003-04-30       1     10 Trap  Caesio cuning         30     627.
-##  8  2003 2003-04-30       1     10 Trap  Caesio cuning         27     455.
-##  9  2003 2003-04-30       1     10 Trap  Caesio cuning         33     837.
-## 10  2003 2003-04-30       1     10 Trap  Caesio cuning         35    1000.
-## # … with 7,201 more rows</code></pre>
+##     Year Date       Trip_ID effort Gear  Species        Lengt…¹ Weigh…²
+##    &lt;dbl&gt; &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;
+##  1  2003 2003-04-30       1     10 Trap  Caesoi cunning      36   1089.
+##  2  2003 2003-04-30       1     10 trap  Caesio cuning       29    565.
+##  3  2003 2003-04-30       1     10 Trap  Caesio cuning       34    916.
+##  4  2003 2003-04-30       1     10 Trap  Caesio cuning       36   1089.
+##  5  2003 2003-04-30       1     10 Trap  Caesio cuning       34    916.
+##  6  2003 2003-04-30       1     10 Trap  Caesoi cunning      28    508.
+##  7  2003 2003-04-30       1     10 Trap  Caesio cuning       30    627.
+##  8  2003 2003-04-30       1     10 Trap  Caesio cuning       27    455.
+##  9  2003 2003-04-30       1     10 Trap  Caesio cuning       33    837.
+## 10  2003 2003-04-30       1     10 Trap  Caesio cuning       35   1000.
+## # … with 7,201 more rows, and abbreviated variable names ¹​Length_cm,
+## #   ²​Weight_g</code></pre>
 <p>Vuelve a evaluar la estructura de datos y comprueba que las 3 filas
 que reportaron valores NA fueron eliminados. Es posible que no siempre
 se desee eliminar los valores NA de un conjunto de datos si desea
@@ -703,7 +730,8 @@ asegurarse de que no crean problemas durante los análisis.</p>
 función <code>unique</code>, que nos muestra todos los valores únicos de
 una variable. Como ejemplo veamos la variable <code>Gear</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Gear)</span></code></pre></div>
-<pre><code>## [1] &quot;Trap&quot;     &quot;trap&quot;     &quot;Muroami&quot;  &quot;Handline&quot; &quot;Gillnet&quot;  &quot;Trolling&quot; &quot;Speargun&quot;</code></pre>
+<pre><code>## [1] &quot;Trap&quot;     &quot;trap&quot;     &quot;Muroami&quot;  &quot;Handline&quot; &quot;Gillnet&quot;  &quot;Trolling&quot;
+## [7] &quot;Speargun&quot;</code></pre>
 <p>La variable <code>Gear</code> reporta 7 aparejos de pesca. Sin
 embargo, sabemos que en el conjunto de datos sólo debería haber 6 dado
 que “trap” aparece dos veces porque las mayúsculas son inconsistentes.
@@ -831,7 +859,7 @@ Horst</a></p>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando datos</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/sample_landings_data_raw.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 7214 Columns: 8
-## ── Column specification ──────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (3): dat, gr, sp
 ## dbl (5): yy, trip, effort, l_cm, w_cm
@@ -871,11 +899,12 @@ que ordene sus archivos en su computador.</p>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;sample_landings_data_raw.csv&quot;</span>),</span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">na =</span> <span class="st">&quot;NULL&quot;</span></span>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## Warning: One or more parsing issues, call `problems()` on your data frame for details, e.g.:
+<pre><code>## Warning: One or more parsing issues, call `problems()` on your data frame for
+## details, e.g.:
 ##   dat &lt;- vroom(...)
 ##   problems(dat)</code></pre>
 <pre><code>## Rows: 7214 Columns: 8
-## ── Column specification ──────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (3): dat, gr, sp
 ## dbl (5): yy, trip, effort, l_cm, w_cm

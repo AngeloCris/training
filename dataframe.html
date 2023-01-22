@@ -331,7 +331,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">R Training</a>
+      <a class="navbar-brand" href="index.html"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -352,17 +352,49 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Generalidades</li>
-    <li class="dropdown-header">1. Software R project y R-studio</li>
-    <li class="dropdown-header">2. Tipos de datos en R: Vectores</li>
-    <li class="dropdown-header">3. Tipos de datos en R: Matrices, listas y dataframes</li>
-    <li class="dropdown-header">4. Operadores</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/18t4PEkoztvN1Nbb2-xFD0tB7jWSDSNaDxj__AEK5Zpk/edit#slide=id.g1cbe8ff695a_0_10">1. Software R project y R-studio</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1X_tnJ4eO7aajQBV7OqiPtZBxVmt5UgBjQstvRXOVTJ8/edit">2. Tipos de datos en R: Vectores</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1Gwl5ROqqDCbVZsX1OCI5ifciMqwzCf1rO5f0l5YBvhQ/edit#slide=id.p">3. Tipos de datos en R: Matrices, listas y dataframes</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1xTdOQDf7LELOEe1XmYUdkHY3YUcq7hm0NWA1OXKg9N0/edit">4. Operadores</a>
+    </li>
     <li class="dropdown-header">Análisis de datos</li>
-    <li class="dropdown-header">5. Manipulación de datos: Importación</li>
-    <li class="dropdown-header">6. Manipulación de datos: Tidy data</li>
-    <li class="dropdown-header">7. Manipulación de datos: Transformación</li>
-    <li class="dropdown-header">8. Visualización de datos</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1DDRcBjj4oxutC2vHsRqBR9O7VYbiKCzgI134r2YMKQw/edit#slide=id.p">5. Manipulación de datos: Importación</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1SLQ3dVqzQhgO1rykYdGOzleDqou6fbOb6mZY79FPc2Q/edit#slide=id.p">6. Manipulación de datos: Tidy data</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1df1qQG5ZLuo_lRNakqnMX_o6pxDs3r8NYRrbOKLTnfI/edit#slide=id.p">7. Manipulación de datos: Transformación</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1dPCaZuV1LL6AoDX_5wssz2KZnsvlQlqGISGnzN6ulxE/edit#slide=id.p">8. Visualización de datos</a>
+    </li>
     <li class="dropdown-header">Documentación</li>
-    <li class="dropdown-header">9. Reportes en R</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1XNn-AMjTeeHTNERRyuf-xcgt1RDu0GdADWzjFKJ7Geg/edit#slide=id.p">9. Reportes en R</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fas fa-graduation-cap"></span>
+     
+    Caso Estudio
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="04_casoPractico01.html">1. Casos de estudio I</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -381,21 +413,14 @@ $(document).ready(function () {
     Repo
   </a>
 </li>
-<li>
-  <a href="bibliografia.html">
-    <span class="fas fa-search"></span>
-     
-    Bibliografia
-  </a>
-</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 <body>
-    <p style="height: 200px;">
+    <p style="height: 50px;">
         <img src="tnc_logo-removebg-preview.png" alt="Right Logo"
-          title="Right Logo" style="height: 150px;  margin-top: 10px; float: right; margin-right: 0.5%;">
+          title="Right Logo" style="height: 50px;  margin-top: 10px; float: right; margin-right: 0.5%;">
     </p>
 </body>
 
@@ -487,15 +512,16 @@ pantalla. Si quieres las primeras 50 filas, puedes escribir
 la función <code>head()</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
-##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_…¹ sex    year
-##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
-## 1 Adelie  Torgersen           39.1          18.7               181    3750 male   2007
-## 2 Adelie  Torgersen           39.5          17.4               186    3800 fema…  2007
-## 3 Adelie  Torgersen           40.3          18                 195    3250 fema…  2007
-## 4 Adelie  Torgersen           NA            NA                  NA      NA &lt;NA&gt;   2007
-## 5 Adelie  Torgersen           36.7          19.3               193    3450 fema…  2007
-## 6 Adelie  Torgersen           39.3          20.6               190    3650 male   2007
-## # … with abbreviated variable name ¹​body_mass_g</code></pre>
+##   species island    bill_length_mm bill_d…¹ flipp…² body_…³ sex    year
+##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+## 1 Adelie  Torgersen           39.1     18.7     181    3750 male   2007
+## 2 Adelie  Torgersen           39.5     17.4     186    3800 fema…  2007
+## 3 Adelie  Torgersen           40.3     18       195    3250 fema…  2007
+## 4 Adelie  Torgersen           NA       NA        NA      NA &lt;NA&gt;   2007
+## 5 Adelie  Torgersen           36.7     19.3     193    3450 fema…  2007
+## 6 Adelie  Torgersen           39.3     20.6     190    3650 male   2007
+## # … with abbreviated variable names ¹​bill_depth_mm,
+## #   ²​flipper_length_mm, ³​body_mass_g</code></pre>
 <blockquote>
 <p><strong>NOTA</strong>: <code>read_csv</code> asume que los campos
 estan delimitados por comas. Sin embargo, en varios países se utiliza la
@@ -809,7 +835,7 @@ formateado como “AAAA-MM-DD”.</p>
 datos <code>penguins_raw</code> e inspeccionaremos su estructura.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>egg_dates <span class="ot">&lt;-</span> penguins_raw<span class="sc">$</span><span class="st">`</span><span class="at">Date Egg</span><span class="st">`</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(egg_dates)</span></code></pre></div>
-<pre><code>##  Date[1:344], format: &quot;2007-11-11&quot; &quot;2007-11-11&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; ...</code></pre>
+<pre><code>##  Date[1:344], format: &quot;2007-11-11&quot; &quot;2007-11-11&quot; &quot;2007-11-16&quot; &quot;2007-11-16&quot; ...</code></pre>
 <p>Podemos extraer el año, el mes y el día de los valores de la
 fecha:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>egg_yr <span class="ot">&lt;-</span> <span class="fu">year</span>(egg_dates)</span>

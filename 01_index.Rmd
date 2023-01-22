@@ -1,21 +1,29 @@
 ---
-title: "Entrenamiento: análisis de datos con R"
+title: "ANÁLISIS DE DATOS CON R"
 
 ---
 
-<img src="docs/imagen/Data_science_1.png" alt="Dat Science principles" style="float:right;clear:left;width:250px;border:0;padding:0% 3%;"/>
+<!-- <img src="docs/imagen/Data_science_1.png" alt="Dat Science principles" style="float:right;clear:left;width:250px;border:0;padding:0% 3%;"/> -->
 
-Este es un curso que forma parte del programa de capacitaciones y entrenamiento de **The Nature Conservancy Perú** en Análisis de datos con R. 
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics("data_analisis.png")
+```
+
+
+Este es un curso que forma parte del programa de capacitaciones y entrenamiento de **The Nature Conservancy Perú** en Análisis de datos en R.
 
 El curso esta diseñado para un entrenamiento intensivo de corta duración (1 semana) el cual tiene como objetivo brindar una **introducción breve** a los **principios de la ciencia de datos** desde la recolección de información del ambiente hasta reportar los análisis en diferentes formatos (word, html, pdf). Los datos empleados estan orientado a temas marinos. Sin embargo, la forma lógica de programación del presente curso puede ser empleado en diferentes ámbitos. Aqui nos enfocaremos principalmente en las áreas de **Programación computacional**, **Exploración de datos**, **Visualización** y **Documentación**.
 
-Cada una de las presentaciones del curso se iran añadiendo al final de cada sesión. Asi mismo, consiltar el menú [**Setup**](./setup.html) para asegurarse de tener todos los requerimientos necesarios antes de iniciar el curso.
+Cada una de las presentaciones del curso se iran añadiendo al final de cada sesión. Asi mismo, consultar el menú [**Setup**](./00_setup.html) para asegurarse de tener todos los requerimientos necesarios antes de iniciar el curso.
 
-<img src="docs/imagen/Data_science_frame.png" alt="Tidyverse packages" style="float:left;clear:left;width:650px;border:0;padding:0% 4% 0% 0%;"/>
+
+<img src="docs/imagen/1554475341007.png" alt="Tidyverse packages" style="float:left;clear:right;width:650px;border:0;padding:0% 30% 0% 0%;"/>
+
+<!-- <img src="docs/imagen/Data_science_frame.png" alt="Tidyverse packages" style="float:left;clear:left;width:650px;border:0;padding:0% 4% 0% 0%;"/> -->
 
 <br>
 
-La forma de trabajo del presente curso estará basado en gran medida en el **universo tidyverse** el cual introduce una serie de paqueterías que proporcionan una sintaxis simple en la importación, procesamiento y visualización de datos.
+La forma de trabajo del presente curso estará basado en gran medida en el **universo tidyverse** el cual introduce una serie de paqueterías que proporcionan una sintaxis simple en la importación, procesamiento, visualización y documentación de datos.
 
 <br>
 
@@ -73,7 +81,7 @@ Aprender a manipular fechas con la librería `lubridate`. Conocer los principios
 
 8. Visualización de datos\
 Introducción a la gramática de gráficos mediante la librería `ggplot2`. Principales gráficos empleados por los usuarios (diagrama de barras, histogramas, boxplots, gráfico de dispersión, etc).\
-[Clase 8)](https://docs.google.com/presentation/d/1dPCaZuV1LL6AoDX_5wssz2KZnsvlQlqGISGnzN6ulxE/edit#slide=id.g1d81f08e18b_0_40)
+[Clase 8](https://docs.google.com/presentation/d/1dPCaZuV1LL6AoDX_5wssz2KZnsvlQlqGISGnzN6ulxE/edit#slide=id.g1d81f08e18b_0_40)
 
 9. Documentación\
 Uso de Rmarkdown (.Rmd) para generar reportes en diferentes formatos (.pdf, .word, .ppt)\

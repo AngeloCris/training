@@ -1,13 +1,11 @@
 ---
-title: "Instalación de R y RStudio"
-output: html_document
+title: "Instalación de R-Project y R-Studio"
+
 ---
 
-Para la instalación del software se debe ingresar al sitio web de [R-project](https://cran.r-project.org/bin/windows/base/) y descargar el archivo adecuado según tu sistema operativo de elección (Linux, Mac OS, Windows). Se recomienda descagar el archivo `apk` más reciente. Sigue las instrucciones para completar el proceso de instalación.
+Para la instalación del software R.project se debe ingresar al sitio web oficial de [R-project](https://cran.r-project.org/bin/windows/base/) y descargar el archivo adecuado según tu sistema operativo de elección (Linux, Mac OS, Windows). Se recomienda descargar el archivo `apk` más reciente. Sigue las instrucciones para completar el proceso de instalación.
 
-Despues de instalar R, se recomienda instalar un editor de texto. El editor de texto por excelencia es [R-studio](https://www.rstudio.com/products/rstudio/download/) razón por la cual en el presente curso se usará esta interfaz de trabajo.
-
-R-studio es lo que se conoce como un entorno de desarrollo integrado (IDE) para el lenguaje de programación R. Proporciona una única interfaz para que un usuario de R pueda gestionar todos los aspectos de un análisis (escribir código, gestionar y trazar datos. ver resultados, obtener ayuda, etc.). Esta interfaz esta conformado por cuatro paneles:
+Después de instalar R, se recomienda instalar un editor de texto. Existen diferentes editores de texto disponibles; sin embargo, por practicidad y simplicidad, recomendamos usar [R-studio](https://posit.co/download/rstudio-desktop/). R-studio es lo que se conoce como un entorno de desarrollo integrado (IDE) para el lenguaje de programación R. Proporciona una interfaz amigable en donde el usuario de R puede gestionar todos los aspectos que implica un análisis de datos (codificar, gestionar, graficar, obtener ayuda, entre otros). Esta interfaz esta conformado por cuatro paneles:
 
 <br>
 
@@ -19,15 +17,15 @@ knitr::include_graphics("docs/imagen/ventanasRstudio.png")
 
 1. **Editor de código**. Aquí es donde se escribe el código de los análisis. Cada pestaña representa un un script diferente.
 
-2. **La consola**. Aquí es donde R muestra los resultados de tu código cuando este se ejecuta. Se puede escribir código directamente en la cónsola despues del símbolo `>`.
+2. **La consola**. Aquí es donde se muestran los resultados de tu código.
 
-3. **Espacio de trabajo e historial de archivos**. Este panel generalmente tiene dos pestañas:
+3. **Espacio de trabajo e historial de archivos**. 
 
-    - **Environment**, muestra todos los datos, variables y funciones definidas por el usuario.
+    - *Environment*, detalla todos los datos, variables y funciones definidas por el usuario.
   
-    - **History**, muestra una lista de todos los comandos ejecutados previamente.
+    - *History*, muestra una lista de todos los comandos ejecutados previamente.
 
-4. **Ficheros, visualizaciones, ayuda y paquetes**. Este panel contiene cinco pestañas útiles:
+4. **Ficheros, visualizaciones, ayuda y paquetes**. 
 
     - *Files*, permite visualizar y explorar todos los archivos contenidos en el directorio de trabajo.
     
@@ -39,6 +37,36 @@ knitr::include_graphics("docs/imagen/ventanasRstudio.png")
     
     - *Viewer*, usada para visualizar documentos en formato HTML elaborados en R.
 
+## Directorio de trabajo
+
+Mantener las cosas organizadas es esencial para un uso eficiente de R. Es importante asegurarse de que todos los archivos se encuentren en un mismo directorio. Para este fin, se recomienda crear un proyecto en R. Básicamente, un proyecto de R es un entorno creado para almacenar todos los archivos (script, imágenes, reportes, datos) que serán creados durante la codificación. Algunas de ventajas de crear un proyecto son:
+
+  - Los archivos se leen y se escriben dentro del proyecto.
+  
+  - Todos los archivos necesario para los análisis se encuentran organizados en un solo lugar.
+  
+  - No tienes que escribir continuamente la ruta de los archivos de trabajo. Estos serán reconocidos inmediatamente.
+  
+  - Promueve la reproducibilidad.
+
+Para crear un proyecto en R debemos de ir a `file -> New Project`
+
+
+```{r out.width="50%", fig.align='center', echo=FALSE, fig.cap= "Paso 1. Seleccionar file - New project"}
+knitr::include_graphics("docs/imagen/createProject_1.PNG")
+```
+
+```{r out.width="50%", fig.align='center', echo=FALSE, fig.cap="Paso 2. En la ventana emergente seleccionar New Project"}
+knitr::include_graphics("docs/imagen/createProject_2.PNG")
+```
+
+```{r out.width="50%", fig.align='center', echo=FALSE, fig.cap="Paso 3. Establecer el directorio de trabajo donde se creará el proyecto"}
+knitr::include_graphics("docs/imagen/createProject_3.PNG")
+```
+
+```{r out.width="50%", fig.align='center', echo=FALSE, fig.cap="Paso 4. Se abre un entorno nuevo de R con el nombre de tu proyecto (cuadrante rojo)"}
+knitr::include_graphics("docs/imagen/createProject_4.PNG")
+```
 
 ## Configuraciones (opcional)
 
@@ -82,36 +110,3 @@ knitr::include_graphics("docs/imagen/optionalConfiguration_3.PNG")
 ```
 
 <br>
-
-
-## Directorio de trabajo
-
-Mantener las cosas organizadas es esencial para un uso eficiente de R. Es importante asegurarse de que todos los archivos se encuentren en un mismo directorio. Para este fin, se recomienda crear un proyecto en R. Básicamente, un proyecto de R es un entorno creado para almacenar todos los archivos (script, imágenes, reportes, datos) que serán creados durante la codificación. Algunas de las ventajas de crear un proyecto son:
-
-  - Los archivos se leen y se escriben dentro del proyecto.
-  
-  - Todos lo necesario para los análisis se encuentran organizados en un solo lugar.
-  
-  - No tienes que escribir continuamente la ruta de los archivos de trabajo. Estos serán reconocidos inmediatamente.
-  
-  - Mayor reproducibilidad.
-
-Para crear un proyecto en R debemos de ir a `file -> New Project`
-
-
-```{r out.width="50%", fig.align='center', echo=FALSE}
-knitr::include_graphics("docs/imagen/createProject_1.PNG")
-```
-
-```{r out.width="50%", fig.align='center', echo=FALSE}
-knitr::include_graphics("docs/imagen/createProject_2.PNG")
-```
-
-```{r out.width="50%", fig.align='center', echo=FALSE}
-knitr::include_graphics("docs/imagen/createProject_3.PNG")
-```
-
-
-```{r out.width="50%", fig.align='center', echo=FALSE}
-knitr::include_graphics("docs/imagen/createProject_4.PNG")
-```

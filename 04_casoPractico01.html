@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Caso de estudio 1</title>
+
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="docs/css/swcarpentry-lessons.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="01_index.html">
+    <span class="fas fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fas fa-graduation-cap"></span>
+     
+    Lecturas
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Generalidades</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/18t4PEkoztvN1Nbb2-xFD0tB7jWSDSNaDxj__AEK5Zpk/edit#slide=id.g1cbe8ff695a_0_10">1. Software R project y R-studio</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1X_tnJ4eO7aajQBV7OqiPtZBxVmt5UgBjQstvRXOVTJ8/edit">2. Tipos de datos en R: Vectores</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1Gwl5ROqqDCbVZsX1OCI5ifciMqwzCf1rO5f0l5YBvhQ/edit#slide=id.p">3. Tipos de datos en R: Matrices, listas y dataframes</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1xTdOQDf7LELOEe1XmYUdkHY3YUcq7hm0NWA1OXKg9N0/edit">4. Operadores</a>
+    </li>
+    <li class="dropdown-header">Análisis de datos</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1DDRcBjj4oxutC2vHsRqBR9O7VYbiKCzgI134r2YMKQw/edit#slide=id.p">5. Manipulación de datos: Importación</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1SLQ3dVqzQhgO1rykYdGOzleDqou6fbOb6mZY79FPc2Q/edit#slide=id.p">6. Manipulación de datos: Tidy data</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1df1qQG5ZLuo_lRNakqnMX_o6pxDs3r8NYRrbOKLTnfI/edit#slide=id.p">7. Manipulación de datos: Transformación</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1dPCaZuV1LL6AoDX_5wssz2KZnsvlQlqGISGnzN6ulxE/edit#slide=id.p">8. Visualización de datos</a>
+    </li>
+    <li class="dropdown-header">Documentación</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1XNn-AMjTeeHTNERRyuf-xcgt1RDu0GdADWzjFKJ7Geg/edit#slide=id.p">9. Reportes en R</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fas fa-laptop"></span>
+     
+    Caso Estudio
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="04_casoPractico01.html">1. Casos de estudio I</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="00_setup.html">
+    <span class="fas fa-cogs"></span>
+     
+    Setup
+  </a>
+</li>
+<li>
+  <a href="bibliografia.html">
+    <span class="fas fa-search"></span>
+     
+    Bibliografia
+  </a>
+</li>
+<li>
+  <a href="https://github.com/AngeloCris/training">
+    <span class="fab fa-github"></span>
+     
+    Repo
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<body>
+    <p style="height: 50px;">
+        <img src="tnc_logo-removebg-preview.png" alt="Right Logo"
+          title="Right Logo" style="height: 50px;  margin-top: 10px; float: right; margin-right: 0.5%;">
+    </p>
+</body>
+
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Caso de estudio 1</h1>
+
+</div>
+
+
+<div id="importación" class="section level2">
+<h2>Importación</h2>
+<p>Como primer paso descargamos la <a
+href="https://raw.githubusercontent.com/SFG-UCSB/fishery-manageR/master/_data/sample_landings_data_raw.csv">base
+de datos</a> de los desembarques pesqueros de <em>Caesio cunnin</em> y
+lo guardamos en nuestro computador. Luego, crea una carpeta en tu
+directorio de trabajo llamado <strong>Data</strong> y mueva el archivo
+descargado a su interior.</p>
+<p>A continuación, importamos la base de datos desde nuestra computadora
+a la memoria de R. Para tal fin podemos emplear cualquiera de las
+funciones de importación aprendidas en el presente curso. Por
+practicidad usaremos <code>readr</code>, que forma parte del universo <a
+href="https://www.tidyverse.org/">tidyverse</a>.</p>
+<p>La base de datos corresponde a los desembarques reportados por la
+flota pesquera para la especie <em>Caesio cuning</em>. Utilizaremos
+estos datos para crear histogramas de frecuencia de tallas que describan
+la estructura de tamaños de la población, así como las tendencias de las
+capturas y la captura por unidad de esfuerzo (CPUE).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerias</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando datos</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/sample_landings_data_raw.csv&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(landing_data)</span></code></pre></div>
+<p>Tenga en cuenta que <code>read_csv()</code> en realidad carga los
+datos como un formato <code>tibble</code> que no es más que otra forma
+de referirse a una versión bonita y limpia de estructurar los datos.
+Este formato se utiliza automáticamente cuando se leen los archivos con
+<code>read_csv</code>. Recuerda que siempre es recomendable revisar e
+ltotal de filas y columnas de la base de datos. En este archivo, las
+filas representan las observaciones individuales de las capturas de
+peces. Las columnas incluyen las variables asociadas a este proceso las
+cuales son año, fecha, id, horas de pesca por salida, aparejo, especie,
+talla y peso del pez.</p>
+<p><strong>Nota</strong> <code>read_csv</code> asume que los campos
+estan delimitados por comas. Sin embargo, en varios países se utiliza la
+coma como separador de decimales y el punto y coma (;) como delimitador
+de campos. Si desea leer este tipo de archivos en R, puede utilizar la
+función <code>read_csv2</code>. Se comporta exactamente igual que
+<code>read_csv</code> pero utiliza parámetros diferentes para los
+separadores de campo. Si se trabaja con otro formato, ambos pueden ser
+especificados por el usuario. Consulte la ayuda de
+<code>read_csv()</code> escribiendo <code>?read_csv</code> para obtener
+más información. También existe la función <code>read_tsv</code> para
+archivos de datos separados por tabulaciones, y <code>read_delim</code>
+permite especificar más detalles sobre la estructura de su archivo.</p>
+</div>
+<div id="depuración" class="section level2">
+<h2>Depuración</h2>
+<p>La depuración de los datos para identificar y corregir cualquier
+error potencial (falta de datos, errores tipográficos, etc) es un paso
+importante antes de realizar cualquier análisis. Esto se conoce como
+control de calidad. En esta sección mostraremos algunos pasos esenciales
+que se deben seguir durante este proceso utilizando las funciones
+aprendidas en las lecciones anteriores.</p>
+<p>Recuerda que este proceso va a estar condicionado a tu base de datos.
+Si esta es pequeña y no se actualiza con frecuencia, la depuración de
+datos puede resultar más fácil hacerla directamente en Microsoft Excel.
+Sin embargo, se recomienda que este proceso, en lo posible, se realice
+utilizando R. Las ventajas de hacerlo es que todos los cambios
+realizados en un conjunto de datos quedan registrados en un script que
+es reproducible y resulta útil cuando se desea modificar cualquier
+proceso de depuración o agregar datos adicionales.</p>
+<div id="estructura-de-datos" class="section level3">
+<h3>Estructura de datos</h3>
+<p>Como primer paso debemos observar el nombre de nuestras variables y
+preguntarnos si ¿son adecuadas? ¿tienes caracteres especiales? ¿son
+informativas? Una vez respondidas estas preguntas decidimos si cambiamos
+o no los nombres de nuestras variables. En nuestro caso las variables
+son apropiadas pero a modo de ejemplo procederemos a renombrarlas
+haciendolas más informativas e intuitivas.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Renombrando</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Year =</span> yy,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Date =</span> dat,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Trip_ID =</span> trip, </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">Gear =</span> gr,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">Species =</span> sp,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">Length_cm =</span> l_cm,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Weight_g =</span> w_cm)</span></code></pre></div>
+<p>Como segundo paso debemos de revisar si el tipo de dato de cada
+variable ha sido reconocido correctamente. Para este fin podemos hacer
+uso de las función <code>str()</code> o <code>glimpse</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(landing_data)</span></code></pre></div>
+<p>La variable fecha ha sido reconocido como caracter (character) y no
+como fecha (date). Cambiamos de formato utilizando la función
+<code>mdy</code> de la librería lubridate.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cambio de formato</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">mdy</span>(Date))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(landing_data)</span></code></pre></div>
+</div>
+<div id="valores-nas" class="section level3">
+<h3>Valores NAs</h3>
+<p>Como aprendimos en las lecciones anteriores, los valores NAs pueden
+generar problemas al momento de realizar operaciones aritméticas como la
+suma, resta, multiplicación y división. Por lo que resulta fundamental
+identificarlos. Verifiquemos si en nuestra base de datos existen valores
+NA utilizando la función <code>is.na</code> y el operador lógico de
+negación <code>!</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Total de NAs</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">is.na</span>(landing_data))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Identifiquemos filas con NA</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(landing_data[<span class="sc">!</span><span class="fu">complete.cases</span>(landing_data),])</span></code></pre></div>
+<p>La base de datos tiene 3 filas que reportan valores
+<strong>NA</strong>. Si deseamos eliminar estas observaciones se puede
+utilizar la función <code>na.omit()</code> o <code>drop_na()</code> que
+eliminará cualquier fila que tenga presencia de NA.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code></pre></div>
+<p>Vuelve a evaluar la estructura de datos y comprueba que las 3 filas
+que reportaron valores NA fueron eliminados. Es posible que no siempre
+desee eliminar los valores NA de un conjunto de datos si desea mantener
+la fila con las otras observaciones. Sin embargo, incluso si mantienes
+las observaciones con valores NA, sigue siendo bueno identificarlos y
+saber en que variable se encuentran para asegurarse de que no generen
+problemas durante los análisis.</p>
+</div>
+<div id="errores-tipográficos" class="section level3">
+<h3>Errores tipográficos</h3>
+<p>Debemos comprobar que no existan errores tipográficos en nuestra base
+de datos. Para detectar estos errores resulta útil utilizar la función
+<code>unique()</code> o <code>distintic()</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Gear)</span></code></pre></div>
+<p>La variable <code>Gear</code> reporta 7 aparejos de pesca. Sin
+embargo, sabemos que en el conjunto de datos sólo debería haber 6 dado
+que “trap” aparece dos veces porque las mayúsculas son inconsistentes.
+La “t” minúscula hace que R lo identifique como un valor único. Este
+problema es muy común en muchas bases de datos y se puede solucionar
+fácilmente si nos aseguramos que todos nuestros valores en la variable
+<code>Gear</code> sean consistentes por ejemplo que todas las letras de
+los elementos de la variable <code>Gear</code> sean escritas en
+minúsculas o mayúsculas. Para tal fin podemos usar la función
+<code>tolower()</code> o <code>toupper</code> respectivamente.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gear =</span> <span class="fu">tolower</span>(Gear))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Gear)</span></code></pre></div>
+<p>Veamos ahora para la variable <code>Species</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Species)</span></code></pre></div>
+<p>La variable <code>Species</code> muestra 2 categorías pero sabemos
+que en nuestra base de datos debería reportarse sólo una. Aquí
+probablemente ha ocurrido un problema de digitación. Sin embargo debemos
+corroborarlo. Lo que podemos hacer inicialmente es identificar cuantas
+veces aparecen cada uno de esto dos elementos en la base de datos
+utilizando la función <code>table()</code> a la variable
+<code>Species</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(landing_data<span class="sc">$</span>Species)</span></code></pre></div>
+<p>Debido a que sólo aparecen dos observaciones de <em>Caesoi
+cunning</em> podemos estar más seguros de que corresponde a un error de
+digitación frente a la especie <em>Caesio cuning</em> que aparece 7209
+veces. Este problema se corrige rapidamente reemplazando el elemento
+correcto mediante las funciones <code>mutate()</code> y
+<code>replace</code></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="fu">replace</span>(Species, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                           Species <span class="sc">==</span> <span class="st">&quot;Caesoi cunning&quot;</span>, <span class="st">&quot;Caesio cuning&quot;</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Species)</span></code></pre></div>
+<p>Ahora sólo tenemos un valor de especie en nuestra variable
+<code>Species</code>, lo cual es correcto. Del mismo modo, es
+recomendable explorar cada unas de las variables categóricas de una base
+de datos.</p>
+</div>
+<div id="errores-numéricos" class="section level3">
+<h3>Errores numéricos</h3>
+<p>Los errores en los valores numéricos pueden deberse a errores
+tipográficos durante la introducción de datos o a un error durante el
+proceso de colección de datos (por ejemplo, puede que la balanza se haya
+roto o no se haya establecido a cero antes del pesaje). Para obtener el
+rango y la distribución de una variable numérica, se puede utilizar la
+función <code>summary</code>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(landing_data<span class="sc">$</span>Length_cm)</span></code></pre></div>
+<p>Observamos que el valor máximo de longitud es de un orden de magnitud
+superior a los valores de la media y la mediana. Visualizar los datos
+númericos es una manera muy rápida de detectar errores.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(landing_data<span class="sc">$</span>Length_cm)</span></code></pre></div>
+<p><img src="04_casoPractico01_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Se observa claramente la presencia de un valor atípico en nuestros
+datos. No estamos seguros de cómo se ha producido este error, pero
+sabemos que no es correcto. De hecho, sabemos que el tamaño máximo
+posible de nuestra especie es de 100 cm. Sabemos que se ha producido un
+error de medición o de escritura en los valores de
+<code>Length_cm</code> que superan los 100 cm. Podemos eliminar estos
+datos incluyendo únicamente las observaciones con valores superiores a
+100 cm (tamaño máximo de la especie):</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Length_cm <span class="sc">&lt;</span> <span class="dv">100</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(landing_data<span class="sc">$</span>Length_cm)</span></code></pre></div>
+<p><img src="04_casoPractico01_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Ahora nuestros datos contienen observaciones de longitudes que se
+encuentran en el rango de tallas de nuestra especie. Este proceso debe
+realizarse para cada una de nuestras variables numéricas antes de
+realizar cualquier tipo de análisis. Puedes explorar las variables
+<code>Peso_g</code> y <code>Esfuerzo_horas</code> por tu cuenta.</p>
+</div>
+</div>
+<div id="guardar-archivo" class="section level2">
+<h2>Guardar archivo</h2>
+<p>Una vez completado la depuración de datos, es importante guardar la
+nueva base de datos en otro archivo. Para este proceso realizamos lo
+siguiente:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(landing_data, <span class="st">&quot;data/sample_landings_data_clean.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="cálculos-entre-variables" class="section level2">
+<h2>Cálculos entre variables</h2>
+<p>Con la base de datos depurada podemos iniciar con unos primeros
+análisis como por ejemplo calcular los desembarques anuales de la
+pesquería de <em>Caesio cuning</em>. Para este fin, agregue a la base de
+datos una nueva columna para los pesos de los peces individuales en
+kilogramos utilizando la función <code>mutate</code>. Después, agrupe
+los datos por año mediante la función group_by y, luego, resuma los
+datos de cada año sumando el peso total de todos los peces capturados
+por año (summarise y sum).</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>desembarque_anual <span class="ot">&lt;-</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pasamos el peso de g a Kg</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">peso_kg =</span> Weight_g <span class="sc">/</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Agrupamos por año</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Desembarque anual</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">desemb_anual_kg =</span> <span class="fu">sum</span>(peso_kg, <span class="at">na.rm =</span> T))</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(desembarque_anual)</span></code></pre></div>
+<p>Otro aspecto importante de observar es los desembarques anuales por
+aparejo de pesca. En este caso, agrupamos los datos por año y aparejo de
+pesca.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>desembarque_anual_arte <span class="ot">&lt;-</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pasamos el peso de g a Kg</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">peso_kg =</span> Weight_g <span class="sc">/</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Agrupamos por año y arte pesca</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, Gear) <span class="sc">%&gt;%</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Desembarque anual</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">desemb_anual_kg =</span> <span class="fu">sum</span>(peso_kg, <span class="at">na.rm =</span> T))</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(desembarque_anual_arte)  </span></code></pre></div>
+<p>El indicador de la abundancia relativa mas recurrente en pesquerías
+es la captura por unidad de esfuerzo (CPUE). La CPUE se calcula de
+dividiendo la captura y la unidad del esfuerzo de cada viaje de pesca
+(horas, trampas, salidas). Después se calcula la mediana para cada año a
+fin de eliminar los valores atipicos (algunos pescadores son mucho más
+eficientes que otros)</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>cpue_data <span class="ot">&lt;-</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pasamos el peso de g a Kg</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">peso_kg =</span> Weight_g <span class="sc">/</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Agrupamos por año y viaje</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, Trip_ID) <span class="sc">%&gt;%</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Para cada año y viaje se calcula la CPUE</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Esfuerzo medido en horas</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">trip_cpue =</span> <span class="fu">sum</span>(peso_kg)<span class="sc">/</span><span class="fu">mean</span>(effort)) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Agrupamos por año para calcular la mediana de cada viaje</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcula la mediana de la CPUE para cada año</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mediana_cpue_kg_hora =</span> <span class="fu">median</span>(trip_cpue))</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(cpue_data)</span></code></pre></div>
+<p>También puede ser de interés determinar el porcentaje anual de
+individuos maduros en la captura. Para esto primero tenemos que definir
+la longitud a la que el 95% de los peces son maduros (<span
+class="math inline">\(m_{95}\)</span>). Para el <em>Caesio cuning</em>
+el <span class="math inline">\(m_{95}\)</span> es de 15.9 cm. Teniendo
+en consideración lo anterior, añadimos una nueva columna a la base de
+datos que represente si la talla registrada de cada ejemplar corresponde
+a un ejemplar maduro (verdadero o falso).</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definimos el m95</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>m95 <span class="ot">&lt;-</span> <span class="fl">15.9</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Creamos una variable que indique si la talla  </span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># del pez se corresponde a un ejemplar maduro</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">maduro =</span> Length_cm <span class="sc">&gt;</span> m95) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Agrupamos por año para calcular el % de ind. maduros x año</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># El % maduros es igual al Nro de ejemplares maduros </span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># dividido entre el total de ejemplares registrados en ese año</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">porc_maduro =</span> <span class="fu">sum</span>(maduro)<span class="sc">/</span><span class="fu">n</span>() <span class="sc">*</span> <span class="dv">100</span>))</span></code></pre></div>
+<p>En la serie de tiempo, más del 90% de los peces se encuentran
+maduros, lo cual es una buena señal.</p>
+</div>
+<div id="gráficos" class="section level2">
+<h2>Gráficos</h2>
+<div id="desembarques" class="section level3">
+<h3>Desembarques</h3>
+<p>A continuación vamos a graficar cada una de nuestra variables
+anteriormente creadas. Para esto haremos uso de la librería
+<code>ggplot</code></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de desembarque</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>graph_desemb <span class="ot">&lt;-</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  desembarque_anual <span class="sc">%&gt;%</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Llamamos ala función ggplot</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Year), <span class="at">y =</span> desemb_anual_kg)) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Seleccionamos el tipo gráfico (dispersión)</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Agregamos una línea que conecte los puntos</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">group =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cambia las etiquetas de los ejes</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Desembarque anual [kg/año]&quot;</span>) <span class="sc">+</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Agrega un título a la figura</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Desembarque anual de Caesio cunning&quot;</span>) <span class="sc">+</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Seleeción de una temática</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_gray</span>()</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(graph_desemb)</span></code></pre></div>
+<p>En este ejemplo usamos
+<code>aes(x = factor(Year), y = desemb_anual_kg)</code> para especificar
+las variables que deseamos establecer en los ejes X (años) e Y
+(desembarque). Nótese que transformamos la variable Year de tipo
+numérica a factor. Luego añadimos las funciones geométricas deseadas
+(dispersión y línea).</p>
+<p>Observando nuestro gráfico, parece que los desembarques disminuyeron
+entre 2004 y 2011, pero han aumentado desde entonces. De nuevo, puede
+que te interese observar los distintos tipos de artes de pesca.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>graph_desemb_anual <span class="ot">&lt;-</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  desembarque_anual_arte <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> desemb_anual_kg)) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Desembarque anual [Kg/año]&quot;</span>) <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Desembarque anual de Caesio cunning por aparejo de pesca&quot;</span>) <span class="sc">+</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Gear, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(graph_desemb_anual)</span></code></pre></div>
+<p>Ahora queda claro que el reciente aumento de las capturas parece
+concentrarse en la pesca con arpón y trampas. Mientras tanto, las
+capturas de muroami, un arte muy destructivo en el que las redes se
+clavan en el arrecife, han descendido a 0 desde su prohibición en 2012,
+una buena señal de que la regulación de la gestión está funcionando.</p>
+</div>
+<div id="captura-por-unidad-de-esfuerzo" class="section level3">
+<h3>Captura por unidad de esfuerzo</h3>
+<p>Otro gráfico de interés es la CPUE. Realicemos un gráfico de este
+indicador.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>graph_cpue <span class="ot">&lt;-</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  cpue_data <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> mediana_cpue_kg_hora)) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Mediana de la CPUE [Kg/hora]&quot;</span>) <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Mediana de la CPUE para Caesio cuning&quot;</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(graph_cpue)</span></code></pre></div>
+<p>La CPUE parece que se ha incrementado significativamente durante los
+últimos años. Esto puede deberse al aumento de la abundancia del
+recurso, lo cual puede ser bueno, pero también puede deberse a un
+aumento de la eficiencia del aparejo de pesca coincidiendo con la
+transición a las trampas y los arpones. Esto podría ser una señal de
+preocupación.</p>
+</div>
+<div id="frecuencia-de-tallas" class="section level3">
+<h3>Frecuencia de tallas</h3>
+<p>Por último, analizaremos los datos de tallas que brindan información
+útil de la estructura de tallas y salud de la población. Nos enfocaremos
+en los datos correspondientes al año más reciente (2014). Asi mismo,
+añadiremos una línea vertical que nos muestre la longitud a la que
+maduran los peces para tener una idea de la sostenibilidad de las
+capturas, que debería estar compuesta principalmente por peces
+maduros.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>graph_hist <span class="ot">&lt;-</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2014</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Length_cm)) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Talla [cm]&quot;</span>) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Frecuencia de tallas para Caesio cuning.</span><span class="sc">\n</span><span class="st">La longitud al 95% de madurez esta representada como una lína roja&quot;</span>) <span class="sc">+</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> m95), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(graph_hist)</span></code></pre></div>
+<p>También puedes estar interesado en observar la composición de tallas
+por aparejo de pesca. Puedes separar la estructura de tallas del gráfico
+anterior usando la función <code>facet</code>.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>graph_hist_arte <span class="ot">&lt;-</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  landing_data <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2014</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Length_cm)) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Talla [cm]&quot;</span>) <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Frecuencia de tallas para Caesio cuning por aparejo de pesca.</span><span class="sc">\n</span><span class="st">La longitud al 95% de madurez esta representada como una lína roja&quot;</span>) <span class="sc">+</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> m95), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Gear)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>plotly<span class="sc">::</span><span class="fu">ggplotly</span>(graph_hist_arte)</span></code></pre></div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5,h6",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

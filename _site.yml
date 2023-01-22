@@ -1,7 +1,7 @@
 name: "R<sup>3</sup>" 
 navbar:
-  title: "R Training"
-  tipe: inverse
+  # title: "R Training"
+  # tipe: inverse
   left:
     - text: "Home"
       icon: "fas fa-home"
@@ -12,27 +12,41 @@ navbar:
       menu:
       - text: "Generalidades" #submenu bar
       - text: "1. Software R project y R-studio"
+        href: https://docs.google.com/presentation/d/18t4PEkoztvN1Nbb2-xFD0tB7jWSDSNaDxj__AEK5Zpk/edit#slide=id.g1cbe8ff695a_0_10
         # href: 03_rstudio.html
       - text: "2. Tipos de datos en R: Vectores"
+        href: https://docs.google.com/presentation/d/1X_tnJ4eO7aajQBV7OqiPtZBxVmt5UgBjQstvRXOVTJ8/edit
         # href: 0_manipulate.html
       - text: "3. Tipos de datos en R: Matrices, listas y dataframes"
+        href: https://docs.google.com/presentation/d/1Gwl5ROqqDCbVZsX1OCI5ifciMqwzCf1rO5f0l5YBvhQ/edit#slide=id.p
         # href: 0_visualize.html
       - text: "4. Operadores"
-        # href: 0_visualize.html   
+        href: https://docs.google.com/presentation/d/1xTdOQDf7LELOEe1XmYUdkHY3YUcq7hm0NWA1OXKg9N0/edit
+        # href: 0_visualize.html
       - text: "Análisis de datos" #submenu bar
         # href: 0_visualize.html   
       - text: "5. Manipulación de datos: Importación"
+        href: https://docs.google.com/presentation/d/1DDRcBjj4oxutC2vHsRqBR9O7VYbiKCzgI134r2YMKQw/edit#slide=id.p
         # href: 0_visualize.html   
       - text: "6. Manipulación de datos: Tidy data" #submenu bar
+        href: https://docs.google.com/presentation/d/1SLQ3dVqzQhgO1rykYdGOzleDqou6fbOb6mZY79FPc2Q/edit#slide=id.p
         # href: 0_visualize.html  
       - text: "7. Manipulación de datos: Transformación" #submenu bar
+        href: https://docs.google.com/presentation/d/1df1qQG5ZLuo_lRNakqnMX_o6pxDs3r8NYRrbOKLTnfI/edit#slide=id.p
         # href: 0_visualize.html    
       - text: "8. Visualización de datos" #submenu bar
+        href: https://docs.google.com/presentation/d/1dPCaZuV1LL6AoDX_5wssz2KZnsvlQlqGISGnzN6ulxE/edit#slide=id.p
         # href: 0_visualize.html    
       - text: "Documentación" #submenu bar
       - text: "9. Reportes en R" #submenu bar
-        # href: 0_visualize.html    
-      # - text: "Casos prácticos"
+        href: https://docs.google.com/presentation/d/1XNn-AMjTeeHTNERRyuf-xcgt1RDu0GdADWzjFKJ7Geg/edit#slide=id.p
+    - text: "Caso Estudio"
+      href: 03_practica.html
+      icon: "fas fa-laptop"
+      # icon: "fas fa-graduation-cap"
+      menu:   
+      - text: "1. Casos de estudio I"
+        href: 04_casoPractico01.html
       # - text: "4. Datos Pesqueros"
       #   href: 04_casoPractico.html
       # - text: "3. Programación"
@@ -43,19 +57,21 @@ navbar:
     - text: "Setup"
       icon: "fas fa-cogs"
       href: 00_setup.html
-    - text: "Repo"
-      icon: "fab fa-github"
-      href: https://github.com/AngeloCris/training
     - text: "Bibliografia"
       icon: "fas fa-search"
       href: bibliografia.html
+    - text: "Repo"
+      icon: "fab fa-github"
+      href: https://github.com/AngeloCris/training
 output_dir: "."
 output: 
   html_document:
     theme: spacelab
     highlight: tango
+    toc: TRUE
     toc_depth: 6
     toc_float: true
+    # code_folding: "show"
     css: "docs/css/swcarpentry-lessons.css"
     # css: ["docs/css/style_site.css", "docs/css/swcarpentry-lessons.css"]
     include:
