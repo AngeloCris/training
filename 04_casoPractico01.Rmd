@@ -13,14 +13,18 @@ output:
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, results = "hide")
 ```
 
+La base de datos corresponde a los desembarques reportados por la flota pesquera para la especie *Caesio cuning*. Utilizaremos estos datos para crear histogramas de frecuencia de tallas que describan la estructura de tamaños de la población, así como las tendencias de las capturas y la captura por unidad de esfuerzo (CPUE).
+
+
+```{r fig.align='center', out.width="100%", results='hold'}
+knitr::include_graphics("docs/imagen/11_caesioCuning.jpg")
+```
+
 ## Importación
 
 Como primer paso descargamos la [base de datos](https://raw.githubusercontent.com/SFG-UCSB/fishery-manageR/master/_data/sample_landings_data_raw.csv) de los desembarques pesqueros de *Caesio cunnin* y lo guardamos en nuestro computador. Luego, crea una carpeta en tu directorio de trabajo llamado **Data** y mueva el archivo descargado a su interior.
 
 A continuación, importamos la base de datos desde nuestra computadora a la memoria de R. Para tal fin podemos emplear cualquiera de las funciones de importación aprendidas en el presente curso. Por practicidad usaremos `readr`, que forma parte del universo [tidyverse](https://www.tidyverse.org/).
-
-La base de datos corresponde a los desembarques reportados por la flota pesquera para la especie *Caesio cuning*. Utilizaremos estos datos para crear histogramas de frecuencia de tallas que describan la estructura de tamaños de la población, así como las tendencias de las capturas y la captura por unidad de esfuerzo (CPUE).
-
 
 ```{r message=FALSE}
 # Librerias
