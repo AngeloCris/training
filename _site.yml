@@ -45,9 +45,9 @@ navbar:
       icon: "fas fa-laptop"
       # icon: "fas fa-graduation-cap"
       menu:   
+      - text: "Datos Pesqueros"
       - text: "1. Casos de estudio I"
         href: 04_casoPractico01.html
-      - text: "4. Datos Pesqueros"
       #   href: 04_casoPractico.html
       # - text: "3. Programación"
       #   href: condicionales.html

@@ -6,7 +6,7 @@ output:
     toc: true
     toc_depth: 6
     toc_float: true
-    code_folding: "show" 
+    code_folding: "hide" #show 
 ---
 
 ```{r setup, echo = FALSE, include=FALSE, message=FALSE, warning=FALSE}
