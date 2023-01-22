@@ -473,7 +473,7 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    <span class="fas fa-graduation-cap"></span>
+    <span class="fas fa-laptop"></span>
      
     Caso Estudio
      
@@ -492,6 +492,13 @@ div.tocify {
     <span class="fas fa-cogs"></span>
      
     Setup
+  </a>
+</li>
+<li>
+  <a href="bibliografia.html">
+    <span class="fas fa-search"></span>
+     
+    Bibliografia
   </a>
 </li>
 <li>
@@ -595,28 +602,30 @@ capturas y la CPUE.</p>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando datos</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/sample_landings_data_raw.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 7214 Columns: 8
-## ── Column specification ───────────────────────────────────────────────
+## ── Column specification ────────────
 ## Delimiter: &quot;,&quot;
 ## chr (3): dat, gr, sp
-## dbl (5): yy, trip, effort, l_cm, w_cm
+## dbl (5): yy, trip, effort, l_cm,...
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>landing_data</span></code></pre></div>
 <pre><code>## # A tibble: 7,214 × 8
-##       yy dat      trip effort gr    sp              l_cm  w_cm
-##    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;
-##  1  2003 4/30/03     1     10 Trap  Caesoi cunning    36 1089.
-##  2  2003 4/30/03     1     10 trap  Caesio cuning     29  565.
-##  3  2003 4/30/03     1     10 Trap  Caesio cuning     34  916.
-##  4  2003 4/30/03     1     10 Trap  Caesio cuning     36 1089.
-##  5  2003 4/30/03     1     10 Trap  Caesio cuning     34  916.
-##  6  2003 4/30/03     1     10 Trap  Caesoi cunning    28  508.
-##  7  2003 4/30/03     1     10 Trap  Caesio cuning     30  627.
-##  8  2003 4/30/03     1     10 Trap  Caesio cuning     27  455.
-##  9  2003 4/30/03     1     10 Trap  Caesio cuning     33  837.
-## 10  2003 4/30/03     1     10 Trap  Caesio cuning     35 1000.
-## # … with 7,204 more rows</code></pre>
+##       yy dat      trip effort gr   
+##    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;
+##  1  2003 4/30/03     1     10 Trap 
+##  2  2003 4/30/03     1     10 trap 
+##  3  2003 4/30/03     1     10 Trap 
+##  4  2003 4/30/03     1     10 Trap 
+##  5  2003 4/30/03     1     10 Trap 
+##  6  2003 4/30/03     1     10 Trap 
+##  7  2003 4/30/03     1     10 Trap 
+##  8  2003 4/30/03     1     10 Trap 
+##  9  2003 4/30/03     1     10 Trap 
+## 10  2003 4/30/03     1     10 Trap 
+## # … with 7,204 more rows, and 3
+## #   more variables: sp &lt;chr&gt;,
+## #   l_cm &lt;dbl&gt;, w_cm &lt;dbl&gt;</code></pre>
 <p>Tenga en cuenta que <code>read_csv()</code> en realidad carga los
 datos como un formato <code>tibble</code> que no es más que otra forma
 de referirse a una versión bonita y limpia de estructurar los datos.
@@ -689,12 +698,14 @@ función <code>complete_cases</code> y el operador lógico de negación
 <code>!</code>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>landing_data[<span class="sc">!</span><span class="fu">complete.cases</span>(landing_data),]</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 8
-##    Year Date       Trip_ID effort Gear     Species      Lengt…¹ Weigh…²
-##   &lt;dbl&gt; &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;
-## 1  2003 2003-05-01      10     10 &lt;NA&gt;     Caesio cuni…    19      157.
-## 2  2003 2003-05-01      10     10 Handline Caesio cuni…    19       NA 
-## 3  2004 2004-12-18      NA      9 Trap     Caesio cuni…    20.1    186.
-## # … with abbreviated variable names ¹​Length_cm, ²​Weight_g</code></pre>
+##    Year Date       Trip_ID effort
+##   &lt;dbl&gt; &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt;
+## 1  2003 2003-05-01      10     10
+## 2  2003 2003-05-01      10     10
+## 3  2004 2004-12-18      NA      9
+## # … with 4 more variables:
+## #   Gear &lt;chr&gt;, Species &lt;chr&gt;,
+## #   Length_cm &lt;dbl&gt;, Weight_g &lt;dbl&gt;</code></pre>
 <p>Nuestra base de datos tiene 3 filas que reportan valores
 <strong>NA</strong>. Si deseamos eliminar estas observaciones se puede
 utilizar la función <code>na.omit()</code> que eliminará cualquier fila
@@ -702,20 +713,22 @@ que tenga presencia de NA.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(landing_data)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>landing_data</span></code></pre></div>
 <pre><code>## # A tibble: 7,211 × 8
-##     Year Date       Trip_ID effort Gear  Species        Lengt…¹ Weigh…²
-##    &lt;dbl&gt; &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;
-##  1  2003 2003-04-30       1     10 Trap  Caesoi cunning      36   1089.
-##  2  2003 2003-04-30       1     10 trap  Caesio cuning       29    565.
-##  3  2003 2003-04-30       1     10 Trap  Caesio cuning       34    916.
-##  4  2003 2003-04-30       1     10 Trap  Caesio cuning       36   1089.
-##  5  2003 2003-04-30       1     10 Trap  Caesio cuning       34    916.
-##  6  2003 2003-04-30       1     10 Trap  Caesoi cunning      28    508.
-##  7  2003 2003-04-30       1     10 Trap  Caesio cuning       30    627.
-##  8  2003 2003-04-30       1     10 Trap  Caesio cuning       27    455.
-##  9  2003 2003-04-30       1     10 Trap  Caesio cuning       33    837.
-## 10  2003 2003-04-30       1     10 Trap  Caesio cuning       35   1000.
-## # … with 7,201 more rows, and abbreviated variable names ¹​Length_cm,
-## #   ²​Weight_g</code></pre>
+##     Year Date       Trip_ID effort
+##    &lt;dbl&gt; &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt;
+##  1  2003 2003-04-30       1     10
+##  2  2003 2003-04-30       1     10
+##  3  2003 2003-04-30       1     10
+##  4  2003 2003-04-30       1     10
+##  5  2003 2003-04-30       1     10
+##  6  2003 2003-04-30       1     10
+##  7  2003 2003-04-30       1     10
+##  8  2003 2003-04-30       1     10
+##  9  2003 2003-04-30       1     10
+## 10  2003 2003-04-30       1     10
+## # … with 7,201 more rows, and 4
+## #   more variables: Gear &lt;chr&gt;,
+## #   Species &lt;chr&gt;, Length_cm &lt;dbl&gt;,
+## #   Weight_g &lt;dbl&gt;</code></pre>
 <p>Vuelve a evaluar la estructura de datos y comprueba que las 3 filas
 que reportaron valores NA fueron eliminados. Es posible que no siempre
 se desee eliminar los valores NA de un conjunto de datos si desea
@@ -730,7 +743,8 @@ asegurarse de que no crean problemas durante los análisis.</p>
 función <code>unique</code>, que nos muestra todos los valores únicos de
 una variable. Como ejemplo veamos la variable <code>Gear</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Gear)</span></code></pre></div>
-<pre><code>## [1] &quot;Trap&quot;     &quot;trap&quot;     &quot;Muroami&quot;  &quot;Handline&quot; &quot;Gillnet&quot;  &quot;Trolling&quot;
+<pre><code>## [1] &quot;Trap&quot;     &quot;trap&quot;     &quot;Muroami&quot; 
+## [4] &quot;Handline&quot; &quot;Gillnet&quot;  &quot;Trolling&quot;
 ## [7] &quot;Speargun&quot;</code></pre>
 <p>La variable <code>Gear</code> reporta 7 aparejos de pesca. Sin
 embargo, sabemos que en el conjunto de datos sólo debería haber 6 dado
@@ -747,12 +761,14 @@ minúsculas o mayúsculas. Para tal fin podemos usar la función
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gear =</span> <span class="fu">tolower</span>(Gear))</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Gear)</span></code></pre></div>
-<pre><code>## [1] &quot;trap&quot;     &quot;muroami&quot;  &quot;handline&quot; &quot;gillnet&quot;  &quot;trolling&quot; &quot;speargun&quot;</code></pre>
+<pre><code>## [1] &quot;trap&quot;     &quot;muroami&quot;  &quot;handline&quot;
+## [4] &quot;gillnet&quot;  &quot;trolling&quot; &quot;speargun&quot;</code></pre>
 <p>Es recomendable explorar todas las variables categóricas de una base
 de datos con la función <code>unique()</code>. Veamos otro ejemplo con
 la variable <code>Species</code>:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(landing_data<span class="sc">$</span>Species)</span></code></pre></div>
-<pre><code>## [1] &quot;Caesoi cunning&quot; &quot;Caesio cuning&quot;</code></pre>
+<pre><code>## [1] &quot;Caesoi cunning&quot;
+## [2] &quot;Caesio cuning&quot;</code></pre>
 <p>La variable <code>Specie</code> muestra 2 valores unicos pero sabemos
 que en nuestra base de datos debería reportarse sólo a una especie. Aquí
 probablemente lo que haya ocurrido sea un problema de digitación. Sin
@@ -792,8 +808,10 @@ roto o no se haya puesto a cero antes del pesaje). Para ver el rango y
 la distribución de una variable numérica, se puede utilizar la función
 <code>summary</code>.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(landing_data<span class="sc">$</span>Length_cm)</span></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    2.00   23.00   25.00   25.81   27.00 2400.00</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 
+##    2.00   23.00   25.00   25.81 
+## 3rd Qu.    Max. 
+##   27.00 2400.00</code></pre>
 <p>Parece que tenemos un valor máximo de longitud que es de un orden de
 magnitud superior a los valores de la media y la mediana. La
 visualización de los datos numéricos es otra gran manera de examinar los
@@ -859,28 +877,30 @@ Horst</a></p>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando datos</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>landing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/sample_landings_data_raw.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 7214 Columns: 8
-## ── Column specification ───────────────────────────────────────────────
+## ── Column specification ────────────
 ## Delimiter: &quot;,&quot;
 ## chr (3): dat, gr, sp
-## dbl (5): yy, trip, effort, l_cm, w_cm
+## dbl (5): yy, trip, effort, l_cm,...
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>landing_data</span></code></pre></div>
 <pre><code>## # A tibble: 7,214 × 8
-##       yy dat      trip effort gr    sp              l_cm  w_cm
-##    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;
-##  1  2003 4/30/03     1     10 Trap  Caesoi cunning    36 1089.
-##  2  2003 4/30/03     1     10 trap  Caesio cuning     29  565.
-##  3  2003 4/30/03     1     10 Trap  Caesio cuning     34  916.
-##  4  2003 4/30/03     1     10 Trap  Caesio cuning     36 1089.
-##  5  2003 4/30/03     1     10 Trap  Caesio cuning     34  916.
-##  6  2003 4/30/03     1     10 Trap  Caesoi cunning    28  508.
-##  7  2003 4/30/03     1     10 Trap  Caesio cuning     30  627.
-##  8  2003 4/30/03     1     10 Trap  Caesio cuning     27  455.
-##  9  2003 4/30/03     1     10 Trap  Caesio cuning     33  837.
-## 10  2003 4/30/03     1     10 Trap  Caesio cuning     35 1000.
-## # … with 7,204 more rows</code></pre>
+##       yy dat      trip effort gr   
+##    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;
+##  1  2003 4/30/03     1     10 Trap 
+##  2  2003 4/30/03     1     10 trap 
+##  3  2003 4/30/03     1     10 Trap 
+##  4  2003 4/30/03     1     10 Trap 
+##  5  2003 4/30/03     1     10 Trap 
+##  6  2003 4/30/03     1     10 Trap 
+##  7  2003 4/30/03     1     10 Trap 
+##  8  2003 4/30/03     1     10 Trap 
+##  9  2003 4/30/03     1     10 Trap 
+## 10  2003 4/30/03     1     10 Trap 
+## # … with 7,204 more rows, and 3
+## #   more variables: sp &lt;chr&gt;,
+## #   l_cm &lt;dbl&gt;, w_cm &lt;dbl&gt;</code></pre>
 <p>Nota</p>
 <p>Incluso con el uso de un proyecto de RStudio, puede der difícil
 aprender a especificar las rutas de trabajo de los archivos. Para
@@ -899,15 +919,16 @@ que ordene sus archivos en su computador.</p>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;sample_landings_data_raw.csv&quot;</span>),</span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">na =</span> <span class="st">&quot;NULL&quot;</span></span>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## Warning: One or more parsing issues, call `problems()` on your data frame for
+<pre><code>## Warning: One or more parsing issues, call
+## `problems()` on your data frame for
 ## details, e.g.:
 ##   dat &lt;- vroom(...)
 ##   problems(dat)</code></pre>
 <pre><code>## Rows: 7214 Columns: 8
-## ── Column specification ───────────────────────────────────────────────
+## ── Column specification ────────────
 ## Delimiter: &quot;,&quot;
 ## chr (3): dat, gr, sp
-## dbl (5): yy, trip, effort, l_cm, w_cm
+## dbl (5): yy, trip, effort, l_cm,...
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>

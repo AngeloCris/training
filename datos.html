@@ -475,7 +475,7 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    <span class="fas fa-graduation-cap"></span>
+    <span class="fas fa-laptop"></span>
      
     Caso Estudio
      
@@ -494,6 +494,13 @@ div.tocify {
     <span class="fas fa-cogs"></span>
      
     Setup
+  </a>
+</li>
+<li>
+  <a href="bibliografia.html">
+    <span class="fas fa-search"></span>
+     
+    Bibliografia
   </a>
 </li>
 <li>
@@ -852,7 +859,8 @@ mayor a las celdas de la matriz, se acomodarán todos los datos posibles
 y los demás serán omitidos.</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El vector contiene 12 elementos pero la matriz solo 9 celdas</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## Warning in matrix(1:12, nrow = 3, ncol = 3): data length differs from
+<pre><code>## Warning in matrix(1:12, nrow = 3,
+## ncol = 3): data length differs from
 ## size of matrix: [12 != 3 x 3]</code></pre>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
@@ -862,8 +870,10 @@ y los demás serán omitidos.</p>
 elementos, estos se <strong>reciclaran</strong> sin antes advertirnos.
 Luego R empezará a usar los elementos a partir del primero de ellos.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## Warning in matrix(1:18, nrow = 6, ncol = 4): data length [18] is not a
-## sub-multiple or multiple of the number of columns [4]</code></pre>
+<pre><code>## Warning in matrix(1:18, nrow = 6,
+## ncol = 4): data length [18] is not
+## a sub-multiple or multiple of the
+## number of columns [4]</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    7   13    1
 ## [2,]    2    8   14    2
@@ -912,13 +922,20 @@ nos muestra un mensaje de advertencia</p>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultado</span></span>
 <span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>miMatriz_4</span></code></pre></div>
-<pre><code>##      miVector_1 miVector_2 miVector_3
-## [1,]          3          2          3
-## [2,]          6          9          6
-## [3,]          8          3          8
-## [4,]          3          2          2
-## [5,]          6          9          9
-## [6,]          8          3          3</code></pre>
+<pre><code>##      miVector_1 miVector_2
+## [1,]          3          2
+## [2,]          6          9
+## [3,]          8          3
+## [4,]          3          2
+## [5,]          6          9
+## [6,]          8          3
+##      miVector_3
+## [1,]          3
+## [2,]          6
+## [3,]          8
+## [4,]          2
+## [5,]          9
+## [6,]          3</code></pre>
 <p>Por último, las matrices pueden contener valores <em>NA</em> para
 representar valores perdidos, por ejemplo:</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>vector_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="cn">NA</span>)</span>
@@ -1047,7 +1064,8 @@ dataframe, esta se vectorizará.</p>
 ## 6 2013 Sector_1    11   F 106.12</code></pre>
 <div class="sourceCode" id="cb101"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crabs<span class="sc">$</span>CL <span class="sc">/</span> <span class="dv">10</span>)</span></code></pre></div>
-<pre><code>## [1] 12.364 11.847 11.553 11.398 10.875 10.612</code></pre>
+<pre><code>## [1] 12.364 11.847 11.553 11.398
+## [5] 10.875 10.612</code></pre>
 <p>Algunas funciones que pueden resultar útiles para explorar
 rápidamente la estructura de nuestros datos son: <code>summary()</code>,
 <code>head()</code>, <code>tail()</code>, <code>str()</code>.</p>
