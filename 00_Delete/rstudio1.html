@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+<meta name="date" content="2022-10-07" />
+
+<title>R-studio</title>
+
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="docs/css/style_site.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R Training</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="01_index.html">
+    <span class="fas fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fas fa-graduation-cap"></span>
+     
+    Lecturas
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Programación en R</li>
+    <li>
+      <a href="rstudio1.html">1. Introducción a la ciencia de datos y R</a>
+    </li>
+    <li>
+      <a href="datos.html">2. Datos</a>
+    </li>
+    <li>
+      <a href="condicionales.html">3. Programación</a>
+    </li>
+    <li>
+      <a href="graficos.html">4. Gráficos</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/AngeloCris/training">
+    <span class="fab fa-github"></span>
+     
+    Repo
+  </a>
+</li>
+<li>
+  <a href="bibliografia.html">
+    <span class="fas fa-search"></span>
+     
+    Bibliografia
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<body>
+    <p style="height: 200px;">
+        <img src="tnc_logo-removebg-preview.png" alt="Right Logo"
+          title="Right Logo" style="height: 150px;  margin-top: 10px; float: right; margin-right: 0.5%;">
+    </p>
+</body>
+
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">R-studio</h1>
+<h4 class="date">2022-10-07</h4>
+
+</div>
+
+
+<div id="objetivo" class="section level2 unnumbered objectives">
+<h2 class="unnumbered objectives">Objetivo</h2>
+<p><br></p>
+<ul>
+<li><p>Instalación de R-studio</p></li>
+<li><p>Conceptos básicos de R-studio</p></li>
+</ul>
+</div>
+<div id="conceptos-generales-software" class="section level2">
+<h2>Conceptos generales: Software</h2>
+<div id="qué-es-r-y-rstudio" class="section level3">
+<h3>¿Qué es R y Rstudio?</h3>
+<ol style="list-style-type: decimal">
+<li><p>R es un lenguaje de programación científica.</p></li>
+<li><p>R-studio es un entorno de desarrollo integrado (IDE) que
+proporciona un entorno de codificación robusta para escribir y ejecutar
+código en R. Se recomienda revisar el Cheat Sheets de Rstudio a través
+del menú <strong>Help -&gt; Cheat Sheet -&gt; Rstudio IDE Cheat
+Sheet</strong> para comprender rápidamente los paneles y atajos de los
+comandos.</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/cheatSheet.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/cheatSheet.PNG" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="porqué-usar-r" class="section level3">
+<h3>¿Porqué usar R?</h3>
+<ol style="list-style-type: decimal">
+<li>!Es gratis y trabaja en múltiples plataformas!</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/Rmultiplataforma.png&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/Rmultiplataforma.png" width="80%" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Es un comando de programación</p></li>
+<li><p>Gráficos y visualización a nivel profesional.</p></li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/Rgraficos.png&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/Rgraficos.png" width="80%" style="display: block; margin: auto;" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Un solo software para diferentes tipos de análisis. Miles de
+análisis estadísticos clásicos y modernos se encuentran disponibles en
+R.</p></li>
+<li><p>Automatización de metodologías. Con R, la realización de un
+procedimiento y/o ordenamiento de la data mediante un script no necesita
+crearse cada vez que se inicia el programa. <strong>¡Es
+automático!</strong></p></li>
+<li><p>Acceso a técnicas recientemente desarrolladas o en desarrollo
+permanente por la comunidad científica mundial.</p></li>
+<li><p>No hay límites. Si no se encuentra lo que se busca, uno mismo
+puede construirlo.</p></li>
+</ol>
+</div>
+<div id="instalación-de-r-studio" class="section level3">
+<h3>Instalación de R-studio</h3>
+<p>Para la instalación del software se debe ingresar al sitio web de <a
+href="https://cran.r-project.org/bin/windows/base/">R-project</a> y
+descargar el archivo adecuado según tu sistema operativo de elección
+(Linux, Mac OS, Windows). Se recomienda descagar el archivo
+<code>apk</code> más reciente. Sigue las instrucciones para completar el
+proceso de instalación.</p>
+<p>Despues de instalar R, se recomienda instalar un editor de texto. El
+editor de texto por excelencia es <a
+href="https://www.rstudio.com/products/rstudio/download/">R-studio</a>
+razón por la cual en el presente curso se usará esta interfaz de
+trabajo.</p>
+</div>
+<div id="introducción-a-r-studio" class="section level3">
+<h3>Introducción a R-studio</h3>
+<p>R-studio es lo que se conoce como un entorno de desarrollo integrado
+(IDE) para el lenguaje de programación R. Proporciona una única interfaz
+para que un usuario de R pueda gestionar todos los aspectos de un
+análisis (escribir código, gestionar y trazar datos. ver resultados,
+obtener ayuda, etc.). Esta interfaz esta conformado por cuatro
+paneles:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/ventanasRstudio.png&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/ventanasRstudio.png" /><!-- --></p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Editor de código</strong>. Aquí es donde se escribe el
+código de los análisis. Cada pestaña representa un un script
+diferente.</p></li>
+<li><p><strong>La consola</strong>. Aquí es donde R muestra los
+resultados de tu código cuando este se ejecuta. Se puede escribir código
+directamente en la cónsola despues del símbolo
+<code>&gt;</code>.</p></li>
+<li><p><strong>Espacio de trabajo e historial</strong>. Este panel
+generalmente tiene dos pestañas:</p>
+<ul>
+<li><p><strong>Environment</strong>, muestra todos los datos, variables
+y funciones definidas por el usuario. Estos son creados por el usuario
+en la consola o editor de código.</p></li>
+<li><p><strong>History</strong>, muestra una lista de todos los comandos
+ejecutados previamente.</p></li>
+</ul></li>
+<li><p><strong>Ficheros, visualizaciones, ayuda y paquetes</strong>.
+Este panel contiene cinco pestañas útiles:</p>
+<ul>
+<li><p><em>Files</em>, permite visualizar y explorar todos los archivos
+contenidos en el directorio actual. Aquí puede hacer clic en diferentes
+scripts de R para abrirlos en el editor de código.</p></li>
+<li><p><em>Plots</em>, cuando produzca gráficos con su código, se
+mostrarán aquí.</p></li>
+<li><p><em>Package</em>, muestra una lista de paqueterías instaladas en
+el computador. Se pueden instalar nuevas paqueterías o actualizar las
+existentes dando click a <code>install</code> o
+<code>update</code>.</p></li>
+<li><p><em>Help</em> da acceso a varias páginas de ayuda o
+consulta.</p></li>
+<li><p><em>Viewer</em> puede ser usada para visualizar documentos en
+formato HTML realizados en R.</p></li>
+</ul></li>
+</ol>
+<div id="configuraciones-adicionales" class="section level4">
+<h4>Configuraciones adicionales</h4>
+<p>Como preferencia personal, se recomienda configurar algunos
+ajustes:</p>
+<p><code>R-studio -&gt; tools -&gt; global options -&gt; general</code>,</p>
+<ul>
+<li><p>Asegúrese de que la opción <em>Restore .RData into workspace at
+startup</em> este deshabilitado.</p></li>
+<li><p>Asegúrese de que la opción <em>Save workspace to .RData on exit
+este configurado como </em>Never*</p></li>
+<li><p>Asegúrese de que la opción *Always save history (even when not
+saving .RData) no esté marcada.</p></li>
+</ul>
+<p>Estos ajustes evitarán que se generen diferentes cuadros de diálogos
+y archivos inútiles cada vez que abra y cierre R.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/optionalConfiguration_1.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/optionalConfiguration_1.PNG" /><!-- --></p>
+<p><br></p>
+<p><code>R-studio -&gt; tools -&gt; global options -&gt; code</code>,</p>
+<ul>
+<li>Asegúrese de tener deshabilitado la opción <em>Soft-wrap R source
+files</em>. Esto le permitirá que las líneas de código se ajusten al
+tamaño de la ventana del editor de código.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/optionalConfiguration_2.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/optionalConfiguration_2.PNG" /><!-- --></p>
+<p><br></p>
+<p><code>R-studio -&gt; tools -&gt; global options -&gt; Appearence</code>,</p>
+<ul>
+<li>Aquí podrá ajustar el tamaño, letra, fondo de la consola de acuerdo
+a sus preferencias.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/optionalConfiguration_3.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/optionalConfiguration_3.PNG" /><!-- --></p>
+<p><br></p>
+</div>
+<div id="directorio-de-trabajo" class="section level4">
+<h4>Directorio de trabajo</h4>
+<p>Mantener las cosas organizadas es esencial para un uso eficiente de
+R. Es de vital importancia asegurarse de que todos los archivos se
+encuentren en un mismo directorio. Para lograr esto, se recomienda crear
+un proyecto en R. Básicamente, un proyecto de R es un entorno creado
+para almacenar todos los archivos (script, imagenes, reportes) que serán
+creados durante la codificación. Algunas de las ventajas de crear un
+proyecto son:</p>
+<ul>
+<li><p>Los archivos se leen y se escriben dentro del proyecto.</p></li>
+<li><p>Todos lo necesario para los análisis se encuentran organizados en
+un solo lugar.</p></li>
+<li><p>No tienes que escribir continuamente la ruta de los archivos de
+trabajo. Estos serán reconocidos inmediatamente.</p></li>
+</ul>
+<p>Para crear un proyecto en R ir a `file -&gt; New Project</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/createProject_1.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/createProject_1.PNG" /><!-- --></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/createProject_2.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/createProject_2.PNG" /><!-- --></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/createProject_3.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/createProject_3.PNG" /><!-- --></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/createProject_4.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/createProject_4.PNG" /><!-- --></p>
+</div>
+</div>
+<div id="mi-primer-comando" class="section level3">
+<h3>Mi primer comando</h3>
+<p>Para iniciar: Abrir Rstudio, luego en la consola escribir
+<code>1 + 3</code> debería aparecer en el indicador <code>&gt;</code>.
+Luego presione enter.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/firstCommand.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/firstCommand.PNG" width="80%" style="display: block; margin: auto;" /></p>
+<p>Trata de realizar operaciones aritméticas simples (suma, resta,
+división, multiplicación).</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># suma</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># resta</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dv">45</span> <span class="sc">-</span> <span class="dv">12</span></span></code></pre></div>
+<pre><code>## [1] 33</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># multiplicación</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">10</span></span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># división</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">/</span> <span class="dv">10</span></span></code></pre></div>
+<pre><code>## [1] 0.2</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># potencia</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">^</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># log natural</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 2.302585</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># log base 10</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>, <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+</div>
+<div id="almacenar-y-reusar-resultados" class="section level3">
+<h3>Almacenar y reusar resultados</h3>
+<p>Para asignar valores a un objeto se debe emplear los llamados
+<em>operadores de asignación</em> <code>&lt;-</code> o
+<code>=</code>.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">operador =</span> <span class="fu">c</span>(<span class="st">&quot;&lt;-&quot;</span>, <span class="st">&quot;=&quot;</span>),</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Operación</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Asigna un valor a una variable&quot;</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Asigna un valor a una variable&quot;</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>,</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> F,</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="st">&quot;center&quot;</span>)</span></code></pre></div>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+operador
+</th>
+<th style="text-align:left;">
+Operación
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+&lt;-
+</td>
+<td style="text-align:left;">
+Asigna un valor a una variable
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+=
+</td>
+<td style="text-align:left;">
+Asigna un valor a una variable
+</td>
+</tr>
+</tbody>
+</table>
+<p>Aunque se puede usar el símbolo <code>&lt;-</code> o <code>=</code>
+se recomienda emplear el primero debido a que es más fácil de
+reconocerlo visualmente. Además, no genera problemas en procesos más
+complejos de programación.</p>
+<p>Para correr un proceso señalar con el cursor del mouse la línea del
+script a ejecutar. Luego hacer click en el boton <code>Run</code>
+ubicado en la parte superior derecha del panel del script o usar la
+combinación de teclas <code>ctrl + enter</code>.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># asignamos un nombre a la operación</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtenemos los resultados de la operación</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Podemos realizar operaciones</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>a <span class="sc">*</span> <span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] 35</code></pre>
+<p><strong>¿Que nombres emplear?</strong></p>
+<p>Se pueden emplear letras, números o caracteres especiales como
+<code>.</code>; <code>_</code>. Algunos ejemplos son:
+<code>var_1</code>, <code>var.1</code>, <code>VAR1</code>,
+<code>myVar1</code>. Recordemos que R es muy sensible a las mayúsculas y
+minúsculas, <code>Mi_var</code> y <code>mi_var</code> son diferentes.
+Evitar espacios en los nombres de los objetos ya que será mas fácil de
+trabajar con ellos.</p>
+</div>
+<div id="crear-un-script" class="section level3">
+<h3>Crear un script</h3>
+<p>Para crear un script ir a
+<code>file -&gt; New file -&gt; Rscript</code>.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/firstScript.png&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/firstScript.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Repetir todas las operaciones realizadas anteriormente pero ahora
+escribiéndolas en el nuevo script. ¿Qué observa?</p>
+</div>
+<div id="importante" class="section level3 unnumbered keypoints">
+<h3 class="unnumbered keypoints">Importante</h3>
+<p>Cuando escribas instrucciones en el script de R, debemos asegurarnos
+que todas las instrucciones se encuentren allí y no tipear directamente
+en la consola. Si tipeamos unos comandos en el script y otros en la
+consola, pronto tendremos un desorden en los procedimientos y
+dificultades al momento de intentar reproducirlo generando una gran
+frustación.</p>
+</div>
+<div id="comentando-tu-script" class="section level3">
+<h3>Comentando tu script</h3>
+<p>Tomar apuntes respecto a lo que hace cada línea de código es de vital
+importancia para uno mismo o para otra persona con la que compartas tu
+código.</p>
+<p>En R podemos realizar comentarios empezando una línea con el caracter
+<code>#</code>. Todo lo que se escriba después del <code>#</code> será
+ignorado por R.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/firstComment.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/firstComment.PNG" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="guardar-y-mantener-seguro-tu-script" class="section level3">
+<h3>Guardar y mantener seguro tu script</h3>
+<p>Nuestro script contiene todo las instrucciones y detalles de un
+trabajo especifico por tanto será importante guardarlo y mantener seguro
+generando respaldos si es necesario. Para realizar este proceso ir a
+<code>file -&gt; Save us ..</code> o usa la combinación de teclas
+<code>ctrl + s</code>. Asigna al script un nombre fácil de ubicar pero
+que signifique algo para nosotros (idealmente un nombre conciso sobre lo
+que hace el script o los datos que contiene).</p>
+</div>
+<div id="errores-comunes" class="section level3">
+<h3>Errores comunes</h3>
+<p>Probablemente experimentaras diferentes errores a lo largo de este
+proceso de aprendizaje. Algunos de los más comunes son los
+siguientes:</p>
+<ul>
+<li>Objeto no encontrado. R no encontrará un objeto si no ha sido
+definido previamente.</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/errorMissedObject.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/errorMissedObject.PNG" style="display: block; margin: auto;" /></p>
+<ul>
+<li><p>Advertencias. El código se ejecutará pero se notificará un
+mensaje de advertencia lo que significa que el código puede que no esté
+haciendo lo que se pretende o que R ha reconocido algo que solicitaste
+como riesgoso. <strong>Nunca ignores un mensaje de
+advertencia</strong></p></li>
+<li><p>El temido <code>+</code>. Otro error es un resultado en la
+consola que luce como:<br />
+Esto significa que la sintaxis del código escrito no esta completo. El
+<code>+</code> en la consola es la forma de decir de R “estoy esperando
+que el proceso se termine”. Cuando vea el <code>+</code> presione la
+tecla <code>esc</code> y vuelva a ejecutar todo el comando escrito
+correctamente.</p></li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/imagen/errorTemido.PNG&quot;</span>)</span></code></pre></div>
+<p><img src="docs/imagen/errorTemido.PNG" width="30%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

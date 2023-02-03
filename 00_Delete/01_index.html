@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>ANÁLISIS DE DATOS CON R</title>
+
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="docs/css/swcarpentry-lessons.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="01_index.html">
+    <span class="fas fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fas fa-graduation-cap"></span>
+     
+    Lecturas
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Generalidades</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/18t4PEkoztvN1Nbb2-xFD0tB7jWSDSNaDxj__AEK5Zpk/edit#slide=id.g1cbe8ff695a_0_10">1. Software R project y R-studio</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1X_tnJ4eO7aajQBV7OqiPtZBxVmt5UgBjQstvRXOVTJ8/edit">2. Tipos de datos en R: Vectores</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1Gwl5ROqqDCbVZsX1OCI5ifciMqwzCf1rO5f0l5YBvhQ/edit#slide=id.p">3. Tipos de datos en R: Matrices, listas y dataframes</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1xTdOQDf7LELOEe1XmYUdkHY3YUcq7hm0NWA1OXKg9N0/edit">4. Operadores</a>
+    </li>
+    <li class="dropdown-header">Análisis de datos</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1DDRcBjj4oxutC2vHsRqBR9O7VYbiKCzgI134r2YMKQw/edit#slide=id.p">5. Manipulación de datos: Importación</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1SLQ3dVqzQhgO1rykYdGOzleDqou6fbOb6mZY79FPc2Q/edit#slide=id.p">6. Manipulación de datos: Tidy data</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1df1qQG5ZLuo_lRNakqnMX_o6pxDs3r8NYRrbOKLTnfI/edit#slide=id.p">7. Manipulación de datos: Transformación</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1dPCaZuV1LL6AoDX_5wssz2KZnsvlQlqGISGnzN6ulxE/edit#slide=id.p">8. Visualización de datos</a>
+    </li>
+    <li class="dropdown-header">Documentación</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1XNn-AMjTeeHTNERRyuf-xcgt1RDu0GdADWzjFKJ7Geg/edit#slide=id.p">9. Reportes en R</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fas fa-laptop"></span>
+     
+    Caso Estudio
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="04_casoPractico01.html">1. Casos de estudio I</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="00_setup.html">
+    <span class="fas fa-cogs"></span>
+     
+    Setup
+  </a>
+</li>
+<li>
+  <a href="bibliografia.html">
+    <span class="fas fa-search"></span>
+     
+    Bibliografia
+  </a>
+</li>
+<li>
+  <a href="https://github.com/AngeloCris/training">
+    <span class="fab fa-github"></span>
+     
+    Repo
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<body>
+    <p style="height: 50px;">
+        <img src="tnc_logo-removebg-preview.png" alt="Right Logo"
+          title="Right Logo" style="height: 50px;  margin-top: 10px; float: right; margin-right: 0.5%;">
+    </p>
+</body>
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">ANÁLISIS DE DATOS CON R</h1>
+
+</div>
+
+
+<!-- <img src="docs/imagen/Data_science_1.png" alt="Dat Science principles" style="float:right;clear:left;width:250px;border:0;padding:0% 3%;"/> -->
+<p><img src="data_analisis.png" width="700" style="display: block; margin: auto;" /></p>
+<p>Este es un curso que forma parte del programa de capacitaciones y
+entrenamiento de <strong>The Nature Conservancy Perú</strong> en
+Análisis de datos en R.</p>
+<p>El curso esta diseñado para un entrenamiento intensivo de corta
+duración (1 semana) el cual tiene como objetivo brindar una
+<strong>introducción breve</strong> a los <strong>principios de la
+ciencia de datos</strong> desde la recolección de información del
+ambiente hasta reportar los análisis en diferentes formatos (word, html,
+pdf). Los datos empleados estan orientado a temas marinos. Sin embargo,
+la forma lógica de programación del presente curso puede ser empleado en
+diferentes ámbitos. Aqui nos enfocaremos principalmente en las áreas de
+<strong>Programación computacional</strong>, <strong>Exploración de
+datos</strong>, <strong>Visualización</strong> y
+<strong>Documentación</strong>.</p>
+<p>Cada una de las presentaciones del curso se iran añadiendo al final
+de cada sesión. Asi mismo, consultar el menú <a
+href="./00_setup.html"><strong>Setup</strong></a> para asegurarse de
+tener todos los requerimientos necesarios antes de iniciar el curso.</p>
+<p><img src="docs/imagen/1554475341007.png" alt="Tidyverse packages" style="float:left;clear:right;width:650px;border:0;padding:0% 30% 0% 0%;"/></p>
+<!-- <img src="docs/imagen/Data_science_frame.PNG" alt="Tidyverse packages" style="float:left;clear:left;width:650px;border:0;padding:0% 4% 0% 0%;"/> -->
+<p><br></p>
+<p>La forma de trabajo del presente curso estará basado en gran medida
+en el <strong>universo tidyverse</strong> el cual introduce una serie de
+paqueterías que proporcionan una sintaxis simple en la importación,
+procesamiento, visualización y documentación de datos.</p>
+<p><br></p>
+<p><br></p>
+<!-- ## Resultados del entrenamiento -->
+<!-- Se espera que para el final del curso cada unos de los participantes pueda: -->
+<!-- - Entender los principios de la ciencia de datos -->
+<!-- - Sentirse seguro trabajando en uno de los programas más populares para análisis de datos -->
+<!-- - Estar familiarizado con diferentes tipos y estructura de datos -->
+<!-- - Importar, manipular, visualizar y reportar cada uno de sus análisis. -->
+<!-- ## Requerimientos -->
+<!-- El curso esta diseñado de tal modo que no se requiere de conocimiento previo en programación. Sin embargo, resultará ventajoso tener conocimientos previos de programación y estadística básica. Para un flujo de trabajo eficiente, por favor asegúrate de descargar los datos e instalar todo antes de trabajar con el material proporcionado. -->
+<div id="estructura-del-curso" class="section level2">
+<h2>Estructura del curso</h2>
+<p>El curso consta de 9 clases los cuales cubren los temas de
+<strong>Programación en R</strong>, <strong>Exploración de
+datos</strong>, <strong>Visualización</strong> y
+<strong>Documentación</strong>. Cada clase contiene ejercicios cortos
+que deberán ser resueltos de forma conjunta.</p>
+<div id="temario" class="section level3">
+<h3>Temario</h3>
+<ol style="list-style-type: decimal">
+<li><p>Software R project y R-studio<br />
+Primeras aproximaciones hacia el entorno de trabajo R-project y
+R-studio.<br />
+<a
+href="https://docs.google.com/presentation/d/18t4PEkoztvN1Nbb2-xFD0tB7jWSDSNaDxj__AEK5Zpk/edit">Clase
+1</a></p></li>
+<li><p>Tipos de datos en R: Vectores<br />
+Familiarizar a los participantes con los diferentes tipos de datos
+existentes en R. Énfasis en el uso de vectores: Crear vectores,
+operaciones y extracción de elementos de interés.<br />
+<a
+href="https://docs.google.com/presentation/d/1X_tnJ4eO7aajQBV7OqiPtZBxVmt5UgBjQstvRXOVTJ8/edit#slide=id.g181d7654eed_0_248">Clase
+2</a></p></li>
+<li><p>Tipos de datos en R: Matrices, listas y dataframes<br />
+Familiarizar a los participantes con los diferentes tipos de datos
+existentes en R. Énfasis en el uso de matrices, listas y dataframes:
+Generalidades y funciones relacionadas a cada tipo de dato.<br />
+<a
+href="https://docs.google.com/presentation/d/1Gwl5ROqqDCbVZsX1OCI5ifciMqwzCf1rO5f0l5YBvhQ/edit#slide=id.g1f682c2948e_0_310">Clase
+3</a></p></li>
+<li><p>Operadores<br />
+Familiarizanos con los operadores aritméticos, relacionales, lógicos y
+de asignación que permitirán manipular y transformar datos de distintos
+tipos.<br />
+<a
+href="https://docs.google.com/presentation/d/1xTdOQDf7LELOEe1XmYUdkHY3YUcq7hm0NWA1OXKg9N0/edit#slide=id.p">Clase
+4</a></p></li>
+<li><p>Manipulación de datos: Importación<br />
+Introducción general a las diferentes librerías del universo tidyverse.
+Importar datos de fuentes externas. Uso de la librería
+<code>readr</code> y sintaxis de sus funciones asociadas. Tipo de datos
+en formato tibble. Guardar y exportar datos.<br />
+<a
+href="https://docs.google.com/presentation/d/1DDRcBjj4oxutC2vHsRqBR9O7VYbiKCzgI134r2YMKQw/edit#slide=id.g1d3c6967d5a_0_160">Clase
+5</a></p></li>
+<li><p>Manipulación de datos: Datos ordenados<br />
+Conceptos generales de una base de datos ordenada (tidy data).
+Reestructurar datos de formato ancho a formalo largo y viceversa. Uso de
+la librería <code>tidyr</code> y sintaxis de sus funciones asociadas.
+Separar y unir columnas; y cómo lidiar con los valores perdidos (NAs) o
+NULL.<br />
+<a
+href="https://docs.google.com/presentation/d/1SLQ3dVqzQhgO1rykYdGOzleDqou6fbOb6mZY79FPc2Q/edit#slide=id.g1f84f03800d_0_19">Clase
+6</a></p></li>
+<li><p>Manipulación de datos: Transformación<br />
+Aprender a manipular fechas con la librería <code>lubridate</code>.
+Conocer los principios básicos de <code>dplyr</code> para manipular,
+crear variables (filtrar, seleccionar, renombrar) y generar estadísticos
+descriptivos a nivel de grupos. Ventajas de usar el operador pipeline
+(%&gt;%).<br />
+<a
+href="https://docs.google.com/presentation/d/1df1qQG5ZLuo_lRNakqnMX_o6pxDs3r8NYRrbOKLTnfI/edit#slide=id.g1d54354e4c8_0_295">Clase
+7</a></p></li>
+<li><p>Visualización de datos<br />
+Introducción a la gramática de gráficos mediante la librería
+<code>ggplot2</code>. Principales gráficos empleados por los usuarios
+(diagrama de barras, histogramas, boxplots, gráfico de dispersión,
+etc).<br />
+<a
+href="https://docs.google.com/presentation/d/1dPCaZuV1LL6AoDX_5wssz2KZnsvlQlqGISGnzN6ulxE/edit#slide=id.g1d81f08e18b_0_40">Clase
+8</a></p></li>
+<li><p>Documentación<br />
+Uso de Rmarkdown (.Rmd) para generar reportes en diferentes formatos
+(.pdf, .word, .ppt)<br />
+<a
+href="https://docs.google.com/presentation/d/1XNn-AMjTeeHTNERRyuf-xcgt1RDu0GdADWzjFKJ7Geg/edit#slide=id.p">Clase
+9</a></p></li>
+</ol>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5,h6",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

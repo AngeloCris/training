@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Programación</title>
+
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="docs/css/swcarpentry-lessons.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="01_index.html">
+    <span class="fas fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fas fa-graduation-cap"></span>
+     
+    Lecturas
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Generalidades</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/18t4PEkoztvN1Nbb2-xFD0tB7jWSDSNaDxj__AEK5Zpk/edit#slide=id.g1cbe8ff695a_0_10">1. Software R project y R-studio</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1X_tnJ4eO7aajQBV7OqiPtZBxVmt5UgBjQstvRXOVTJ8/edit">2. Tipos de datos en R: Vectores</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1Gwl5ROqqDCbVZsX1OCI5ifciMqwzCf1rO5f0l5YBvhQ/edit#slide=id.p">3. Tipos de datos en R: Matrices, listas y dataframes</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1xTdOQDf7LELOEe1XmYUdkHY3YUcq7hm0NWA1OXKg9N0/edit">4. Operadores</a>
+    </li>
+    <li class="dropdown-header">Análisis de datos</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1DDRcBjj4oxutC2vHsRqBR9O7VYbiKCzgI134r2YMKQw/edit#slide=id.p">5. Manipulación de datos: Importación</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1SLQ3dVqzQhgO1rykYdGOzleDqou6fbOb6mZY79FPc2Q/edit#slide=id.p">6. Manipulación de datos: Tidy data</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1df1qQG5ZLuo_lRNakqnMX_o6pxDs3r8NYRrbOKLTnfI/edit#slide=id.p">7. Manipulación de datos: Transformación</a>
+    </li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1dPCaZuV1LL6AoDX_5wssz2KZnsvlQlqGISGnzN6ulxE/edit#slide=id.p">8. Visualización de datos</a>
+    </li>
+    <li class="dropdown-header">Documentación</li>
+    <li>
+      <a href="https://docs.google.com/presentation/d/1XNn-AMjTeeHTNERRyuf-xcgt1RDu0GdADWzjFKJ7Geg/edit#slide=id.p">9. Reportes en R</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fas fa-laptop"></span>
+     
+    Caso Estudio
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="04_casoPractico01.html">1. Casos de estudio I</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="00_setup.html">
+    <span class="fas fa-cogs"></span>
+     
+    Setup
+  </a>
+</li>
+<li>
+  <a href="bibliografia.html">
+    <span class="fas fa-search"></span>
+     
+    Bibliografia
+  </a>
+</li>
+<li>
+  <a href="https://github.com/AngeloCris/training">
+    <span class="fab fa-github"></span>
+     
+    Repo
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<body>
+    <p style="height: 50px;">
+        <img src="tnc_logo-removebg-preview.png" alt="Right Logo"
+          title="Right Logo" style="height: 50px;  margin-top: 10px; float: right; margin-right: 0.5%;">
+    </p>
+</body>
+
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+<div id="objetivo" class="section level2 unnumbered objectives">
+<h2 class="unnumbered objectives">Objetivo</h2>
+<ul>
+<li><p>Conocer los principales comandos en la programación en R</p></li>
+<li><p>Desarrollar diagramas de flujos</p></li>
+<li><p>Crear algoritmos y opciones avanzadas de manipulación de
+dataframes</p></li>
+</ul>
+</div>
+<div id="condicionales" class="section level2">
+<h2>Condicionales</h2>
+<p>Nos permite controlar la manera en cómo se ejecuta nuestro código
+(establecen <strong>condicionales</strong>).</p>
+<p>Las estructuras de control más usadas en R son las siguiente:</p>
+<p><img src="figures/estructuraControl.PNG" width="404" /></p>
+<div id="if-else" class="section level3">
+<h3>if, else</h3>
+<p><em>if</em> se usa cuando deseamos que una operación se ejecute
+cuando cumple una condición deseada (Ej. <strong>Si</strong> esta
+condición es cierta, <strong>entonces</strong> haz una operación
+específica)</p>
+<p><em>else</em> se usa para indicarle a R qué hace en caso de que la
+condición de un <em>if</em> no se cumpla.</p>
+<p>La estructura de un la función <em>if</em> es la siguiente</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#if (condicion) {</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  proceso_si_se_cumple_condicion</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#}</span></span></code></pre></div>
+<p>Si la condición es verdadera, entonces se realiza la operación. En
+caso contrario, no se realiza la operación. Veamos algunos ejemplos:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Se cumple la condición y se muestra &quot;verdadero&quot;.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">19</span> <span class="sc">&gt;</span> <span class="dv">15</span>) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;verdadero&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;verdadero&quot;</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Si no se cumple la condición, el código no se ejecuta.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">15</span>) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;verdadero&quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>la función <em>else</em> complementa a <em>if</em>, es decir, le
+asigna un proceso siempre en cuando la condición inicial no se cumpla.
+En otras palabras, un <em>if</em> con <em>else</em> es la manera de
+decirle a R:</p>
+<ul>
+<li><strong>SI</strong> esta condición es cierta,
+<strong>ENTONCES</strong> haz estas operaciones.<strong>DE OTRO
+MODO</strong> haz estas otras operaciones.</li>
+</ul>
+<p>La estructura de in <strong>if</strong> con <strong>else</strong> es
+el siguiente:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#if (condition) {</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  proceso1</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#} else {</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  proceso2</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#}</span></span></code></pre></div>
+<p>Del ejemplo anterior podemos hacer las siguientes modificaciones:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Se cumple condición</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">18</span> <span class="sc">&gt;</span> <span class="dv">15</span>) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Verdadero&quot;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Falso&quot;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Verdadero&quot;</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#No se cumple condición</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">15</span>) {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Verdadero&quot;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Falso&quot;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Falso&quot;</code></pre>
+<p>Para ilustrar el uso de <em>if</em> y <em>else</em> definiremos una
+función que calcule el promedio de calificaciones de un estudiante y,
+dependiendo de la calificación calculada, nos devuelva un mensaje
+específico.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>promedio <span class="ot">&lt;-</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(nota){</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>(nota)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">promedio</span>(<span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">5</span>))</span></code></pre></div>
+<pre><code>## [1] 6.6</code></pre>
+<p>Ahora realizaremos un proceso de tal forma que la función nos muestre
+si un estudiante ha aprobado o no. Si asumimos que un estudiante
+necesita obtener 5 o más en promedio para aprobar podemos decir:</p>
+<ul>
+<li><strong>SI</strong> el promedio de un estudiante es igual o mayor a
+5, <strong>ENTONCES</strong> mostrar “Aprobado”, <strong>DE OTRO
+MODO</strong>, mostrar “Reprobado”.</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>promedio <span class="ot">&lt;-</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(notas) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    media <span class="ot">&lt;-</span> <span class="fu">mean</span>(notas)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (media <span class="sc">&gt;=</span> <span class="dv">5</span>) {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="st">&quot;Aprobado&quot;</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span>{</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="st">&quot;Desaprobado&quot;</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">promedio</span>(<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">6</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;Aprobado&quot;</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">promedio</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;Desaprobado&quot;</code></pre>
+</div>
+<div id="if-else-1" class="section level3">
+<h3>If else</h3>
+<p>La función <em>ifelse()</em> permite vectorizar if, else. En lugar de
+escribir una línea de código para cada comparación, podemos usar una
+sola llamada a esta función, que se aplicará a todos los elementos de un
+vector.</p>
+<p>Si intentamos usar if else con un vector, se nos mostrará una
+advertencia:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if (1:10 &lt; 3) {</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   &quot;Verdadero&quot;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span></code></pre></div>
+<p>El mensaje muestra que la condición sólo es evaluada para el primer
+elemento del vector 1:10, es decir para 1. Los demás elementos son
+ignorados.</p>
+<p>Por el contrario, con <em>ifelse</em> le indicamos que la condición
+debe de cumplirse para cada uno de los elementos del vector. Esta
+función tiene tres argumentos:</p>
+<ul>
+<li><p>un condicional</p></li>
+<li><p>un valor que indique qué mostrar si la condición se
+cumple</p></li>
+<li><p>un valor que indique qué mostrar si la condición no se
+cumple</p></li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(vector <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot; &quot;FALSE&quot;
+##  [5] &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot; 
+##  [9] &quot;TRUE&quot;  &quot;TRUE&quot;</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">15</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(edad <span class="sc">&gt;=</span> <span class="dv">15</span>, <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;TRUE&quot; 
+## [5] &quot;TRUE&quot;  &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot; 
+## [9] &quot;TRUE&quot;</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Determinar cual de los números del 1 al 60 son pares y cuales impares ¿que se debe cumplir?</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">60</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(numeros <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>, <span class="st">&quot;par&quot;</span>, <span class="st">&quot;impar&quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+##  [5] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+##  [9] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [13] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [17] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [21] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [25] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [29] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [33] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [37] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [41] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [45] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [49] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [53] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;  
+## [57] &quot;impar&quot; &quot;par&quot;   &quot;impar&quot; &quot;par&quot;</code></pre>
+<p>Otro ejemplo más complejo. Solicitamos sólo los números que son
+exactamente divisibles entre 2 y 3.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(numeros <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> numeros <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;Divisible&quot;</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;No divisible&quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;No divisible&quot; &quot;No divisible&quot;
+##  [3] &quot;No divisible&quot; &quot;No divisible&quot;
+##  [5] &quot;No divisible&quot; &quot;Divisible&quot;   
+##  [7] &quot;No divisible&quot; &quot;No divisible&quot;
+##  [9] &quot;No divisible&quot; &quot;No divisible&quot;
+## [11] &quot;No divisible&quot; &quot;Divisible&quot;   
+## [13] &quot;No divisible&quot; &quot;No divisible&quot;
+## [15] &quot;No divisible&quot; &quot;No divisible&quot;
+## [17] &quot;No divisible&quot; &quot;Divisible&quot;   
+## [19] &quot;No divisible&quot; &quot;No divisible&quot;</code></pre>
+<p>Conocer esta función puede ser particularmente útil para recodificar
+datos. Por ejemplo:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sexo <span class="sc">==</span> <span class="dv">0</span>, <span class="st">&quot;hembra&quot;</span>, <span class="st">&quot;macho&quot;</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>sexo</span></code></pre></div>
+<pre><code>##  [1] &quot;hembra&quot; &quot;macho&quot;  &quot;hembra&quot;
+##  [4] &quot;hembra&quot; &quot;hembra&quot; &quot;hembra&quot;
+##  [7] &quot;hembra&quot; &quot;macho&quot;  &quot;macho&quot; 
+## [10] &quot;hembra&quot;</code></pre>
+</div>
+<div id="uso-de-condicionales-y-estructuras-de-control-en-un-dataframe"
+class="section level3">
+<h3>Uso de condicionales y estructuras de control en un dataframe</h3>
+<p>Recordemos que para hacer uso de las condicionales podemos hacer uso
+de las funciones <em>if</em>, <em>else</em>, <em>if else</em> y/o uso de
+indexaciones combinado con operadores lógicos y/o relacionales. (<a
+href="https://github.com/AngeloCris/computacionCientifica_2021/blob/master/semana7_8/Semana7-y-8.md"
+class="uri">https://github.com/AngeloCris/computacionCientifica_2021/blob/master/semana7_8/Semana7-y-8.md</a>).</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>datosCrangrejo <span class="ot">&lt;-</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read.table</span>(<span class="st">&quot;datos/datos_cangrejos.txt&quot;</span>,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>datosCrangrejo</span></code></pre></div>
+<p>Para determinar el total de filas de mi data frame usamos la función
+<em>length</em>.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(datosCrangrejo)</span></code></pre></div>
+<pre><code>## The following objects are masked from datosCrangrejo (pos = 3):
+## 
+##     C_Length, Month, Sector,
+##     Sex, Year</code></pre>
+<pre><code>## The following objects are masked from datosCrangrejo (pos = 4):
+## 
+##     C_Length, Month, Sector,
+##     Sex, Year</code></pre>
+<pre><code>## The following objects are masked from datosCrangrejo (pos = 5):
+## 
+##     C_Length, Month, Sector,
+##     Sex, Year</code></pre>
+<pre><code>## The following objects are masked from datosCrangrejo (pos = 6):
+## 
+##     C_Length, Month, Sector,
+##     Sex, Year</code></pre>
+<pre><code>## The following objects are masked from datosCrangrejo (pos = 7):
+## 
+##     C_Length, Month, Sector,
+##     Sex, Year</code></pre>
+<pre><code>## The following objects are masked from datosCrangrejo (pos = 8):
+## 
+##     C_Length, Month, Sector,
+##     Sex, Year</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(datosCrangrejo<span class="sc">$</span>Year)</span></code></pre></div>
+<pre><code>## [1] 71013</code></pre>
+<p>La base de datos muestra los registros mensuales de la longitud y
+sexo de un cangrejo para el periodo 2008 y 2014. En función a lo
+mencionado anteriormente, resolvamos lo siguiente.</p>
+<ul>
+<li><p>Crear una columna denominada “sexo” que reemplace las categorías
+de la columna “sex”. Considere lo siguiente</p>
+<ul>
+<li><p>“F” = “female”</p></li>
+<li><p>“0” = “ovígera”</p></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Uso del ifelse</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Para condicionales vectorizados</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(datosCrangrejo<span class="sc">$</span>Sex)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>datosCrangrejo<span class="sc">$</span>sexo <span class="ot">&lt;-</span> </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(datosCrangrejo<span class="sc">$</span>Sex <span class="sc">==</span> <span class="st">&quot;F&quot;</span>, <span class="st">&quot;Females&quot;</span>, <span class="st">&quot;Ovigera&quot;</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datosCrangrejo)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(datosCrangrejo<span class="sc">$</span>sexo)</span></code></pre></div>
+<ul>
+<li><p>Crear una columna denominada “estacion” que reemplace las
+categorías de la columna “Month”. Considere lo siguiente:</p>
+<ul>
+<li><p>verano = 12, 1, 2</p></li>
+<li><p>otoño = 3, 4, 5</p></li>
+<li><p>invierno = 6, 7, 8</p></li>
+<li><p>primavera = 9, 10, 11</p></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>datosCrangrejo<span class="sc">$</span>estacion <span class="ot">&lt;-</span> <span class="st">&quot;NA&quot;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>datosCrangrejo<span class="sc">$</span>estacion[datosCrangrejo<span class="sc">$</span>Month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">1</span>,<span class="dv">2</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;verano&quot;</span> </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>datosCrangrejo<span class="sc">$</span>estacion[datosCrangrejo<span class="sc">$</span>Month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;otoño&quot;</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>datosCrangrejo<span class="sc">$</span>estacion[datosCrangrejo<span class="sc">$</span>Month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;invierno&quot;</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>datosCrangrejo<span class="sc">$</span>estacion[datosCrangrejo<span class="sc">$</span>Month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>)] <span class="ot">&lt;-</span> <span class="st">&quot;primavera&quot;</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datosCrangrejo)</span></code></pre></div>
+<pre><code>##   Year   Sector Month Sex C_Length
+## 1 2013 Sector_1    11   F   123.64
+## 2 2013 Sector_1    11   F   118.47
+## 3 2013 Sector_1    11   F   115.53
+## 4 2013 Sector_1    11   F   113.98
+## 5 2013 Sector_1    11   F   108.75
+## 6 2013 Sector_1    11   F   106.12
+##      sexo  estacion
+## 1 Females primavera
+## 2 Females primavera
+## 3 Females primavera
+## 4 Females primavera
+## 5 Females primavera
+## 6 Females primavera</code></pre>
+<ul>
+<li>Determinar las posiciones de la categoría “primavera” y luego
+determinar los valores que se asocian a esas posiciones.</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Deseamos extraer las posiciones de las categorías que pertenecen a la estación primavera.</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(datosCrangrejo<span class="sc">$</span>estacion <span class="sc">==</span> <span class="st">&quot;primavera&quot;</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Extrayendo los valores de las variables de esta categoría</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>datosCrangrejo[<span class="fu">which</span>(datosCrangrejo<span class="sc">$</span>estacion <span class="sc">==</span> <span class="st">&quot;primavera&quot;</span>),]</span></code></pre></div>
+<ul>
+<li>Extraer todos los registros de cangrejos que superan la talla
+media.</li>
+</ul>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>media <span class="ot">&lt;-</span> <span class="fu">mean</span>(datosCrangrejo<span class="sc">$</span>C_Length, <span class="at">na.rm =</span> T)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">which</span>(datosCrangrejo<span class="sc">$</span>C_Length <span class="sc">&gt;</span> media))</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datosCrangrejo[<span class="fu">which</span>(datosCrangrejo<span class="sc">$</span>C_Length <span class="sc">&gt;</span> media),])</span></code></pre></div>
+<pre><code>##   Year   Sector Month Sex C_Length
+## 1 2013 Sector_1    11   F   123.64
+## 2 2013 Sector_1    11   F   118.47
+## 3 2013 Sector_1    11   F   115.53
+## 4 2013 Sector_1    11   F   113.98
+## 5 2013 Sector_1    11   F   108.75
+## 6 2013 Sector_1    11   F   106.12
+##      sexo  estacion
+## 1 Females primavera
+## 2 Females primavera
+## 3 Females primavera
+## 4 Females primavera
+## 5 Females primavera
+## 6 Females primavera</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datosCrangrejo[datosCrangrejo<span class="sc">$</span>C_Length <span class="sc">&gt;</span> media,])</span></code></pre></div>
+<pre><code>##   Year   Sector Month Sex C_Length
+## 1 2013 Sector_1    11   F   123.64
+## 2 2013 Sector_1    11   F   118.47
+## 3 2013 Sector_1    11   F   115.53
+## 4 2013 Sector_1    11   F   113.98
+## 5 2013 Sector_1    11   F   108.75
+## 6 2013 Sector_1    11   F   106.12
+##      sexo  estacion
+## 1 Females primavera
+## 2 Females primavera
+## 3 Females primavera
+## 4 Females primavera
+## 5 Females primavera
+## 6 Females primavera</code></pre>
+<ul>
+<li>Extraer todos los registros de cangrejos hembras que superan la
+talla media.</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>datosCrangrejo<span class="sc">$</span>C_Length <span class="sc">&gt;</span> media</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(datosCrangrejo<span class="sc">$</span>C_Length <span class="sc">&gt;</span> media <span class="sc">&amp;</span> datosCrangrejo<span class="sc">$</span>sexo <span class="sc">==</span> <span class="st">&quot;Females&quot;</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datosCrangrejo[<span class="fu">which</span>(datosCrangrejo<span class="sc">$</span>C_Length <span class="sc">&gt;</span> media <span class="sc">&amp;</span> datosCrangrejo<span class="sc">$</span>sexo <span class="sc">==</span> <span class="st">&quot;Females&quot;</span>),])</span></code></pre></div>
+<ul>
+<li>Asumamos que la mínima talla de extracción de la especie de cangrejo
+sea 110 mm. Crear una columna que identifique si la longitud registrada
+supera o no la talla mínima.</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>tmin <span class="ot">&lt;-</span> <span class="dv">110</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>datosCrangrejo<span class="sc">$</span>lengthMin <span class="ot">&lt;-</span> <span class="st">&quot;NA&quot;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>datosCrangrejo<span class="sc">$</span>lengthMin <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(datosCrangrejo<span class="sc">$</span>C_Length <span class="sc">&gt;</span> <span class="dv">110</span>, <span class="st">&quot;&gt;tmin&quot;</span>, <span class="st">&quot;&lt;tmin&quot;</span>)</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datosCrangrejo)</span></code></pre></div>
+<pre><code>##   Year   Sector Month Sex C_Length
+## 1 2013 Sector_1    11   F   123.64
+## 2 2013 Sector_1    11   F   118.47
+## 3 2013 Sector_1    11   F   115.53
+## 4 2013 Sector_1    11   F   113.98
+## 5 2013 Sector_1    11   F   108.75
+## 6 2013 Sector_1    11   F   106.12
+##      sexo  estacion lengthMin
+## 1 Females primavera     &gt;tmin
+## 2 Females primavera     &gt;tmin
+## 3 Females primavera     &gt;tmin
+## 4 Females primavera     &gt;tmin
+## 5 Females primavera     &lt;tmin
+## 6 Females primavera     &lt;tmin</code></pre>
+</div>
+</div>
+<div id="bucles" class="section level2">
+<h2>Bucles</h2>
+<div id="for" class="section level3">
+<h3>For</h3>
+<p>La estructura <em>for</em> permite ejecutar bucles realizando una
+operación para cada elemento de un conjunto de datos, es decir, hace un
+proceso de iteración.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#la estructura es</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co">#for (variable in vector) {</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  proceso</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co">#}</span></span></code></pre></div>
+<p>Esta estructura le dice a R:</p>
+<ul>
+<li><strong>PARA</strong> cada elemento <strong>EN</strong> un objeto,
+realice un proceso específico.</li>
+</ul>
+<p>Cuando observamos la estructura del bucle, la “variable” puede ser un
+elemento cualquiera (la podemos llamar como nosotros queramos) pero el
+objeto “vector” tiene que ser un objeto existente.</p>
+<p>Algunos ejemplo:</p>
+<ul>
+<li>Sumarle 2 unidades a cada elemento del objeto “vector” definido
+líneas abajo:</li>
+</ul>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>vector[<span class="dv">1</span>] <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>vector[<span class="dv">2</span>] <span class="sc">+</span> <span class="dv">2</span> </span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>vector[<span class="dv">3</span>] <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>vector[<span class="dv">4</span>] <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>vector[<span class="dv">5</span>] <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">length</span>(vector)) {</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  vector1 <span class="ot">&lt;-</span> vector[i] <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>vector1</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<ul>
+<li>Si deseamos imprimir vectores con la siguiente forma: “El año es x”,
+donde x es igual a 1990, 1991, 1992, … , 2020 y 2021. Esto se podría
+realizar de la siguiente manera:</li>
+</ul>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;El año es&quot;</span>, <span class="dv">1990</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;El año es 1990&quot;</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;El año es&quot;</span>, <span class="dv">1991</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;El año es 1991&quot;</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;El año es&quot;</span>, <span class="dv">1992</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;El año es 1992&quot;</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;El año es&quot;</span>, <span class="dv">1993</span>)) <span class="co">#asi sucesivamente</span></span></code></pre></div>
+<pre><code>## [1] &quot;El año es 1993&quot;</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;El año es&quot;</span>, <span class="dv">2019</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;El año es 2019&quot;</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;El año es&quot;</span>, <span class="dv">2020</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;El año es 2020&quot;</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;El año es&quot;</span>, <span class="dv">2021</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;El año es 2021&quot;</code></pre>
+<p>Cuando la longitud del vector x es grande, este proceso se vuelve
+tedioso. En este caso se recomienda usar un loop en R para que el
+proceso se repita continuamente.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (year <span class="cf">in</span> <span class="dv">1990</span><span class="sc">:</span><span class="dv">2021</span>) {</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;El año es&quot;</span>, year))</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Calcular el cuadrado de los 10 primeros elementos de un vector
+u1</li>
+</ul>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Vector u1</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>u1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>)</span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Este loop calculará el cuadrado de los 10 primeros elementos del vector u1&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Este loop calculará el cuadrado de los 10 primeros elementos del vector u1&quot;</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>usq <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>  usq[i] <span class="ot">&lt;-</span> u1[i] <span class="sc">*</span> u1[i]</span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(usq[i])</span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 0.3729656
+## [1] 0.2039248
+## [1] 0.2851012
+## [1] 0.006745869
+## [1] 0.1040863
+## [1] 1.470365
+## [1] 3.236731
+## [1] 6.393329
+## [1] 1.372775
+## [1] 1.219023</code></pre>
+</div>
+<div id="while" class="section level3">
+<h3>while</h3>
+<p>Tipo de bucle que realizará un proceso <strong>mientras</strong> la
+condición propuesta sea <strong>verdadera</strong>.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co">#while (condicion) {</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  operaciones</span></span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="co">#}</span></span></code></pre></div>
+<p>Algunos ejemplos:</p>
+<ul>
+<li>Imprimir el siguiente mensaje “Cuando el valor de inicio sea mayor o
+igual a 5, detener operación” donde la variable “límite” es igual a 5 y
+la variable “inicio”, 0.</li>
+</ul>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>limite <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>inicio <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (inicio <span class="sc">&lt;</span> limite) {</span>
+<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Cuando el valor de inicio sea mayor o igual a 5, detener operación&quot;</span>)</span>
+<span id="cb84-6"><a href="#cb84-6" aria-hidden="true" tabindex="-1"></a>  inicio <span class="ot">&lt;-</span> inicio <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb84-7"><a href="#cb84-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Cuando el valor de inicio sea mayor o igual a 5, detener operación&quot;
+## [1] &quot;Cuando el valor de inicio sea mayor o igual a 5, detener operación&quot;
+## [1] &quot;Cuando el valor de inicio sea mayor o igual a 5, detener operación&quot;
+## [1] &quot;Cuando el valor de inicio sea mayor o igual a 5, detener operación&quot;
+## [1] &quot;Cuando el valor de inicio sea mayor o igual a 5, detener operación&quot;</code></pre>
+<p>Tener cuidado con crear bucles infinitos! Si se ejecuta el While con
+una condición que nunca termine, este no se detendrá.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co">#while (inicio &lt; limite) {</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  print(&quot;Cuando el valor de inicio sea mayor a 5, detener la operación&quot;)</span></span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="co">#}</span></span></code></pre></div>
+<ul>
+<li>Realizar un proceso iteración (10 veces) donde se muestre el mensaje
+“Este es el loop número x”. Sea x el número de la iteración.</li>
+</ul>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Crear una variable con valor 1</span></span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>inicio <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Create un loop</span></span>
+<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (inicio <span class="sc">&lt;=</span> <span class="dv">10</span>) {</span>
+<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Este es el loop número&quot;</span>, inicio)</span>
+<span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a>  inicio <span class="ot">&lt;-</span> inicio <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb87-8"><a href="#cb87-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(inicio)</span>
+<span id="cb87-9"><a href="#cb87-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## Este es el loop número 1[1] 2
+## Este es el loop número 2[1] 3
+## Este es el loop número 3[1] 4
+## Este es el loop número 4[1] 5
+## Este es el loop número 5[1] 6
+## Este es el loop número 6[1] 7
+## Este es el loop número 7[1] 8
+## Este es el loop número 8[1] 9
+## Este es el loop número 9[1] 10
+## Este es el loop número 10[1] 11</code></pre>
+<ul>
+<li>Deseamos conocer el primer número entero positivo cuyo cuadrado
+exceda a 4000:</li>
+</ul>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Variable de inicialización</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>potencia <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a><span class="co">#While loop</span></span>
+<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (potencia <span class="sc">&lt;=</span> <span class="dv">4000</span>) {</span>
+<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> n <span class="sc">+</span> <span class="dv">1</span> <span class="co">#definiendo número entero positivo</span></span>
+<span id="cb89-8"><a href="#cb89-8" aria-hidden="true" tabindex="-1"></a>  potencia <span class="ot">&lt;-</span> n <span class="sc">^</span> <span class="dv">2</span> <span class="co">#definiendo el cuadrado de ese número</span></span>
+<span id="cb89-9"><a href="#cb89-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Suma de dos vectores</li>
+</ul>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">1</span>)</span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
+<span id="cb90-6"><a href="#cb90-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-7"><a href="#cb90-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;=</span> n) {</span>
+<span id="cb90-8"><a href="#cb90-8" aria-hidden="true" tabindex="-1"></a>  z[i] <span class="ot">&lt;-</span> x[i] <span class="sc">+</span> y[i]</span>
+<span id="cb90-9"><a href="#cb90-9" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb90-10"><a href="#cb90-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb90-11"><a href="#cb90-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-12"><a href="#cb90-12" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
+<pre><code>## [1] 1 2 8 5</code></pre>
+<ul>
+<li>Extraer un número al azar de una secuencia numérica del 1 al 10
+hasta que la suma de sus elementos extraídos sea menor a 50. Indicar el
+número de iteraciones y la suma resultante.</li>
+</ul>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>contador <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (suma <span class="sc">&lt;</span> <span class="dv">50</span>) {</span>
+<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a>  suma <span class="ot">&lt;-</span> suma <span class="sc">+</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a>  contador <span class="ot">&lt;-</span> contador <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>En clase se vió un ejemplo en donde los elementos de un vector x
+correspondían a conteos de animales avistados a lo largo de un
+transecto. Solicitaban encontrar en punto a lo largo del transecto en
+que el número acumulado de animales avistados es al menos 50</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">1</span>,<span class="dv">8</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">8</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">8</span>)</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (sum <span class="sc">&lt;</span> <span class="dv">50</span>) {</span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">=</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb93-7"><a href="#cb93-7" aria-hidden="true" tabindex="-1"></a>  sum <span class="ot">=</span> sum <span class="sc">+</span> x[i]</span>
+<span id="cb93-8"><a href="#cb93-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(sum)</span>
+<span id="cb93-9"><a href="#cb93-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 1
+## [1] 2
+## [1] 4
+## [1] 5
+## [1] 9
+## [1] 16
+## [1] 18
+## [1] 24
+## [1] 25
+## [1] 33
+## [1] 35
+## [1] 35
+## [1] 38
+## [1] 38
+## [1] 48
+## [1] 56</code></pre>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5,h6",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
