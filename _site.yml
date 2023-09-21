@@ -40,6 +40,12 @@ navbar:
       - text: "Documentación" #submenu bar
       - text: "9. Reportes en R" #submenu bar
         href: https://docs.google.com/presentation/d/1XNn-AMjTeeHTNERRyuf-xcgt1RDu0GdADWzjFKJ7Geg/edit#slide=id.p
+    - text: "Lecciones" # 00_prueba
+      href: 00_p_generalidades.html # 00_prueba
+      icon: "fas fa-book" # 00_prueba
+      menu: 
+      - text: "Generalidades" # 00_prueba
+        href: 00_p_generalidades.html ## 00_prueba
     - text: "Caso Estudio"
       href: 03_practica.html
       icon: "fas fa-laptop"
