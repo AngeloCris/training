@@ -10,7 +10,7 @@ knitr::include_graphics("docs/imagen/01_data_analisis.png")
 ```
 
 
-Este es un curso que forma parte del programa de desarrollo de capacidades en el marco del proyecto Por la Pesca.
+Este es un curso que forma parte del programa de desarrollo de **The Nature Conservancy** en Análisis de Datos en el marco del proyecto **Por la Pesca**.
 
 El curso esta diseñado para un entrenamiento intensivo de corta duración (1 semana) el cual tiene como objetivo brindar una **introducción breve** a los **principios de la ciencia de datos** desde la recolección de información del ambiente hasta reportar los análisis en diferentes formatos (word, html, pdf). Los datos empleados estan orientado a temas marinos. Sin embargo, la forma lógica de programación del presente curso puede ser empleado en diferentes ámbitos. Aqui nos enfocaremos principalmente en las áreas de **Programación computacional**, **Exploración de datos**, **Visualización** y **Documentación**.
 
